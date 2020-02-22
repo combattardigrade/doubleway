@@ -77,12 +77,15 @@ const App = {
             if(uplineAddress == '0x0000000000000000000000000000000000000000') {
                 return { value: false, msg: 'No se encontró el miembro con la identificación especificada o la dirección ethereum'}
             }
+            // Save uplineUser in localstorage
+            localStorage.setItem('uplineUser', JSON.stringify({address: uplineAddress, id: upline, isExist: true}))
+            console.log(localStorage.getItem('uplineUser'))
             return { value: true, address: uplineAddress }
         }
 
         // Check if user exists with address
         const response = await contract.methods.users(upline).call()
-
+        
         if (!response.isExist) {
             return { value: false, msg: 'No se encontró el miembro con la identificación especificada o la dirección ethereum' }
         }
@@ -101,8 +104,8 @@ const App = {
         return { value: true, address: upline }
     },
 
-    signupBtn: async function () {
-        console.log('signup btn clicked...')
+    enterUpline: async function () {
+        console.log('enter upline btn clicked...')
         // Get upline
         const upline = document.getElementById('upline').value
         // check if value is empty
@@ -112,8 +115,7 @@ const App = {
         }
 
         // Check upline 
-        const response = await App.checkUpline(upline)
-        console.log(response)
+        const response = await App.checkUpline(upline)        
 
         // If upline is not valid show error message
         if(!response.value) {
@@ -122,7 +124,23 @@ const App = {
         }
 
         // Continue witih signup process
+        document.getElementById('signupForm-2').style.display='block'
+        document.getElementById('signupForm-1').style.display='none'
 
+    },
+
+    getUpline: async function() {
+        const uplineUser = {
+            address: '0x417aA69d45D64eEb351672Fa8AF8f02cdcB3CE87',
+            isExist: true,
+            id: 1,
+            referrerID: 0
+        }
+        localStorage.setItem('uplineUser', JSON.stringify(uplineUser))
+        console.log(localStorage.getItem('uplineUser'))
+        document.getElementById('signupForm-2').style.display='block'
+        document.getElementById('signupForm-1').style.display='none'
+        return 
     },
 
     connectHttpProvider: async function () {

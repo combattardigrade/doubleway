@@ -90,11 +90,11 @@
                                         <div class="row">
                                             <div class="col-8 offset-2">
                                                 <h1 style="padding:10px">Registrar cuenta</h1>
-                                                <div id='signupForm-1' style="display:none">
+                                                <div id='signupForm-1' style="">
                                                     <h6 style="margin-bottom:40px; color: #dc3535;text-align:justify">
                                                         Llegaste sin un enlace de referencia o no funcionó, por lo que
                                                         se
-                                                        desconoce su línea ascendente.<br><br> Si conoces la
+                                                        desconoce tu línea ascendente.<br><br> Si conoces la
                                                         identificación o la
                                                         dirección de Ethereum de su línea ascendente, ingrésela en el
                                                         campo
@@ -103,7 +103,7 @@
                                                         placeholder="Ingresa el ID o la dirección de Ethereum de tu línea ascendente "
                                                         type="text" class="input-solid input-solid-md required email"
                                                         style="background:#0b0c22;border:1px solid #171a4b">
-                                                    <a id="signup-btn" onclick="App.signupBtn()"
+                                                    <a id="signup-btn" onclick="App.enterUpline()"
                                                         style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
                                                         href="#"
                                                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
@@ -148,7 +148,7 @@
                                                         Obtén una línea ascendente del sistem. Sin línea ascendente, el
                                                         contrato inteligente no aceptará la transferencia</div>
 
-                                                    <a style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
+                                                    <a onclick="App.getUpline()" style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
                                                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                         <h5 style="font-size:1em">Obtener línea ascendente</h5>
                                                     </a>
@@ -218,7 +218,7 @@
                                                         cursor: pointer;
                                                     }
                                                 </style>
-                                                <div id='signupForm-2'>
+                                                <div id='signupForm-2' style="display:none">
                                                     <h5>(Compra de Nivel 1)</h5>
                                                     <ul class="tab-list text-center"
                                                         style="margin-bottom: 40px;display:flex">
@@ -235,7 +235,7 @@
                                                         <div style="display: flex;">
 
 
-                                                            <a id="signup-btn" onclick="App.signupBtn()"
+                                                            <a id="signup-btn" onclick="App.enterUpline()"
                                                                 style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
                                                                 href="#"
                                                                 class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
