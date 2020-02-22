@@ -1,0 +1,320 @@
+<%- include('dash_header'); -%>
+
+<div class="row">
+    <div class="col-mb-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="pa-well text-center ">
+            <h3 style="color: white;padding:30px 0px">Nivel actual: <span>1 level</span></h3>
+            <div style="margin:20px 0 55px">
+                <p class="pa-text text--xs" style="color: #ffffff;">
+                    <span id="vs_level_top_p_t">2</span> nivel: precio <b style="color: #f2f4ff;"
+                        id="vs_level_top_sending">0.16</b> ETH,
+                    <br>
+                    <span id="vs_level_top_p_b">2</span> nivel: ingresos <b style="color: #f2f4ff;"
+                        id="vs_level_top_getting">0.64</b> ETH
+                </p>
+            </div>
+            <a style="margin-bottom: 60px;padding:20px 40px" href="#"
+                class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                    Elevar a mismo nivel</h5>
+            </a>
+            <div class="status__inputs">
+                <p class="pa-text pa-text--grey pa-text--status" style="color: #f2f4ff;margin-bottom:0px">
+                    Hipervínculo de socio</p>
+                <div class="form-group form-group--copy form-group--status" style="margin: 0 100px;">
+                    <input type="text" readonly="" value="https://doubleway.io/es/?rid=12963" id="agent-url"
+                        class="input" title=""
+                        style="height: 48px;width:100%;letter-spacing: 0.036rem; background-color:#08091b;padding:0 24px;color:#c6c6c6;margin:12px 0 24px;border:none !important"
+                        data-original-title="Partner link copied!">
+                    <b class="agent-url agent-url-dashboard" data-clipboard-target="#agent-url"></b>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        var agentLink = new Clipboard('.agent-url');
+                        $("#agent-url").tooltip({
+                            delay: {
+                                "show": 1000,
+                                "hide": 5000
+                            }
+                        });
+                        agentLink.on('success', function (e) {
+                            e.clearSelection();
+                            $("#agent-url").tooltip("show");
+                        });
+                    })
+                </script>
+            </div>
+            <div class="pa-well__foot" style="background: none;">
+                <p class="pa-text pa-text--grey" style="color: #f2f4ff;">
+                    <a href="./reflinks.php" class="pa-link" style="color: #007aff;">Invitación</a>
+                    referencias </p>
+            </div>
+        </div>
+    </div>
+    <style>
+
+    </style>
+    <div class="col-mb-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="row pa-card" style="margin-top:0px !important;padding: 40px 20px !important">
+            <div class="col-mb-12 col-md-3" style="text-align: center;">
+                <i class="fa fa-user pa-icon" style="font-size: 3em; padding-top: 5px;"></i>
+            </div>
+            <div class="col-mb-12 col-md-9">
+                <div>0x417aA69d45D64eEb351672Fa8AF8f02cdcB3CE87</div>
+                <div style="font-size:28px">ID: 12963</div>
+            </div>
+        </div>
+        <div class="row pa-card" style="margin-right: 1px;">
+            <div class="col-mb-12 col-md-3" style="text-align: center;">
+                <i class="fa fa-user pa-icon" style="font-size: 3em; padding-top: 5px;"></i>
+            </div>
+            <div class="col-mb-12 col-md-9">
+                <div>Ingresos totales</div>
+                <div><img src="images/dark/eth-white.png" style="height: 48px;" alt=""> <span
+                        style="font-size: 28px;">0</span></div>
+                <div style="font-size:14px">Ver transacciones</div>
+            </div>
+        </div>
+        <div class="row pa-card" style="margin-right: 1px;">
+            <div class="col-mb-12 col-md-3" style="text-align: center;">
+                <i class="fa fa-user pa-icon" style="font-size: 3em; padding-top: 5px;"></i>
+            </div>
+            <div class="col-mb-12 col-md-9">
+                <div>Referencias totales</div>
+                <div> <span style="font-size: 28px;">0</span></div>
+                <div style="font-size:14px">Ver referencias</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .pa-stats-card {
+        background-color: #171a40;
+        text-align: center;
+        color: white;
+    }
+
+    .card-title {
+        font-weight: 500;
+        font-size: 28px;
+        padding-top: 32px;
+    }
+
+    .card-active {
+        color: rgb(76, 217, 100);
+    }
+
+    .cart-inactive {
+        color: rgb(39, 104, 255);
+    }
+
+    .card-price {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 15px 0;
+    }
+
+    .card-bottom-box {
+        background-color: #1c1f4f;
+        margin-top: 32px;
+        padding: 16px
+    }
+
+    .card-referral-no {
+        font-weight: bold;
+        font-size: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ffffff14;
+    }
+
+    .card-revenue {
+        font-weight: bold;
+        font-size: 16px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-mb-12 col-sm-6 col-md-3">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top:15px">
+    <div class="col-mb-12 col-sm-6 col-md-3">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">Nivel 1</div>
+            <div class="card-active">Activo</div>
+            <div class="card-active">55 días</div>
+            <div class="card-price">0.8 ETH</div>
+            <div>
+                <a style="margin-bottom: 15px;padding:20px 40px" href="#"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-user-plus" style="font-size:15px;"></i>
+                        Ampliar</h5>
+                </a>
+            </div>
+            <div>+64 días</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">Referidos</div>
+                <div class="card-referral-no">2</div>
+                <div style="padding-top:16px">Ingresos</div>
+                <div class="card-revenue">0.16 ETH</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('dash_footer'); -%>

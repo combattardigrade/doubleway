@@ -1,0 +1,38 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js && node sockets.js",
+    "test": "nodemon app.js -e js,ejs",
+    "test2": "npm test && webpack-dev-server --inline --hot"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "csurf": "^1.9.0",
+    "debug": "^4.1.0",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.23.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "request": "^2.88.0",
+    "sequelize": "^4.41.0",
+    "serve-favicon": "^2.5.0",
+    "web3": "^1.2.6"
+  },
+  "devDependencies": {
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
