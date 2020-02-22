@@ -56,9 +56,9 @@
         }
 
 
-        #auto-login-btn:before{
-            /* background-color:#007bff !important; */
-            background-color: #1c7545b3 !important;
+        #signup-btn:before{
+        /* background-color:#007bff !important; */
+        background-color: #1c7545b3 !important;
         }
 
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -90,58 +90,272 @@
                                         <div class="row">
                                             <div class="col-8 offset-2">
                                                 <h1 style="padding:10px">Registrar cuenta</h1>
-                                                <h6 style="margin-bottom:40px; color: #dc3535;text-align:justify">
-                                                    Llegaste sin un enlace de referencia o no funcionó, por lo que se
-                                                    desconoce su línea ascendente.<br><br> Si conoces la identificación o la
-                                                    dirección de Ethereum de su línea ascendente, ingrésela en el campo
-                                                    a continuación y haga clic en "Registrarme".</h6>
-                                                <input
-                                                    placeholder="Ingresa el ID o la dirección de Ethereum de tu línea ascendente "
-                                                    type="text" class="input-solid input-solid-md required email"
-                                                    style="background:#0b0c22;border:1px solid #171a4b">
-                                                <a id="auto-login-btn"
-                                                    style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)" href="#"
-                                                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                                                    <h5 style="font-size:1em"><i class="fa fa-user-plus"
-                                                            style="font-size:15px"></i> Registrarme</h5>
-                                                </a>
-                                                <div style="padding-top:20px">Recomendado para:</div>
-                                                <div style="margin-bottom: 40px">
-                                                    <p
-                                                        style="margin-top: 12px; color: #888888; font-size: 13px; font-weight: 400;">
-                                                        <i class="fas fa-desktop" style="vertical-align: middle; "></i>
-                                                        <span style="vertical-align: middle;margin-right: 4px;">:</span>
-                                                        <img class="button_signup_descrlogo_img"
-                                                            style="display:inline-block;height: 18px;"
-                                                            src="images/dark/metamask-fox.svg">
-                                                        <i class="fas fa-mobile-alt"
-                                                            style="vertical-align: middle; margin-left: 12px;"></i>
-                                                        <span style="vertical-align: middle;margin-right: 4px;">:</span>
-                                                        <img class="button_signup_descrlogo_img"
-                                                            style="display:inline-block;height: 18px;"
-                                                            src="images/dark/trustwallet_icon.svg">
-                                                        <img class="button_signup_descrlogo_img"
-                                                            style="display:inline-block;height: 18px;"
-                                                            src="images/dark/coinbase_icon.png">
+                                                <div id='signupForm-1' style="display:none">
+                                                    <h6 style="margin-bottom:40px; color: #dc3535;text-align:justify">
+                                                        Llegaste sin un enlace de referencia o no funcionó, por lo que
+                                                        se
+                                                        desconoce su línea ascendente.<br><br> Si conoces la
+                                                        identificación o la
+                                                        dirección de Ethereum de su línea ascendente, ingrésela en el
+                                                        campo
+                                                        a continuación y haga clic en "Registrarme".</h6>
+                                                    <input id="upline"
+                                                        placeholder="Ingresa el ID o la dirección de Ethereum de tu línea ascendente "
+                                                        type="text" class="input-solid input-solid-md required email"
+                                                        style="background:#0b0c22;border:1px solid #171a4b">
+                                                    <a id="signup-btn" onclick="App.signupBtn()"
+                                                        style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
+                                                        href="#"
+                                                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                                                        <h5 style="font-size:1em"><i class="fa fa-user-plus"
+                                                                style="font-size:15px"></i> Registrarme</h5>
+                                                    </a>
+                                                    <h6 style="color: white;margin-top:30px;font-size:16px"
+                                                        id="networkResponse"></h6>
+                                                    <div style="padding-top:20px">Recomendado para:</div>
+                                                    <div style="margin-bottom: 40px">
+                                                        <p
+                                                            style="margin-top: 12px; color: #888888; font-size: 13px; font-weight: 400;">
+                                                            <i class="fas fa-desktop"
+                                                                style="vertical-align: middle; "></i>
+                                                            <span
+                                                                style="vertical-align: middle;margin-right: 4px;">:</span>
+                                                            <img class="button_signup_descrlogo_img"
+                                                                style="display:inline-block;height: 18px;"
+                                                                src="images/dark/metamask-fox.svg">
+                                                            <i class="fas fa-mobile-alt"
+                                                                style="vertical-align: middle; margin-left: 12px;"></i>
+                                                            <span
+                                                                style="vertical-align: middle;margin-right: 4px;">:</span>
+                                                            <img class="button_signup_descrlogo_img"
+                                                                style="display:inline-block;height: 18px;"
+                                                                src="images/dark/trustwallet_icon.svg">
+                                                            <img class="button_signup_descrlogo_img"
+                                                                style="display:inline-block;height: 18px;"
+                                                                src="images/dark/coinbase_icon.png">
 
+                                                        </p>
+                                                    </div>
+
+                                                    <p
+                                                        style="position: relative; margin-top: 36px; margin-bottom: 36px; height: 16px; line-height: 16px;">
+                                                        <span
+                                                            style="position: absolute; top: 50%; left: 0; right: 0; margin-top: -0.5px; width: 100%; height: 1px; background: rgba(242, 244, 255, 0.14);"></span>
+                                                        <span
+                                                            style="position: relative; height: 16px; line-height: 16px; display: inline-block; ; padding: 0 8px; color: #888888;">ó</span>
                                                     </p>
+                                                    <div style="text-align: left;margin-top: 40px;padding-bottom: 10px">
+                                                        Obtén una línea ascendente del sistem. Sin línea ascendente, el
+                                                        contrato inteligente no aceptará la transferencia</div>
+
+                                                    <a style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
+                                                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                                                        <h5 style="font-size:1em">Obtener línea ascendente</h5>
+                                                    </a>
+                                                </div>
+                                                <style>
+                                                    .tab-list {
+                                                        white-space: nowrap;
+                                                        font-size: 0;
+                                                        margin-bottom: 15px;
+                                                        margin-top: 40px;
+                                                        justify-content: center;
+                                                    }
+
+                                                    .active>.pa-btn,
+                                                    .pa-btn--active {
+                                                        background-color: #39d884;
+                                                        color: #888888;
+                                                        color: #f2f4ff;
+                                                        text-decoration: none;
+                                                        border-color: #555555;
+                                                    }
+
+                                                    .pa-btn--tab.pa-btn {
+                                                        border-color: #ffffff33;
+                                                        color: #2094fa;
+                                                        margin-left: -1px;
+                                                        margin-right: -1px;
+                                                    }
+
+                                                    @media (max-width:1200px) {
+                                                        .pa-btn--tab {
+                                                            width: auto;
+                                                        }
+
+                                                        .tab-list {
+                                                            display: inline-block !important;
+                                                        }
+
+
+                                                    }
+
+                                                    .pa-btn--tab {
+                                                        width: auto;
+                                                        padding-left: 22px;
+                                                        padding-right: 22px;
+                                                        border-radius: 0;
+                                                    }
+
+                                                    .pa-btn {
+                                                        width: 160px;
+                                                        white-space: normal;
+                                                        border-radius: 2px;
+                                                        border-radius: 24px;
+                                                        border-radius: 0;
+                                                        border: 1px solid #555555;
+                                                        color: #2094fa;
+                                                        font-family: "Open Sans";
+                                                        font-size: 14px;
+                                                        font-weight: 600;
+                                                        line-height: 1.2;
+                                                        text-decoration: none;
+                                                        display: inline-block;
+                                                        text-transform: uppercase;
+                                                        transition: 0.3s all ease;
+                                                        padding: 12px 0 12px;
+                                                        background: #0b0c22;
+                                                        cursor: pointer;
+                                                    }
+                                                </style>
+                                                <div id='signupForm-2'>
+                                                    <h5>(Compra de Nivel 1)</h5>
+                                                    <ul class="tab-list text-center"
+                                                        style="margin-bottom: 40px;display:flex">
+                                                        <li id="method1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                                                class="pa-btn pa-btn--tab"
+                                                                aria-expanded="true">automáticamente</a></li>
+                                                        <li id="method2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                                                class="pa-btn pa-btn--tab" aria-expanded="false">Manualmente</a></li>
+                                                        <li id="method3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                                                class="pa-btn pa-btn--tab" aria-expanded="false">vía
+                                                                CryptoHands</a></li>
+                                                    </ul>
+                                                    <div id="signupMethod1" class="signupMethod" style="">
+                                                        <div style="display: flex;">
+
+
+                                                            <a id="signup-btn" onclick="App.signupBtn()"
+                                                                style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
+                                                                href="#"
+                                                                class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                                                                <h3 style="font-size:1.8em"><i class="fa fa-user-plus"
+                                                                        style="font-size:15px"></i> Registrarme en un
+                                                                    click
+                                                                </h3>
+                                                            </a>
+                                                        </div>
+
+                                                        <h6 style="color: white;margin-top:30px;font-size:16px"
+                                                            id="networkResponse"></h6>
+                                                        <div style="padding-top:20px">Recomendado para:</div>
+                                                        <div style="margin-bottom: 40px">
+                                                            <p
+                                                                style="margin-top: 12px; color: #888888; font-size: 13px; font-weight: 400;">
+                                                                <i class="fas fa-desktop"
+                                                                    style="vertical-align: middle; "></i>
+                                                                <span
+                                                                    style="vertical-align: middle;margin-right: 4px;">:</span>
+                                                                <img class="button_signup_descrlogo_img"
+                                                                    style="display:inline-block;height: 18px;"
+                                                                    src="images/dark/metamask-fox.svg">
+                                                                <i class="fas fa-mobile-alt"
+                                                                    style="vertical-align: middle; margin-left: 12px;"></i>
+                                                                <span
+                                                                    style="vertical-align: middle;margin-right: 4px;">:</span>
+                                                                <img class="button_signup_descrlogo_img"
+                                                                    style="display:inline-block;height: 18px;"
+                                                                    src="images/dark/trustwallet_icon.svg">
+                                                                <img class="button_signup_descrlogo_img"
+                                                                    style="display:inline-block;height: 18px;"
+                                                                    src="images/dark/coinbase_icon.png">
+
+                                                            </p>
+                                                        </div>
+
+                                                        <p
+                                                            style="position: relative; margin-top: 36px; margin-bottom: 36px; height: 16px; line-height: 16px;">
+                                                            <span
+                                                                style="position: absolute; top: 50%; left: 0; right: 0; margin-top: -0.5px; width: 100%; height: 1px; background: rgba(242, 244, 255, 0.14);"></span>
+                                                            <span
+                                                                style="position: relative; height: 16px; line-height: 16px; display: inline-block; ; padding: 0 8px; color: #888888;">Nota</span>
+                                                        </p>
+                                                        <div
+                                                            style="text-align: justify;margin-top: 40px;padding-bottom: 10px">
+                                                            Preste atención, para realizar el registro automático en el
+                                                            dispositivo móvil, debe ingresar a la aplicación, elegir el
+                                                            menú
+                                                            DApp (navegador) e ingresar el enlace de referencia en la
+                                                            barra
+                                                            de direcciones. Luego, en el mismo navegador descentralizado
+                                                            incorporado, vaya a la página de registro y regístrese en 1
+                                                            click.</div>
+                                                    </div>
+
+                                                    <div id="signupMethod2" class="signupMethod" style="display:none">
+                                                        <div
+                                                            style="text-align: justify; margin-top: 20px; padding-bottom: 10px; font-size: 14px; color: #ffffff; /* font-weight: bold; */ background: #1ca05a; padding: 20px; border-radius: 10px; font-family: sans-serif;">
+                                                            ¡Importante! No envíe fondos desde los servicios de
+                                                            intercambio y acciones al contrato inteligente; en ese caso,
+                                                            el conteo inteligente no aceptará los fondos. Primero,
+                                                            registre SU billetera Ethereum y rellénela. Realice una
+                                                            transacción al contrato inteligente, con la indicación de la
+                                                            dirección Ethereum de su línea ascendente en el campo
+                                                            "DATOS", solo desde su billetera.</div>
+                                                        <div
+                                                            style="text-align: justify;font-size: 14px; margin-top:20px">
+                                                            Envíe DESDE SU billetera Ethereum 0.08 ETH a la dirección de
+                                                            contrato inteligente. En el campo Datos de entrada ingrese
+                                                            la dirección de Ethereum de su línea ascendente.
+                                                        </div>
+                                                        <div style="text-align: left;margin-top: 30px;">
+                                                            <div>
+                                                                <div>Enviar a (dirección del Contrato Inteligente):
+                                                                </div>
+                                                                <input type="text" readonly
+                                                                    value="0x45266CD8e2bd4F25a5DDa555C86244503768f22d" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                            </div>
+                                                            <div style="margin-top:15px">
+                                                                <div>La cantidad en ETH:</div>
+                                                                <input type="text" readonly value="0.08" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                            </div>
+                                                            <div style="margin-top:15px">
+                                                                <div>Ingrese DATOS (su dirección de línea ascendente)
+                                                                    :</div>
+                                                                <input type="text" readonly
+                                                                    value="0x34a78D7B0315F38145Ec0867acb586C1fb4c7D38" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                            </div>
+                                                            <div style="text-align: justify;margin-top:30px; font-size: 14px;">
+                                                                Después de una transacción exitosa, el registro (compra
+                                                                a
+                                                                nivel 1) se completará automáticamente y será posible
+                                                                iniciar sesión al sistema.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="signupMethod3" class="signupMethod" style="display:none">
+                                                        <div
+                                                            style="text-align: justify;font-size: 14px; margin-top:30px">
+                                                            Envíe DESDE SU billetera Ethereum 0.08 ETH a la dirección de
+                                                            contrato inteligente. En el campo Datos de entrada ingrese
+                                                            la dirección de Ethereum de su línea ascendente.
+                                                        </div>
+                                                        <div style="margin-top:40px;margin-bottom:40px">                                                            
+                                                               
+                                                            <input type="text" readonly
+                                                                value="0xA22c1B5320108C19dB53f58241Fd64b105562296" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                        </div>
+                                                        <div
+                                                            style="text-align: justify;font-size: 14px; margin-top:20px">
+                                                            Envíe DESDE SU billetera Ethereum 0.08 ETH a la dirección de
+                                                            contrato inteligente. En el campo Datos de entrada ingrese
+                                                            la dirección de Ethereum de su línea ascendente.
+                                                        </div>
+                                                    </div>
+
                                                 </div>
 
-                                                <p
-                                                    style="position: relative; margin-top: 36px; margin-bottom: 36px; height: 16px; line-height: 16px;">
-                                                    <span
-                                                        style="position: absolute; top: 50%; left: 0; right: 0; margin-top: -0.5px; width: 100%; height: 1px; background: rgba(242, 244, 255, 0.14);"></span>
-                                                    <span
-                                                        style="position: relative; height: 16px; line-height: 16px; display: inline-block; ; padding: 0 8px; color: #888888;">ó</span>
-                                                </p>
-                                                <div
-                                                    style="text-align: left;margin-top: 40px;padding-bottom: 10px">
-                                                    Obtén una línea ascendente del sistem. Sin línea ascendente, el contrato inteligente no aceptará la transferencia</div>
-                                                
-                                                <a style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
-                                                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                                                    <h5 style="font-size:1em">Obtener línea ascendente</h5>
-                                                </a>
 
                                             </div>
                                         </div>
@@ -151,7 +365,7 @@
                                 <div id="signup-container" class="col-lg-6 text-center text-lg-center"
                                     style="height: 90vh; background: #0b0c22;padding:0">
                                     <div id="signup-innercontainer"
-                                        style="vertical-align: middle;position: relative; top: 20vh">
+                                        style="vertical-align: middle;position: relative; top: 15vh">
                                         <div class="row" style="height: 100%;">
                                             <div class="col-8 offset-2">
                                                 <img id="headerImg" src="images/dark/blue.png" style="height: 200px;"
@@ -163,8 +377,10 @@
                                                     <h5 style="font-size:1em"><i class="fa fa-user-plus"
                                                             style="font-size:15px;"></i> Registrarme</h5>
                                                 </a> -->
-                                                <a style="margin-top: 20px;width:40%;padding:20px 40px" href="/login" class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                                                    <h5 style="font-size:1em"><i class="fa fa-user-plus" style="font-size:15px;"></i> Iniciar Sesión</h5>
+                                                <a style="margin-top: 20px;width:40%;padding:20px 40px" href="/login"
+                                                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                                                    <h5 style="font-size:1em"><i class="fa fa-user-plus"
+                                                            style="font-size:15px;"></i> Iniciar Sesión</h5>
                                                 </a>
                                                 <div class="nk-block block-footer" style="margin-top: 60px">
                                                     <div class="row">
@@ -256,10 +472,34 @@
                 }, 22200)
             })
 
+            // method selection
+            $('#method1').click(function(e) {
+                e.preventDefault()
+                $('.signupMethod').hide()
+                $('.methodSelector').removeClass('active')
+                $('#method1').addClass('active')        
+                $('#signupMethod1').show()       
+            })
 
+            $('#method2').click(function(e){
+                e.preventDefault()
+                $('.signupMethod').hide()
+                $('.methodSelector').removeClass('active')
+                $('#method2').addClass('active')
+                $('#signupMethod2').show()                
+            })
+
+            $('#method3').click(function(e){
+                e.preventDefault()
+                $('.signupMethod').hide()
+                $('.methodSelector').removeClass('active')
+                $('#method3').addClass('active')
+                $('#signupMethod3').show()
+            })
         })
     </script>
     <script src="http://localhost:8081/bundle.js"></script>
+
 </body>
 
 </html>
