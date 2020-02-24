@@ -13,6 +13,7 @@ const auth = jwt({
 })
 
 const generalController = require('../controllers/general')
+const apiController = require('../controllers/api')
 
 router.get('/', generalController.renderHome)
 router.get('/login', generalController.renderLogin)
@@ -21,6 +22,8 @@ router.get('/comofunciona', generalController.renderComofunciona)
 router.get('/faq', generalController.renderFaq)
 router.get('/faqeth', generalController.renderFaqEth)
 router.get('/terminos', generalController.renderTerminos)
+
+router.get('/api/test', apiController.test)
 
 router.get('/dashboard', generalController.renderDashboard)
 module.exports = router
