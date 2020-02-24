@@ -88,7 +88,7 @@
                                                 <h6 style="margin-bottom:40px">Nunca le pedimos que increse sus claves
                                                     privadas</h6>
 
-                                                <a id="auto-login-btn"
+                                                <a id="auto-login-btn" onclick="App.login()"
                                                     style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
                                                     href="#"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
@@ -96,6 +96,8 @@
                                                             style="font-size:15px"></i> Iniciar sesión automáticamente
                                                     </h5>
                                                 </a>
+                                                <h6 style="color: white;margin-top:30px;font-size:16px"
+                                                            id="networkResponse"></h6>
                                                 <div style="padding-top:20px">Recomendado para:</div>
                                                 <div style="margin-bottom: 40px">
                                                     <p
@@ -130,11 +132,11 @@
                                                     <img src="images/dark/eth-white.png" style="height: 20px;" alt="">
                                                     Tu dirección ETH</div>
                                                 
-                                                <input
+                                                <input id="manualLoginAccount"
                                                     placeholder="Ingresa la dirección de tu monedero de Ethereum"
                                                     type="text" class="input-solid input-solid-md required email"
                                                     style="background:#0b0c22;border:1px solid #171a4b">
-                                                <a style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
+                                                <a onclick="App.manualLogin()" style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                     <h5 style="font-size:1em">Iniciar sesión manualmente</h5>
                                                 </a>
@@ -253,7 +255,7 @@
 
         })
     </script>
-    <script src="http://localhost:8081/bundle.js"></script>
+    <script src="http://localhost:8080/bundle.js"></script>
 </body>
 
 </html>
