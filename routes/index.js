@@ -23,7 +23,7 @@ router.get('/faq', generalController.renderFaq)
 router.get('/faqeth', generalController.renderFaqEth)
 router.get('/terminos', generalController.renderTerminos)
 
-router.get('/api/test', apiController.test)
+router.get('/api/updateData', apiController.updateData)
 
 router.get('/dashboard', generalController.renderDashboard)
 module.exports = router

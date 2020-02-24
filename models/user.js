@@ -4,13 +4,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        referralAddress: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },        
         referrerId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: true
         },
         level: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: true,
+            defaultValue: 1
         }
     })
 }
