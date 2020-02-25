@@ -89,12 +89,12 @@ module.exports.getUserData = (req, res) => {
         // Calculate total earnings
         let totalEarnings = new BigNumber(0)
         for (l of levelUps) {
-            const amount = weiToEther(await contract.methods.LEVEL_PRICE(l.level).call())                        
-            totalEarnings = totalEarnings.plus(amount)            
+            const amount = weiToEther(await contract.methods.LEVEL_PRICE(l.level).call())
+            totalEarnings = totalEarnings.plus(amount)
         }
 
         // Get level exp
-        
+
         const levelExp = {
             1: await contract.methods.viewUserLevelExpired(userAddress, 1).call(),
             2: await contract.methods.viewUserLevelExpired(userAddress, 2).call(),
@@ -157,6 +157,18 @@ module.exports.getPlatformData = (req, res) => {
         const now = moment(new Date())
         const launch = moment.unix(stats.launchTime)
 
+        // levelPrices
+        const levels = {
+            1: { price: 0.08, income: 0.16, referrals: 2 },
+            2: { price: 0.16, income: 0.64, referrals: 4 },
+            3: { price: 0.32, income: 2.56, referrals: 8 },
+            4: { price: 0.64, income: 10.24, referrals: 16 },
+            5: { price: 1.28, income: 40.96, referrals: 32 },
+            6: { price: 2.56, income: 163.84, referrals: 64 },
+            7: { price: 5.12, income: 655.36, referrals: 128 },
+            8: { price: 10.24, income: 2621.55, referrals: 256 },
+        }
+
         const data = {
             totalUsers,
             totalUsersByLevel,
@@ -166,7 +178,8 @@ module.exports.getPlatformData = (req, res) => {
                 usd_volume: usd_volume.toFixed(2),
                 btc_volume: btc_volume.toFixed(4)
             },
-            projectTime: moment.duration(now.diff(launch)).asYears().toFixed(4)
+            projectTime: moment.duration(now.diff(launch)).asYears().toFixed(4),
+            levels,
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })

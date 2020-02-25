@@ -14,50 +14,37 @@
 <script src="assets/js/charts.js"></script>
 <script>
 
-$(document).ready(function () {
+    $(document).ready(function () {
 
-    let menu = 1
-    $('#toggle-sidebar-btn').click(function (e) {
-        e.preventDefault()
+        let menu = 1
+        $('#toggle-sidebar-btn').click(function (e) {
+            e.preventDefault()
+            const screenSize = document.documentElement.clientWidth
+            if (menu == 1) {
+                $('.right-nav').addClass('right-nav--small')
+                $('.menu-text').hide()
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
+                $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
+                $('.right-nav__copy,.right-nav__links').hide()
+                if (screenSize > 922) {
+                    $('#right-col').css('margin', '15px 15px 0 80px')
+                }
+                menu = 0
+            } else if (menu == 0) {
+                $('.right-nav').removeClass('right-nav--small')
+                $('.menu-text').fadeIn(800)
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-h').addClass('fa-ellipsis-v')
+                $('.accfootersocbutton_a').css('display', 'inline-block').css('margin-bottom', '0px')
+                $('.right-nav__copy,.right-nav__links').show()
+                if (screenSize > 992) {
+                    $('#right-col').css('margin', '15px 15px 0 348px')
+                }
+                menu = 1
+            }
+        })
+
         const screenSize = document.documentElement.clientWidth
-        if (menu == 1) {
-            $('.right-nav').addClass('right-nav--small')
-            $('.menu-text').hide()
-            $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
-            $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
-            $('.right-nav__copy,.right-nav__links').hide()
-            if (screenSize > 922) {
-                $('#right-col').css('margin', '15px 15px 0 80px')
-            }
-            menu = 0
-        } else if (menu == 0) {
-            $('.right-nav').removeClass('right-nav--small')
-            $('.menu-text').fadeIn(800)
-            $('#toggle-sidebar-icon').removeClass('fa-ellipsis-h').addClass('fa-ellipsis-v')
-            $('.accfootersocbutton_a').css('display', 'inline-block').css('margin-bottom', '0px')
-            $('.right-nav__copy,.right-nav__links').show()
-            if (screenSize > 992) {
-                $('#right-col').css('margin', '15px 15px 0 348px')
-            }
-            menu = 1
-        }
-    })
-
-    const screenSize = document.documentElement.clientWidth
-    if (screenSize < 992) {
-        $('.right-nav').addClass('right-nav--small')
-        $('.menu-text').hide()
-        $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
-        $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
-        $('.right-nav__copy,.right-nav__links').hide()
-        $('#right-col').css('margin', '15px 15px 0 90px')
-        menu = 0
-    }
-
-    $(window).on('resize', function () {
-        var win = $(this); //this = window
-
-        if (win.width() < 992) {
+        if (screenSize < 992) {
             $('.right-nav').addClass('right-nav--small')
             $('.menu-text').hide()
             $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
@@ -65,21 +52,55 @@ $(document).ready(function () {
             $('.right-nav__copy,.right-nav__links').hide()
             $('#right-col').css('margin', '15px 15px 0 90px')
             menu = 0
-        } else {
-            $('.right-nav').removeClass('right-nav--small')
-            $('.menu-text').fadeIn(800)
-            $('#toggle-sidebar-icon').removeClass('fa-ellipsis-h').addClass('fa-ellipsis-v')
-            $('.accfootersocbutton_a').css('display', 'inline-block').css('margin-bottom', '0px')
-            $('.right-nav__copy,.right-nav__links').show()
-            $('#right-col').css('margin', '15px 15px 0 348px')
-            menu = 1
         }
-    });
+
+        $(window).on('resize', function () {
+            var win = $(this); //this = window
+
+            if (win.width() < 992) {
+                $('.right-nav').addClass('right-nav--small')
+                $('.menu-text').hide()
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
+                $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
+                $('.right-nav__copy,.right-nav__links').hide()
+                $('#right-col').css('margin', '15px 15px 0 90px')
+                menu = 0
+            } else {
+                $('.right-nav').removeClass('right-nav--small')
+                $('.menu-text').fadeIn(800)
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-h').addClass('fa-ellipsis-v')
+                $('.accfootersocbutton_a').css('display', 'inline-block').css('margin-bottom', '0px')
+                $('.right-nav__copy,.right-nav__links').show()
+                $('#right-col').css('margin', '15px 15px 0 348px')
+                menu = 1
+            }
+        });
 
 
-    // Load data
-    console.log(fetch)
-})
+        // Format level expiration date
+        $('.expDate').each(function () {
+            const expDate = new Date($(this).html() * 1000)
+            const now = new Date()
+            const diffTime = Math.abs(expDate - now)
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+            $(this).html(diffDays + ' días')
+        })
+        // To do: fix animation
+        $('.pa-card i').hover(function () {
+            $(this).toggle({
+                effect: "scale",
+                percent: "90%"
+            }, 200);
+        }, function () {
+            $(this).toggle({
+                effect: "scale",
+                percent: "80%"
+            }, 200);
+        }, 200)
+
+
+
+    })
 </script>
 <script src="<%= host %>/bundle.js"></script>
 </body>
