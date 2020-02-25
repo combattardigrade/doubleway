@@ -78,7 +78,10 @@ module.exports.renderComofunciona = function (req, res) {
 module.exports.renderDashboard = async function (req, res) {
     const userAddress = req.cookies.userAddress
     if (!userAddress) {
-        // Redirect to login
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
     }
 
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
@@ -100,4 +103,23 @@ module.exports.logout = async function(req, res) {
         'Location': '/login'
     })
     res.end()
+}
+
+module.exports.renderRefLinks = async function(req, res) {
+    const userAddress = req.cookies.userAddress
+    if (!userAddress) {
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
+    }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    res.render('reflinks', {
+        host: process.env.SERVER_HOST,
+        title: 'Enlace de Referidos',
+        url: 'reflinks',
+        userData: userData.payload,
+        platformData: platformData.payload
+    })
 }

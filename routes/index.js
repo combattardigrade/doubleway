@@ -31,4 +31,5 @@ router.get('/api/setUserAddress/:userAddress', apiController.setUserAddress)
 router.get('/api/checkRefId/:rid', apiController.checkRefId)
 
 router.get('/dashboard', generalController.renderDashboard)
+router.get('/reflinks', generalController.renderRefLinks)
 module.exports = router
