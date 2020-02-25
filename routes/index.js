@@ -27,6 +27,7 @@ router.get('/api/userData/:userAddress', apiController.getUserData)
 router.get('/api/platformData', apiController.getPlatformData)
 router.get('/api/updateData', apiController.updateData)
 router.get('/api/setUserAddress/:userAddress', apiController.setUserAddress)
+router.get('/api/checkRefId/:rid', apiController.checkRefId)
 
 router.get('/dashboard', generalController.renderDashboard)
 module.exports = router

@@ -1,7 +1,11 @@
 const fetch = require('node-fetch')
 
-module.exports.renderHome = function(req,res) {    
-    res.render('home',{
+module.exports.renderHome = async function (req, res) {
+    if(req.query.rid) { 
+        const response = await (await fetch(process.env.API_HOST + `/checkRefId/${req.query.rid}`)).json()
+        if(response.status == 'OK') res.cookie('rid', req.query.rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })   
+    }    
+    res.render('home', {
         host: process.env.SERVER_HOST,
         title: 'Inicio',
         homePage: true,
@@ -9,64 +13,78 @@ module.exports.renderHome = function(req,res) {
     })
 }
 
-module.exports.renderLogin = function(req, res) {
-    res.render('login',{
+module.exports.renderLogin = async function (req, res) {
+    if (req.query.rid) {
+        const response = await (await fetch(process.env.API_HOST + `/checkRefId/${req.query.rid}`)).json()
+        if (response.status == 'OK') res.cookie('rid', req.query.rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+    res.render('login', {
         host: process.env.SERVER_HOST,
         title: 'Iniciar sesión',
         url: 'login'
     })
 }
 
-module.exports.renderSignup = function(req, res) {
-    res.render('signup',{
+module.exports.renderSignup = async function (req, res) {
+    let rid = req.query.rid
+    if (rid) {        
+        const response = await (await fetch(process.env.API_HOST + `/checkRefId/${rid}`)).json()        
+        if (response.status == 'OK') {            
+            res.cookie('rid', rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+        } else {
+            rid = null
+        }
+    }    
+    res.render('signup', {
         host: process.env.SERVER_HOST,
         title: 'Registrar cuenta',
-        url: 'signup'
+        url: 'signup',
+        rid: rid ? rid : req.cookies.rid ? req.cookies.rid : null
     })
 }
 
-module.exports.renderFaq = function(req, res) {
-    res.render('faq',{
+module.exports.renderFaq = function (req, res) {
+    res.render('faq', {
         host: process.env.SERVER_HOST,
-        title: 'Preguntas Frecuentes',        
+        title: 'Preguntas Frecuentes',
         url: 'faq'
     })
 }
 
-module.exports.renderFaqEth = function(req, res) {
-    res.render('faqeth',{
+module.exports.renderFaqEth = function (req, res) {
+    res.render('faqeth', {
         host: process.env.SERVER_HOST,
         title: 'Preguntas Frecuentes Sobre Ethereum',
         url: 'faqeth'
     })
 }
 
-module.exports.renderTerminos = function(req, res) {
-    res.render('terminos',{
+module.exports.renderTerminos = function (req, res) {
+    res.render('terminos', {
         host: process.env.SERVER_HOST,
         title: 'Términos y condiciones',
         url: 'terminos'
     })
 }
 
-module.exports.renderComofunciona = function(req, res) {
-    res.render('comofunciona',{
+module.exports.renderComofunciona = function (req, res) {
+    res.render('comofunciona', {
         host: process.env.SERVER_HOST,
         title: '¿Cómo funciona?',
         url: 'comofunciona'
     })
 }
 
-module.exports.renderDashboard = async function(req, res) {  
+module.exports.renderDashboard = async function (req, res) {
     const userAddress = req.cookies.userAddress
-    if(!userAddress) {
+    if (!userAddress) {
         // Redirect to login
     }
 
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
-     
-    res.render('dashboard',{
+
+    res.render('dashboard', {
         host: process.env.SERVER_HOST,
         title: 'Dashboard',
         url: 'dashboard',

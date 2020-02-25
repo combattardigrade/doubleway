@@ -20,6 +20,30 @@ function weiToEther(value) {
     let weiEth = new BigNumber('1000000000000000000')
     return value.div(weiEth)
 }
+ 
+module.exports.checkRefId = async (req, res) => {
+    const rid = req.params.rid
+    if(!rid) {
+        sendJSONresponse(res, 422, {status: 'ERROR', message: 'Missing required arguments'})
+        return
+    }
+
+    User.findOne({
+        where: {
+            id: rid
+        }
+    })
+        .then((user) => {
+            if(user) {                                             
+                sendJSONresponse(res, 200, {status: 'OK', message: 'Valid Referral ID.'})
+                return
+            } else {
+                sendJSONresponse(res, 404, {status: 'ERROR', message: 'Invalid Referral ID.'})
+                return
+            }           
+        })
+}
+
 
 module.exports.setUserAddress = async (req, res) => {
     const userAddress = req.params.userAddress
@@ -180,6 +204,10 @@ module.exports.getPlatformData = (req, res) => {
             },
             projectTime: moment.duration(now.diff(launch)).asYears().toFixed(4),
             levels,
+            facebook: stats.facebook,
+            twitter: stats.twitter,
+            telegram: stats.telegram,
+            youtube: stats.youtube
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })

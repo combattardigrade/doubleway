@@ -16,6 +16,26 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: '1582580987'
+        },
+        facebook: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: 'https://facebook.com'
+        },
+        twitter: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: 'https://twitter.com'
+        },
+        telegram: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: 'https://telegram.com'
+        },
+        youtube: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: 'https://youtube.com'
         }
     })
 }

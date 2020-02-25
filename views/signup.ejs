@@ -90,7 +90,7 @@
                                         <div class="row">
                                             <div class="col-8 offset-2">
                                                 <h1 style="padding:10px">Registrar cuenta</h1>
-                                                <div id='signupForm-1' style="">
+                                                <div id='signupForm-1' style="display: <%= rid ? 'none' : 'block' %>">
                                                     <h6 style="margin-bottom:40px; color: #dc3535;text-align:justify">
                                                         Llegaste sin un enlace de referencia o no funcionó, por lo que
                                                         se
@@ -218,7 +218,8 @@
                                                         cursor: pointer;
                                                     }
                                                 </style>
-                                                <div id='signupForm-2' style="display:none">
+                                                
+                                                <div id='signupForm-2' style="display:<%= rid ? 'block' : 'none' %>">
                                                     <h5>(Compra de Nivel 1)</h5>
                                                     <ul class="tab-list text-center"
                                                         style="margin-bottom: 40px;display:flex">
@@ -235,7 +236,7 @@
                                                         <div style="display: flex;">
 
 
-                                                            <a id="signup-btn" onclick="App.signup()"
+                                                            <a id="signup-btn" onclick="App.signup(<%= rid && (rid)  %>)"
                                                                 style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
                                                                 href="#"
                                                                 class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
