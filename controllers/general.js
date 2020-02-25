@@ -92,3 +92,12 @@ module.exports.renderDashboard = async function (req, res) {
         platformData: platformData.payload
     })
 }
+
+module.exports.logout = async function(req, res) {
+    res.clearCookie('rid')
+    res.clearCookie('userAddress')
+    res.writeHead(302, {
+        'Location': '/login'
+    })
+    res.end()
+}

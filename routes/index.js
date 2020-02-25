@@ -22,6 +22,7 @@ router.get('/comofunciona', generalController.renderComofunciona)
 router.get('/faq', generalController.renderFaq)
 router.get('/faqeth', generalController.renderFaqEth)
 router.get('/terminos', generalController.renderTerminos)
+router.get('/logout', generalController.logout)
 
 router.get('/api/userData/:userAddress', apiController.getUserData)
 router.get('/api/platformData', apiController.getPlatformData)
