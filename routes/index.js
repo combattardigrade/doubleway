@@ -32,4 +32,5 @@ router.get('/api/checkRefId/:rid', apiController.checkRefId)
 
 router.get('/dashboard', generalController.renderDashboard)
 router.get('/reflinks', generalController.renderRefLinks)
+router.get('/qrcodes', generalController.renderQrCodes)
 module.exports = router

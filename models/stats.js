@@ -36,6 +36,38 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: 'https://youtube.com'
-        }
+        },
+        level1Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level2Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level3Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level4Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level5Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level6Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level7Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        level8Price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     })
 }

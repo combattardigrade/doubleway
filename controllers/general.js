@@ -1,5 +1,7 @@
 const fetch = require('node-fetch')
 
+
+
 module.exports.renderHome = async function (req, res) {
     if(req.query.rid) { 
         const response = await (await fetch(process.env.API_HOST + `/checkRefId/${req.query.rid}`)).json()
@@ -119,6 +121,25 @@ module.exports.renderRefLinks = async function(req, res) {
         host: process.env.SERVER_HOST,
         title: 'Enlace de Referidos',
         url: 'reflinks',
+        userData: userData.payload,
+        platformData: platformData.payload
+    })
+}
+
+module.exports.renderQrCodes = async function(req, res) {
+    const userAddress = req.cookies.userAddress
+    if (!userAddress) {
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
+    }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    res.render('qrCodes', {
+        host: process.env.SERVER_HOST,
+        title: 'Códigos QR',
+        url: 'qrCodes',
         userData: userData.payload,
         platformData: platformData.payload
     })
