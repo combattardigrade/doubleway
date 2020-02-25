@@ -85,22 +85,46 @@
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
             $(this).html(diffDays + ' días')
         })
-        // To do: fix animation
-        $('.pa-card i').hover(function () {
-            $(this).toggle({
-                effect: "scale",
-                percent: "90%"
-            }, 200);
+
+        // Stats card hover
+        $('.pa-card').hover(function () {
+            $(this).find('i').addClass('card-icon-hover')
         }, function () {
-            $(this).toggle({
-                effect: "scale",
-                percent: "80%"
-            }, 200);
-        }, 200)
+            $(this).find('i').addClass('card-icon').removeClass('card-icon-hover')
+        })
 
+        // Copy url btn
+        const agentUrl = $('#agent-url').val()
+        $('#copyUrlBtn').click(function () {
+            navigator.clipboard.writeText(agentUrl).then(function () {
+                console.log('Copying to clipboard was successful...')
+            }, function () {
+                console.log('Could not copy text...')
+            })
+        })
 
+        $('.toastr-success').each(function () {
+            var $self = $(this);
+            $self.on("click", function (e) {
+                toastr.clear();
+                toastr.options = {
+                    "closeButton": true,
+                    "newestOnTop": false,
+                    "preventDuplicates": true,
+                    "positionClass": "toast-bottom-center",
+                    "showDuration": "1000",
+                    "hideDuration": "10000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000"
+                };
+                toastr.success('<em class="ti ti-check toast-message-icon"></em> ¡Enlace copiado correctamente!');
+                e.preventDefault();
+            });
+        });
+    })    
 
-    })
+        
+
 </script>
 <script src="<%= host %>/bundle.js"></script>
 </body>
