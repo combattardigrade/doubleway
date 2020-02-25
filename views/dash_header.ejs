@@ -328,6 +328,15 @@
             }
 
         }
+        @media (min-width: 992px) {
+            .menu-item {
+                padding-right: 30px !important;
+            }
+            .menu-sub {
+                left: -120px !important;
+            }
+        }
+
     </style>
 
 </head>
@@ -363,35 +372,31 @@
                         <div class="header-navbar header-navbar-s1">
                             <nav class="header-menu" id="example-menu-04">
                                 <ul class="menu menu-s2 animated" data-animate="fadeInDown" data-delay=".75">
-                                    <li class="menu-item"><a class="menu-link nav-link" href="#ico">Inicio</a></li>
-                                    <li class="menu-item"><a class="menu-link nav-link" href="#token">Cómo funciona</a>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="/">Inicio</a></li>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="/comofunciona">Cómo funciona</a>
                                     </li>
-                                    <li class="menu-item"><a class="menu-link nav-link" href="#roadmap">Preguntas
+                                    <li class="menu-item"><a class="menu-link nav-link" href="/faq">Preguntas
                                             frecuentes</a></li>
-                                    <li class="menu-item"><a class="menu-link nav-link" href="#team">Sobre Ethereum</a>
+                                    <li class="menu-item"><a class="menu-link nav-link" href="/faqeth">Sobre Ethereum</a>
                                     </li>
 
                                     </li>
-                                    <!-- <li class="menu-item has-sub">
-                                        <a class="menu-link nav-link menu-toggle" href="#">More</a>
+                                    <li class="menu-item has-sub">
+                                        <a class="menu-link nav-link menu-toggle" href="#"><i class="fa fa-user-circle"></i> Cuenta</a>
                                         <ul class="menu-sub menu-drop">
                                             <li class="menu-item"><a class="menu-link nav-link"
-                                                    href="#media-partner">Media Partner</a></li>
-                                            <li class="menu-item"><a class="menu-link nav-link" href="#blog">Blogs</a>
+                                                   >ID: <span class="data-userId"><%= userData.user.id %></span></a></li>
+                                            <li class="menu-item"><a class="menu-link nav-link" >Ingresos: <span class="data-earnings"><%= userData.totalEarnings %></span> ETH</a>
                                             </li>
-                                            <li class="menu-item"><a class="menu-link nav-link" href="#faqs">Faqs</a>
+                                            <li class="menu-item"><a class="menu-link nav-link" >Referidos totales: <span class="class-referrals"><%= userData.totalReferrals %></span></a>
+                                            </li>
+                                            <li class="menu-item"><a class="menu-link nav-link" href="/logout">Salir</a>
                                             </li>
                                         </ul>
-                                    </li> -->
+                                    </li>
 
                                 </ul>
-                                <ul class="menu-btns animated" data-animate="fadeInDown" data-delay=".85">
-                                    <li><a href="#"
-                                            class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-round"><span>Suscríbete</span></a>
-                                    </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#login-popup"
-                                            class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-round"><span>Iniciar
-                                                sesión</span></a></li>
+                                
                                 </ul>
                             </nav>
                         </div><!-- .header-navbar @e -->
@@ -416,199 +421,187 @@
 
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">total de participantes</div>
-                        <div class="currency__data">
+                        <div class="currency__data">                            
                             <img src="./assets/img/new/pa_icon_bar.png" width="21" alt="" class="currency__chart"
-                                style="display: none;"><i class="fas fa-user"></i> <span id="vs_line_total_user"
-                                class="currency__value">17137</span>
+                                style="display: none;"><i class="fas fa-user"></i> <span id="totalUsers"
+                                class="currency__value totalUsers"><%= platformData.totalUsers %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">1 nivel</div>
-                        <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l1_tx" class="currency__value">17137</span>
+                        <div class="currency__data">                            
+                            <i class="fas fa-user"></i> <span id="level1Users" class="currency__value level1Users"><%= platformData.totalUsersByLevel[0].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">2 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l2_tx" class="currency__value">7043</span>
+                            <i class="fas fa-user"></i> <span id="level2Users" class="currency__value level2Users"><%= platformData.totalUsersByLevel[1].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">3 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l3_tx" class="currency__value">1824</span>
+                            <i class="fas fa-user"></i> <span id="level3Users" class="currency__value level3Users"><%= platformData.totalUsersByLevel[2].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">4 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l4_tx" class="currency__value">495</span>
+                            <i class="fas fa-user"></i> <span id="level4Users" class="currency__value level4Users"><%= platformData.totalUsersByLevel[3].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">5 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l5_tx" class="currency__value">85</span>
+                            <i class="fas fa-user"></i> <span id="level5Users" class="currency__value level5Users" ><%= platformData.totalUsersByLevel[4].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">6 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l6_tx" class="currency__value">20</span>
+                            <i class="fas fa-user"></i> <span id="level6Users" class="currency__value level6Users"><%= platformData.totalUsersByLevel[5].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">7 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l7_tx" class="currency__value">0</span>
+                            <i class="fas fa-user"></i> <span id="level7Users" class="currency__value level7Users"><%= platformData.totalUsersByLevel[6].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">8 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l8_tx" class="currency__value">0</span>
+                            <i class="fas fa-user"></i> <span id="level8Users" class="currency__value level8Users"><%= platformData.totalUsersByLevel[7].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">años del proyecto</div>
                         <div class="currency__data">
-                            <i class="fas fa-calendar-alt"></i> <span id="vs_project_days"
-                                class="currency__value">0.28</span>
+                            <i class="fas fa-calendar-alt"></i> <span id="projectAge"
+                                class="currency__value projectAge"><%= platformData.projectTime %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">transacciones totales</div>
                         <div class="currency__data">
-                            <i class="fas fa-chart-bar"></i> <span id="vs_line_total_tx"
-                                class="currency__value">27001</span>
+                            <i class="fas fa-chart-bar"></i> <span id="totalTxs"
+                                class="currency__value totalTxs"><%= platformData.txs.total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">ETH total</div>
                         <div class="currency__data">
-                            <i class="fab fa-ethereum"></i> <span id="vs_ETH_amuont"
-                                class="currency__value">3590.08</span> <span class="currency__pair">ETH</span>
+                            <i class="fab fa-ethereum"></i> <span id="eth_volume"
+                                class="currency__value"><%= platformData.txs.eth_volume  %></span> <span class="currency__pair eth_volume">ETH</span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">equivalente a BTC</div>
                         <div class="currency__data">
-                            <i class="fab fa-bitcoin"></i> <span id="vs_BTC_amuont"
-                                class="currency__value">100.0825</span> <span class="currency__pair">BTC</span>
+                            <i class="fab fa-bitcoin"></i> <span id="btc_volume"
+                                class="currency__value"><%= platformData.txs.btc_volume  %></span> <span class="currency__pair btc_volume">BTC</span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">equivalente a USD</div>
                         <div class="currency__data">
-                            <i class="fas fa-dollar-sign"></i> <span id="vs_USDT_amuont"
-                                class="currency__value">1016195.82</span> <span class="currency__pair">USD</span>
+                            <i class="fas fa-dollar-sign"></i> <span id="usd_volume"
+                                class="currency__value"><%= platformData.txs.usd_volume  %></span> <span class="currency__pair usd_volume">USD</span>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
                 <div class="simplemarquee-wrapper"
                     style="display: inline-block; margin-left: 40px; animation: 82.6s linear 0s infinite normal none running simplemarquee-1d614g40f22;">
-
-
-
-
-
-
-
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">total de participantes</div>
                         <div class="currency__data">
                             <img src="./assets/img/new/pa_icon_bar.png" width="21" alt="" class="currency__chart"
                                 style="display: none;"><i class="fas fa-user"></i> <span id="vs_line_total_user"
-                                class="currency__value">17137</span>
+                                class="currency__value totalUsers"><%= platformData.totalUsers %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">1 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l1_tx" class="currency__value">17137</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l1_tx" class="currency__value level1Users"><%= platformData.totalUsersByLevel[0].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">2 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l2_tx" class="currency__value">7043</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l2_tx" class="currency__value level2Users"><%= platformData.totalUsersByLevel[1].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">3 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l3_tx" class="currency__value">1824</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l3_tx" class="currency__value level3Users"><%= platformData.totalUsersByLevel[2].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">4 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l4_tx" class="currency__value">495</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l4_tx" class="currency__value level4Users"><%= platformData.totalUsersByLevel[3].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">5 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l5_tx" class="currency__value">85</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l5_tx" class="currency__value level5Users"><%= platformData.totalUsersByLevel[4].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">6 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l6_tx" class="currency__value">20</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l6_tx" class="currency__value level6Users"><%= platformData.totalUsersByLevel[5].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">7 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l7_tx" class="currency__value">0</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l7_tx" class="currency__value level7Users"><%= platformData.totalUsersByLevel[6].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">8 nivel</div>
                         <div class="currency__data">
-                            <i class="fas fa-user"></i> <span id="vs_line_l8_tx" class="currency__value">0</span>
+                            <i class="fas fa-user"></i> <span id="vs_line_l8_tx" class="currency__value level8Users"><%= platformData.totalUsersByLevel[7].total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">años del proyecto</div>
                         <div class="currency__data">
                             <i class="fas fa-calendar-alt"></i> <span id="vs_project_days"
-                                class="currency__value">0.28</span>
+                                class="currency__value projectAge"><%= platformData.projectTime  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">transacciones totales</div>
                         <div class="currency__data">
                             <i class="fas fa-chart-bar"></i> <span id="vs_line_total_tx"
-                                class="currency__value">27001</span>
+                                class="currency__value totalTxs"><%= platformData.txs.total  %></span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">ETH total</div>
                         <div class="currency__data">
                             <i class="fab fa-ethereum"></i> <span id="vs_ETH_amuont"
-                                class="currency__value">3590.08</span> <span class="currency__pair">ETH</span>
+                                class="currency__value eth_volume"><%= platformData.txs.eth_volume  %></span> <span class="currency__pair">ETH</span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">equivalente a BTC</div>
                         <div class="currency__data">
                             <i class="fab fa-bitcoin"></i> <span id="vs_BTC_amuont"
-                                class="currency__value">100.0825</span> <span class="currency__pair">BTC</span>
+                                class="currency__value btc_volume"><%= platformData.txs.btc_volume  %></span> <span class="currency__pair">BTC</span>
                         </div>
                     </div>
                     <div class="currency">
                         <div class="currency__percent currency__percent--minus">equivalente a USD</div>
                         <div class="currency__data">
                             <i class="fas fa-dollar-sign"></i> <span id="vs_USDT_amuont"
-                                class="currency__value">1016195.82</span> <span class="currency__pair">USD</span>
+                                class="currency__value usd_volume"><%= platformData.txs.usd_volume  %></span> <span class="currency__pair">USD</span>
                         </div>
                     </div>
 
@@ -695,7 +688,7 @@
                             <a href="./transactions.php" class="pa-navigation__link pa-navigation__link--transactions ">
                                 <h6 class="menu-title">
                                     <i class="fa fa-th-list menu-icon"></i>
-                                    <span class="menu-text">RANSACCIONES</span> </h6>
+                                    <span class="menu-text">TRANSACCIONES</span> </h6>
                             </a>
                         </li>
                         <li class="pa-navigation__item">
@@ -848,35 +841,7 @@
                             target="_blank" class="" style="color: #888888;">Sourse abierto</a>
                     </div>
                 </nav>
-                <div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
-                    <ul class="pa-breads pa-well"
-                        style="vertical-align: middle; display: flex;background-color: #171a40">
-                        <li class="bread__item" style="height: 16px; line-height: 16px;padding-left: 30px;">
-                            <a rel="nofollow" id="vs_twitter" href="#"
-                                onclick="window.open('http://twitter.com/share?text=https://doubleway.io', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false"
-                                title="https://doubleway.io" target="_blank" class="bread__link" style="height: 16px;">
-                                <i class="fab fa-twitter" style="font-size: 22px;"></i>
-                            </a>
-                        </li>
-                        <li class="bread__item" style="height: 16px; line-height: 16px;">
-                            <a rel="nofollow" id="vs_facebook" href="#"
-                                onclick="window.open('http://www.facebook.com/sharer.php?u=https://doubleway.io', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false"
-                                title="https://doubleway.io" target="_blank" class="bread__link" style="height: 16px;">
-                                <i class="fab fa-facebook-f" style="font-size: 22px;"></i>
-                            </a>
-                        </li>
-                        <li class="bread__item" style="height: 16px; line-height: 16px;">
-                            <a rel="nofollow" id="vs_vk" href="#"
-                                onclick="window.open('http://vk.com/share.php?url=https://doubleway.io', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=554, height=421, toolbar=0, status=0');return false"
-                                title="https://doubleway.io" target="_blank" class="bread__link" style="height: 16px;">
-                                <i class="fab fa-vk" style="font-size: 22px;"></i>
-                            </a>
-                        </li>
-                        <li class="bread__item">
-                            <span class="bread__link bread__link--current" style="">Comparta y obtenga referencias de
-                                STRANGERS (los hashtags ya están buscando)</span>
-                        </li>
-                    </ul>
+                
 
                     
             

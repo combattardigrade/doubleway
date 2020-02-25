@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         eth_usd: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        launchTime: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: '1582580987'
         }
     })
 }

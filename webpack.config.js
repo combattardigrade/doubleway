@@ -1,4 +1,5 @@
 const path = require('path')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     entry: './src/token.js',
@@ -6,5 +7,8 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public')
     },
-    devServer: { contentBase: path.resolve(__dirname, 'public'), compress: true}
+    plugins: [
+        new Dotenv()
+    ],
+    devServer: { contentBase: path.resolve(__dirname, 'public'), compress: true }
 }

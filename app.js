@@ -23,10 +23,12 @@ app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', routes)
+
 // csrf and cookies
 app.use(cookieParser())
 app.use(csurf({ cookie: true }))
+
+app.use('/', routes)
 
 // app.use('/admin',routesAdmin) 
 

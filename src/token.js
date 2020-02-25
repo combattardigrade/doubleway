@@ -1,4 +1,5 @@
 import Web3 from 'web3'
+import fetch from 'node-fetch'
 
 const ABI = [{ "constant": true, "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "userList", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "users", "outputs": [{ "internalType": "bool", "name": "isExist", "type": "bool" }, { "internalType": "uint256", "name": "id", "type": "uint256" }, { "internalType": "uint256", "name": "referrerID", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "internalType": "address", "name": "_user", "type": "address" }, { "internalType": "uint256", "name": "_level", "type": "uint256" }], "name": "viewUserLevelExpired", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }]
 const CONTRACT = '0x41758254951f425fe0678555E4E6c2f226fC2012'
@@ -21,6 +22,7 @@ const App = {
             // Check if user exists in contract
             const userExists = await this.checkUserExists()
             if (userExists) {
+                await fetch(process.env.API_HOST + '/setUserAddress/' + App.account)
                 window.location.replace('/dashboard')
                 return
             }
@@ -37,6 +39,8 @@ const App = {
         // Check if user exists in contract
         const userExists = await this.checkUserExists()
         if (userExists) {
+            await fetch(process.env.API_HOST + '/setUserAddress/' + App.account)
+            window.location.replace('/dashboard')
             window.location.replace('/dashboard')
             return
         }
@@ -193,7 +197,17 @@ const App = {
 
     connectHttpProvider: async function () {
         App.web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/9bae6681948f47aca03246c6d6b7b8e4'))
-    }
+    },
+
+    // getPlatformData: async function() {
+    //     function refresh() {
+    //         const data = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    //         let totalUserssers = document.getElementsByClassName('totalUsers')
+
+    //         setTimeout(refresh, 5000)
+    //     }
+    //     setTimeout(refresh, 5000)
+    // },
 
 
 }
@@ -201,10 +215,7 @@ const App = {
 window.App = App
 
 window.addEventListener("load", async function () {
-    const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/9bae6681948f47aca03246c6d6b7b8e4'))
-    const contract = new web3.eth.Contract(ABI, CONTRACT)
-    console.log(contract.methods)
-    //await contract({from: web3.eth.accounts[0], gas: 400000, value: 0.08})
+    // App.getPlatformData()
 
 
 });

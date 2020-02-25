@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 module.exports.renderHome = function(req,res) {    
     res.render('home',{
         host: process.env.SERVER_HOST,
@@ -55,10 +57,20 @@ module.exports.renderComofunciona = function(req, res) {
     })
 }
 
-module.exports.renderDashboard = function(req, res) {
+module.exports.renderDashboard = async function(req, res) {  
+    const userAddress = req.cookies.userAddress
+    if(!userAddress) {
+        // Redirect to login
+    }
+
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+     
     res.render('dashboard',{
         host: process.env.SERVER_HOST,
         title: 'Dashboard',
-        url: 'dashboard'
+        url: 'dashboard',
+        userData: userData.payload,
+        platformData: platformData.payload
     })
 }
