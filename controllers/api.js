@@ -105,32 +105,33 @@ module.exports.getUserData = (req, res) => {
             transaction: t
         })
 
-
-        // Get Contract Data
-        const web3 = new Web3(new Web3.providers.HttpProvider(process.env.WEB3_HTTP_PROVIDER))
-        // Instantiate contract
-        const contract = new web3.eth.Contract(CONTRACT_ABI, process.env.CONTRACT_ADDRESS)
-
-        // Get referrer
-        const referrerAddress = await contract.methods.userList(user.referrerId).call()
+        const stats = await Stats.findOne({ where: { id: 1 }, transaction: t })                
 
         // Calculate total earnings
         let totalEarnings = new BigNumber(0)
         for (l of levelUps) {
-            const amount = weiToEther(await contract.methods.LEVEL_PRICE(l.level).call())
+            let amount = 0
+            if(l.level == 1) amount = stats.level1Price
+            else if(l.level == 2) amount = stats.level2Price
+            else if(l.level == 3) amount = stats.level3Price
+            else if(l.level == 4) amount = stats.level4Price
+            else if(l.level == 5) amount = stats.level5Price
+            else if(l.level == 6) amount = stats.level6Price
+            else if(l.level == 7) amount = stats.level7Price
+            else if(l.level == 8) amount = stats.level8Price
             totalEarnings = totalEarnings.plus(amount)
         }
 
         // Get level exp
         const levelExp = {
-            1: await contract.methods.viewUserLevelExpired(userAddress, 1).call(),
-            2: await contract.methods.viewUserLevelExpired(userAddress, 2).call(),
-            3: await contract.methods.viewUserLevelExpired(userAddress, 3).call(),
-            4: await contract.methods.viewUserLevelExpired(userAddress, 4).call(),
-            5: await contract.methods.viewUserLevelExpired(userAddress, 5).call(),
-            6: await contract.methods.viewUserLevelExpired(userAddress, 6).call(),
-            7: await contract.methods.viewUserLevelExpired(userAddress, 7).call(),
-            8: await contract.methods.viewUserLevelExpired(userAddress, 8).call(),
+            1: user.level1Exp,
+            2: user.level2Exp,
+            3: user.level3Exp,
+            4: user.level4Exp,
+            5: user.level5Exp,
+            6: user.level6Exp,
+            7: user.level7Exp,
+            8: user.level8Exp,
         }
 
         const data = {
@@ -138,8 +139,7 @@ module.exports.getUserData = (req, res) => {
             referrals,
             totalReferrals: referrals.length,
             totalEarnings,
-            levelExp,
-            referrerAddress,
+            levelExp,           
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })
@@ -170,10 +170,7 @@ module.exports.getPlatformData = (req, res) => {
         // Get Total Txs and Volume
         const txs = await Tx.findAll({ attributes: ['id', 'value'], transaction: t })
         let volume = new BigNumber(0)
-        for (tx of txs) {
-            // let value = new BigNumber(tx.value)
-            // let weiToEth = new BigNumber('1000000000000000000')
-            // value = value.div(weiToEth)
+        for (tx of txs) {           
             value = weiToEther(tx.value)
             volume = volume.plus(value)
         }
@@ -212,7 +209,7 @@ module.exports.getPlatformData = (req, res) => {
             twitter: stats.twitter,
             telegram: stats.telegram,
             youtube: stats.youtube,
-            contratAddress: process.env.CONTRACT_ADDRESS
+            contractAddress: process.env.CONTRACT_ADDRESS
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })
@@ -296,7 +293,7 @@ module.exports.updateData = (req, res) => {
             let referrerAddress = await contract.methods.userList(referrerId).call()
 
             level1Exp = await contract.methods.viewUserLevelExpired(userAddress, 1).call(),
-            level2Exp = await contract.methods.viewUserLevelExpired(userAddress, 2).call()
+                level2Exp = await contract.methods.viewUserLevelExpired(userAddress, 2).call()
             level3Exp = await contract.methods.viewUserLevelExpired(userAddress, 3).call()
             level4Exp = await contract.methods.viewUserLevelExpired(userAddress, 4).call()
             level5Exp = await contract.methods.viewUserLevelExpired(userAddress, 5).call()
