@@ -34,4 +34,6 @@ router.get('/dashboard', generalController.renderDashboard)
 router.get('/reflinks', generalController.renderRefLinks)
 router.get('/qrcodes', generalController.renderQrCodes)
 router.get('/transactions', generalController.renderTransactions)
+router.get('/stats', generalController.renderStats)
+
 module.exports = router

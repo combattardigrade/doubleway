@@ -164,3 +164,22 @@ module.exports.renderTransactions = async function (req, res) {
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL
     })
 }
+
+module.exports.renderStats = async function (req, res) {
+    const userAddress = req.cookies.userAddress
+    if (!userAddress) {
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
+    }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    res.render('stats', {
+        host: process.env.SERVER_HOST,
+        title: 'Estadísticas',
+        url: 'stats',
+        userData: userData.payload,
+        platformData: platformData.payload,        
+    })
+}

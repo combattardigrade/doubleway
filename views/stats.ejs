@@ -1,0 +1,72 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">Estadísticas</h3>
+                <div class="row" style="margin-top:10px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="" class="table   table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th></th>
+                                <th>Nivel</th>
+                                <th>Total Referidos</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>1</td>
+                                    <td><%= userData.referralCount[1] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>2</td>
+                                    <td><%= userData.referralCount[2] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>3</td>
+                                    <td><%= userData.referralCount[3] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>4</td>
+                                    <td><%= userData.referralCount[4] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>5</td>
+                                    <td><%= userData.referralCount[5] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>6</td>
+                                    <td><%= userData.referralCount[6] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>7</td>
+                                    <td><%= userData.referralCount[7] %></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-user-friends stats-icon"></i></td>
+                                    <td>8</td>
+                                    <td><%= userData.referralCount[8] %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

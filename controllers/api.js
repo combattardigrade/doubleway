@@ -159,14 +159,27 @@ module.exports.getUserData = (req, res) => {
             8: user.level8Exp,
         }
 
+        // Get referral count by level
+        const referralCount = {
+            1: await User.count({where: {referrerAddress: userAddress, level: 1}}),
+            2: await User.count({where: {referrerAddress: userAddress, level: 2}}),
+            3: await User.count({where: {referrerAddress: userAddress, level: 3}}),
+            4: await User.count({where: {referrerAddress: userAddress, level: 4}}),
+            5: await User.count({where: {referrerAddress: userAddress, level: 5}}),
+            6: await User.count({where: {referrerAddress: userAddress, level: 6}}),
+            7: await User.count({where: {referrerAddress: userAddress, level: 7}}),
+            8: await User.count({where: {referrerAddress: userAddress, level: 8}}),
+        }
+
         const data = {
             user,
             referrals,
             totalReferrals: referrals.length,
             totalEarnings,
             levelExp,
-            levelUps,
+            levelUps,            
             myTxs,
+            referralCount,
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })
