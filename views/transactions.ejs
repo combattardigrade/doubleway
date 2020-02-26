@@ -36,7 +36,7 @@
                                     <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.referral %></a></td>
                                     <td><%= platformData.levels[tx.level].price %></td>
                                     <td><%= i %></td>
-                                    <td><%= tx.time %></td>
+                                    <td class="date"><%= tx.time %></td>
                                 </tr>
                                 <% i++ %>
                                 <% } %>
@@ -57,7 +57,7 @@
                                     <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a></td>
                                     <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %></td>
                                     <td><%= i %></td>
-                                    <td><%= tx.time %></td>
+                                    <td class="date"><%= tx.time %></td>
                                 </tr>
                                 <% i++ %>
                                 <% } %>

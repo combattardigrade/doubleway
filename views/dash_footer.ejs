@@ -123,6 +123,7 @@
         });
 
 
+        // Transactions
 
         $('.methodSelector').click(function () {
             $('.methodSelector').removeClass('active')
@@ -131,6 +132,14 @@
             const table = $(this).data('table')
             if(table == 1) $('#inTxs').show()
             else if (table == 2) $('#myTxs').show()
+        })
+
+        // format date
+        // Format level expiration date
+        $('.date').each(function () {
+            let date = new Date($(this).html() * 1000)
+            date = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()            
+            $(this).html(date)
         })
 
 
