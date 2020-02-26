@@ -29,6 +29,7 @@ router.get('/api/platformData', apiController.getPlatformData)
 router.get('/api/updateData', apiController.updateData)
 router.get('/api/setUserAddress/:userAddress', apiController.setUserAddress)
 router.get('/api/checkRefId/:rid', apiController.checkRefId)
+router.get('/api/getReferrals/:userId', apiController.getReferrals)
 
 router.get('/dashboard', generalController.renderDashboard)
 router.get('/reflinks', generalController.renderRefLinks)

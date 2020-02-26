@@ -196,6 +196,7 @@ module.exports.renderReferrals = async function (req, res) {
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     res.render('referrals', {
         host: process.env.SERVER_HOST,
+        api: process.env.API_HOST,
         title: 'Referidos',
         url: 'referrals',
         userData: userData.payload,
@@ -214,7 +215,7 @@ module.exports.renderUplines = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     res.render('uplines', {
-        host: process.env.SERVER_HOST,
+        host: process.env.SERVER_HOST,        
         title: 'Líneas Ascendentes',
         url: 'uplines',
         userData: userData.payload,

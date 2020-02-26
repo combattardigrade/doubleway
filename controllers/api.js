@@ -130,15 +130,15 @@ module.exports.getUserData = (req, res) => {
         const referralsByLine = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] }
         for (ref of referrals) {
             referralsByLevel[ref.level].push(ref)
-            
-            if(ref.referrerLevel1 == userAddress) referralsByLine[1].push(ref)
-            else if(ref.referrerLevel2 == userAddress) referralsByLine[2].push(ref)
-            else if(ref.referrerLevel3 == userAddress) referralsByLine[3].push(ref)
-            else if(ref.referrerLevel4 == userAddress) referralsByLine[4].push(ref)
-            else if(ref.referrerLevel5 == userAddress) referralsByLine[5].push(ref)
-            else if(ref.referrerLevel6 == userAddress) referralsByLine[6].push(ref)
-            else if(ref.referrerLevel7 == userAddress) referralsByLine[7].push(ref)
-            else if(ref.referrerLevel8 == userAddress) referralsByLine[8].push(ref)      
+
+            if (ref.referrerLevel1 == userAddress) referralsByLine[1].push(ref)
+            else if (ref.referrerLevel2 == userAddress) referralsByLine[2].push(ref)
+            else if (ref.referrerLevel3 == userAddress) referralsByLine[3].push(ref)
+            else if (ref.referrerLevel4 == userAddress) referralsByLine[4].push(ref)
+            else if (ref.referrerLevel5 == userAddress) referralsByLine[5].push(ref)
+            else if (ref.referrerLevel6 == userAddress) referralsByLine[6].push(ref)
+            else if (ref.referrerLevel7 == userAddress) referralsByLine[7].push(ref)
+            else if (ref.referrerLevel8 == userAddress) referralsByLine[8].push(ref)
         }
 
 
@@ -558,6 +558,43 @@ module.exports.updateData = (req, res) => {
         .catch((err) => {
             console.log(err)
             sendJSONresponse(res, 404, { status: 'ERROR', message: 'Ocurrió un error al intentar actualizar los datos' })
+            return
+        })
+}
+
+module.exports.getReferrals = (req, res) => {
+    const userId = req.params.userId
+    if (!userId) {
+        sendJSONresponse(res, 422, { status: 'ERROR', message: 'Missing required arguments' })
+        return
+    }
+    sequelize.transaction(async (t) => {
+        // Check if user exists and get address
+        const user = await User.findOne({ where: {id: userId }, attributes: ['id', 'address'], transaction: t})
+        if(!user) {
+            sendJSONresponse(res, 404, {status: 'ERROR', message: 'User not found'})
+            return
+        }
+
+        const referrals = await User.findAll({
+            where: {
+                $or: [
+                    {
+                        referrerLevel1: { $eq: user.address }
+                    },
+                    {
+                        referrerLevel1: { $eq: user.address }
+                    }
+                ]
+            }
+        })
+
+        sendJSONresponse(res, 200, {status: 'OK', payload: referrals})
+        return
+    })
+        .catch((err) => {
+            console.log(err)
+            sendJSONresponse(res, 422, { status: 'ERROR', message: 'Ocurrió un error al intentar realizar la acción' })
             return
         })
 }
