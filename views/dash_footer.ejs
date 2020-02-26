@@ -128,10 +128,12 @@
         $('.methodSelector').click(function () {
             $('.methodSelector').removeClass('active')
             $(this).addClass('active')
-            $('.table').hide()
+            $('.tx-container').hide()
             const table = $(this).data('table')
             if(table == 1) $('#inTxs').show()
             else if (table == 2) $('#myTxs').show()
+            else if (table == 3) $('#extraEarnings').show()
+            else if (table == 4) $('#lostEarnings').show()
         })
 
         // format date

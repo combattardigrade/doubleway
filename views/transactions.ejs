@@ -22,8 +22,9 @@
                     </ul>
                 </div>
                 <div class="row" style="margin-top:30px;margin-bottom:30px">
-                    <div class="col-mb-12 text-center" >
-                        <table id="inTxs" class="table table-responsive  table-hover" style="margin: 0px auto; width: 50% !important;">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
                             <thead>
                                 <th style="width: 25%;text-align: left;">Desde</th>
                                 <th>Cantidad</th>
@@ -34,7 +35,7 @@
                                 <% let i = 1 %>
                                 <% for(tx of userData.levelUps) { %><tr>
                                     <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.referral %></a></td>
-                                    <td><%= platformData.levels[tx.level].price %></td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
                                     <td><%= i %></td>
                                     <td class="date"><%= tx.time %></td>
                                 </tr>
@@ -43,7 +44,8 @@
                             </tbody>
                         </table>
                         <!-- My Txs -->
-                        <table id="myTxs" class="table table-responsive  table-hover" style="margin: 0px auto; width: 50% !important;display:none">
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
                             <thead>
                                 <th style="width: 25%;text-align: left;">Línea Ascendente</th>
                                 <th>Cantidad</th>
@@ -54,8 +56,11 @@
                                 <% i = 1 %>
                                 <% for(tx of userData.myTxs) { %><tr>
                                     <% if(tx.name == 'regLevelEvent') %>
-                                    <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a></td>
-                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %></td>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
                                     <td><%= i %></td>
                                     <td class="date"><%= tx.time %></td>
                                 </tr>
@@ -63,6 +68,52 @@
                                 <% } %>
                             </tbody>
                         </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Tus ganancias extras son las ganancias
+                                        perdidas de tus
+                                        referidos perdidos e inactivos.
+                                        Debido a la optimización del cálculo, las ganancias extras se muestran junto con
+                                        las
+                                        ganancias principales, en la sección de "Transacciones Recibidas".</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Pérdida de Ganancias - es la compra de
+                                        un nivel por parte de uno de tus referidos de determinada línea; si todavía no
+                                        alcanzas dicho nivel todavía. En este caso los fondos serán dirigidos
+                                        directamente a tu línea ascendente de la línea determinada, a la cual puedes
+                                        comprarle dicho nivel. <br> Por ejemplo, un referido de tercera lína quiere
+                                        comprarte el tercer nivel, pero tu todavía no compras el segundo nivel. En este
+                                        caso, el dinero será redirigido a tu línea ascendente de tercera línea. <br><br>
+                                        La pérdida de ganancias surge en los casos de 2:<br><br>
+                                        1) Si compró el primer nivel, y cada uno de los siguientes niveles lo compra
+                                        gradualmente con los fondos ya recibidos del Sistema, pero sus referencias
+                                        compran, con anticipación, varios niveles a la vez. Esta es una situación
+                                        normal, que presagia un crecimiento rápido. La pérdida de beneficios de sus
+                                        referidos, que aparece de la misma manera, se convertirá eventualmente en
+                                        Ganancias Extras, e incrementará tus ganancias múltiples veces. A partir del
+                                        segundo mes, recibirás todos los pagos de cada uno de los referidos para cada
+                                        nivel.<br><br>
+                                        2) Si no compras los niveles a tiempo, o no los renuevas a después de un mes. En
+                                        este caso, el dinero que deberías haber recibido será dirigido a tus líneas
+                                        ascendentes, de la línea determinada. Puedes comprar o renovar niveles por un
+                                        número determinado de meses y comenzarás a recibir ganancias nuevamente. Tu
+                                        cuenta permanece en el Sistema para siempre.<br><br>
+                                        Si tu nivel se encuentra activo, entonces, incluso si tu referido compra el
+                                        mismo nivel por muchos meses, todo el dinero irá directamente hacia ti. Si
+                                        tienes referidos inactivos, entonces todo el dinero que hubieran ganado estos
+                                        para los correspondientes niveles, irá hacia tí.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,7 +122,7 @@
 
     </div>
 
-   
+
 
 
     <%- include('dash_footer'); -%>
