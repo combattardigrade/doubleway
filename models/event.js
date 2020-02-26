@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         txHash: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,            
         },
         // chUpline: {
         //     type: DataTypes.STRING,

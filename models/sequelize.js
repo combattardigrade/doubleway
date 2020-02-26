@@ -24,6 +24,7 @@ const Tx = TxModel(sequelize, Sequelize)
 const Event = EventModel(sequelize, Sequelize)
 const Stats = StatsModel(sequelize, Sequelize)
 
+
 sequelize.sync({ force: false })
     .then(() => {
         console.log('Database & tables created')

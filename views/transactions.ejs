@@ -1,0 +1,77 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">Transacciones</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">Recibidas</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">Mis Transacciones</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Ganancia Extra</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Ganancia Perdida</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center" >
+                        <table id="inTxs" class="table table-responsive  table-hover" style="margin: 0px auto; width: 50% !important;">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Desde</th>
+                                <th>Cantidad</th>
+                                <th>#</th>
+                                <th>Fecha</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.referral %></a></td>
+                                    <td><%= platformData.levels[tx.level].price %></td>
+                                    <td><%= i %></td>
+                                    <td><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover" style="margin: 0px auto; width: 50% !important;display:none">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Línea Ascendente</th>
+                                <th>Cantidad</th>
+                                <th>#</th>
+                                <th>Fecha</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a></td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %></td>
+                                    <td><%= i %></td>
+                                    <td><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+   
+
+
+    <%- include('dash_footer'); -%>

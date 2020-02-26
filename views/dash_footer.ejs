@@ -121,9 +121,22 @@
                 e.preventDefault();
             });
         });
-    })    
 
-        
+
+
+        $('.methodSelector').click(function () {
+            $('.methodSelector').removeClass('active')
+            $(this).addClass('active')
+            $('.table').hide()
+            const table = $(this).data('table')
+            if(table == 1) $('#inTxs').show()
+            else if (table == 2) $('#myTxs').show()
+        })
+
+
+    })
+
+
 
 </script>
 <script src="<%= host %>/bundle.js"></script>

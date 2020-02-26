@@ -89,6 +89,27 @@ module.exports.getUserData = (req, res) => {
             return
         }
 
+        const myTxs = await Event.findAll({
+            where: {
+                userAddress,
+                $or: [
+                    {
+                        name: {$eq: 'buyLevelEvent'}
+                    },
+                    {
+                        name: {$eq: 'regLevelEvent'}
+                    }
+                ]
+            },
+            raw: true,
+            transaction: t
+        })
+
+        for(tx of myTxs) {
+            console.log(tx.txHash)
+            tx.tx = await Tx.findOne({ where: { hash: tx.txHash }, transaction: t })
+        }
+
         const referrals = await Event.findAll({
             where: {
                 name: 'regLevelEvent',
@@ -102,24 +123,28 @@ module.exports.getUserData = (req, res) => {
                 name: 'getMoneyForLevelEvent',
                 userAddress,
             },
+            raw: true,
             transaction: t
         })
 
-        const stats = await Stats.findOne({ where: { id: 1 }, transaction: t })                
+
+
+        const stats = await Stats.findOne({ where: { id: 1 }, transaction: t })
 
         // Calculate total earnings
         let totalEarnings = new BigNumber(0)
         for (l of levelUps) {
             let amount = 0
-            if(l.level == 1) amount = stats.level1Price
-            else if(l.level == 2) amount = stats.level2Price
-            else if(l.level == 3) amount = stats.level3Price
-            else if(l.level == 4) amount = stats.level4Price
-            else if(l.level == 5) amount = stats.level5Price
-            else if(l.level == 6) amount = stats.level6Price
-            else if(l.level == 7) amount = stats.level7Price
-            else if(l.level == 8) amount = stats.level8Price
+            if (l.level == 1) amount = stats.level1Price
+            else if (l.level == 2) amount = stats.level2Price
+            else if (l.level == 3) amount = stats.level3Price
+            else if (l.level == 4) amount = stats.level4Price
+            else if (l.level == 5) amount = stats.level5Price
+            else if (l.level == 6) amount = stats.level6Price
+            else if (l.level == 7) amount = stats.level7Price
+            else if (l.level == 8) amount = stats.level8Price
             totalEarnings = totalEarnings.plus(amount)
+            l.tx = await Tx.findOne({ where: { hash: l.txHash }, transaction: t })
         }
 
         // Get level exp
@@ -139,7 +164,9 @@ module.exports.getUserData = (req, res) => {
             referrals,
             totalReferrals: referrals.length,
             totalEarnings,
-            levelExp,           
+            levelExp,
+            levelUps,
+            myTxs,
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })
@@ -170,7 +197,7 @@ module.exports.getPlatformData = (req, res) => {
         // Get Total Txs and Volume
         const txs = await Tx.findAll({ attributes: ['id', 'value'], transaction: t })
         let volume = new BigNumber(0)
-        for (tx of txs) {           
+        for (tx of txs) {
             value = weiToEther(tx.value)
             volume = volume.plus(value)
         }
@@ -255,11 +282,11 @@ module.exports.updateData = (req, res) => {
                     defaults: {
                         blockNumber: tx.blockNumber,
                         timeStamp: tx.timeStamp,
-                        hash: tx.hash,
+                        txHash: tx.hash,
                         transactionIndex: tx.transactionIndex,
                         from: tx.from,
                         to: tx.to,
-                        value: tx.value,
+                        value: weiToEther(tx.value).toFixed(8),
                         gas: tx.gas,
                         gasPrice: tx.gasPrice,
                         isError: tx.isError,
@@ -292,8 +319,8 @@ module.exports.updateData = (req, res) => {
             // Get ReferrerAddress
             let referrerAddress = await contract.methods.userList(referrerId).call()
 
-            level1Exp = await contract.methods.viewUserLevelExpired(userAddress, 1).call(),
-                level2Exp = await contract.methods.viewUserLevelExpired(userAddress, 2).call()
+            level1Exp = await contract.methods.viewUserLevelExpired(userAddress, 1).call()
+            level2Exp = await contract.methods.viewUserLevelExpired(userAddress, 2).call()
             level3Exp = await contract.methods.viewUserLevelExpired(userAddress, 3).call()
             level4Exp = await contract.methods.viewUserLevelExpired(userAddress, 4).call()
             level5Exp = await contract.methods.viewUserLevelExpired(userAddress, 5).call()
@@ -306,6 +333,7 @@ module.exports.updateData = (req, res) => {
                     address: userAddress,
                 },
                 defaults: {
+                    id: i,
                     referrerAddress,
                     referrerId,
                     level1Exp,

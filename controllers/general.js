@@ -3,10 +3,10 @@ const fetch = require('node-fetch')
 
 
 module.exports.renderHome = async function (req, res) {
-    if(req.query.rid) { 
+    if (req.query.rid) {
         const response = await (await fetch(process.env.API_HOST + `/checkRefId/${req.query.rid}`)).json()
-        if(response.status == 'OK') res.cookie('rid', req.query.rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })   
-    }    
+        if (response.status == 'OK') res.cookie('rid', req.query.rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
     res.render('home', {
         host: process.env.SERVER_HOST,
         title: 'Inicio',
@@ -29,14 +29,14 @@ module.exports.renderLogin = async function (req, res) {
 
 module.exports.renderSignup = async function (req, res) {
     let rid = req.query.rid
-    if (rid) {        
-        const response = await (await fetch(process.env.API_HOST + `/checkRefId/${rid}`)).json()        
-        if (response.status == 'OK') {            
+    if (rid) {
+        const response = await (await fetch(process.env.API_HOST + `/checkRefId/${rid}`)).json()
+        if (response.status == 'OK') {
             res.cookie('rid', rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
         } else {
             rid = null
         }
-    }    
+    }
     res.render('signup', {
         host: process.env.SERVER_HOST,
         title: 'Registrar cuenta',
@@ -98,7 +98,7 @@ module.exports.renderDashboard = async function (req, res) {
     })
 }
 
-module.exports.logout = async function(req, res) {
+module.exports.logout = async function (req, res) {
     res.clearCookie('rid')
     res.clearCookie('userAddress')
     res.writeHead(302, {
@@ -107,7 +107,7 @@ module.exports.logout = async function(req, res) {
     res.end()
 }
 
-module.exports.renderRefLinks = async function(req, res) {
+module.exports.renderRefLinks = async function (req, res) {
     const userAddress = req.cookies.userAddress
     if (!userAddress) {
         res.writeHead(302, {
@@ -126,7 +126,7 @@ module.exports.renderRefLinks = async function(req, res) {
     })
 }
 
-module.exports.renderQrCodes = async function(req, res) {
+module.exports.renderQrCodes = async function (req, res) {
     const userAddress = req.cookies.userAddress
     if (!userAddress) {
         res.writeHead(302, {
@@ -142,5 +142,25 @@ module.exports.renderQrCodes = async function(req, res) {
         url: 'qrCodes',
         userData: userData.payload,
         platformData: platformData.payload
+    })
+}
+
+module.exports.renderTransactions = async function (req, res) {
+    const userAddress = req.cookies.userAddress
+    if (!userAddress) {
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
+    }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    res.render('transactions', {
+        host: process.env.SERVER_HOST,
+        title: 'Transacciones',
+        url: 'transactions',
+        userData: userData.payload,
+        platformData: platformData.payload,
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL
     })
 }
