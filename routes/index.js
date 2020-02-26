@@ -35,5 +35,7 @@ router.get('/reflinks', generalController.renderRefLinks)
 router.get('/qrcodes', generalController.renderQrCodes)
 router.get('/transactions', generalController.renderTransactions)
 router.get('/stats', generalController.renderStats)
+router.get('/referrals', generalController.renderReferrals)
+router.get('/uplines', generalController.renderUplines)
 
 module.exports = router

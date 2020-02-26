@@ -4,11 +4,35 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        referrerAddress: {
+        referrerLevel1: {
             type: DataTypes.STRING,
             allowNull: true
         },        
-        referrerId: {
+        referrerLevel2: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        referrerLevel3: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        referrerLevel4: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        referrerLevel5: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        referrerLevel6: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        referrerLevel7: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        referrerLevel8: {
             type: DataTypes.STRING,
             allowNull: true
         },

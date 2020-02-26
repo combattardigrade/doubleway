@@ -183,3 +183,41 @@ module.exports.renderStats = async function (req, res) {
         platformData: platformData.payload,        
     })
 }
+
+module.exports.renderReferrals = async function (req, res) {
+    const userAddress = req.cookies.userAddress
+    if (!userAddress) {
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
+    }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    res.render('referrals', {
+        host: process.env.SERVER_HOST,
+        title: 'Referidos',
+        url: 'referrals',
+        userData: userData.payload,
+        platformData: platformData.payload,        
+    })
+}
+
+module.exports.renderUplines = async function (req, res) {
+    const userAddress = req.cookies.userAddress
+    if (!userAddress) {
+        res.writeHead(302, {
+            'Location': '/login'
+        })
+        res.end()
+    }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    res.render('uplines', {
+        host: process.env.SERVER_HOST,
+        title: 'Líneas Ascendentes',
+        url: 'uplines',
+        userData: userData.payload,
+        platformData: platformData.payload,        
+    })
+}

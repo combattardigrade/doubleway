@@ -130,7 +130,7 @@
             $(this).addClass('active')
             $('.tx-container').hide()
             const table = $(this).data('table')
-            if(table == 1) $('#inTxs').show()
+            if (table == 1) $('#inTxs').show()
             else if (table == 2) $('#myTxs').show()
             else if (table == 3) $('#extraEarnings').show()
             else if (table == 4) $('#lostEarnings').show()
@@ -140,10 +140,50 @@
         // Format level expiration date
         $('.date').each(function () {
             let date = new Date($(this).html() * 1000)
-            date = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()            
+            date = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
             $(this).html(date)
         })
 
+
+        // Stats
+        $('.stats-icon').click(function () {
+            const icon = $(this)
+            if ($(icon).data('show') == 0) {
+                $(icon).removeClass('fa-plus-square').addClass('fa-minus-square')
+                $(icon).data('show', 1)
+                const type = $(this).data('type')
+                if (type == 'level') {
+                    const level = $(this).data('level')
+                    $('.stats-ref-row').each(function (i, row) {                        
+                        if ($(row).data('type') == type && $(row).data('level') == level) $(row).show()
+                    })
+                }
+                else if (type == 'line') {
+                    const line = $(this).data('line')
+                    $('.stats-ref-row').each(function (i, row) {                        
+                        if ($(row).data('type') == type && $(row).data('line') == line) $(row).show()
+                    })
+                }
+            }
+            else if ($(icon).data('show') == 1) {
+                $(icon).data('show', 0)
+                $(icon).removeClass('fa-minus-square').addClass('fa-plus-square')
+                const type = $(this).data('type')
+                if (type == 'level') {
+                    const level = $(this).data('level')
+                    $('.stats-ref-row').each(function (i, row) {                        
+                        if ($(row).data('type') == type && $(row).data('level') == level) $(row).hide()
+                    })
+                }
+                else if (type == 'line') {
+                    const line = $(this).data('line')
+                    $('.stats-ref-row').each(function (i, row) {                        
+                        if ($(row).data('type') == type && $(row).data('line') == line) $(row).hide()
+                    })
+                }
+            }
+
+        })
 
     })
 

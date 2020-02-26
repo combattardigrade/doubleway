@@ -94,10 +94,10 @@ module.exports.getUserData = (req, res) => {
                 userAddress,
                 $or: [
                     {
-                        name: {$eq: 'buyLevelEvent'}
+                        name: { $eq: 'buyLevelEvent' }
                     },
                     {
-                        name: {$eq: 'regLevelEvent'}
+                        name: { $eq: 'regLevelEvent' }
                     }
                 ]
             },
@@ -105,18 +105,43 @@ module.exports.getUserData = (req, res) => {
             transaction: t
         })
 
-        for(tx of myTxs) {
+        for (tx of myTxs) {
             console.log(tx.txHash)
             tx.tx = await Tx.findOne({ where: { hash: tx.txHash }, transaction: t })
         }
 
-        const referrals = await Event.findAll({
+        const referrals = await User.findAll({
             where: {
-                name: 'regLevelEvent',
-                referrer: user.address
+                $or: [
+                    { referrerLevel1: { $eq: userAddress } },
+                    { referrerLevel2: { $eq: userAddress } },
+                    { referrerLevel3: { $eq: userAddress } },
+                    { referrerLevel4: { $eq: userAddress } },
+                    { referrerLevel5: { $eq: userAddress } },
+                    { referrerLevel6: { $eq: userAddress } },
+                    { referrerLevel7: { $eq: userAddress } },
+                    { referrerLevel8: { $eq: userAddress } },
+                ]
             },
             transaction: t
         })
+
+        const referralsByLevel = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] }
+        const referralsByLine = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] }
+        for (ref of referrals) {
+            referralsByLevel[ref.level].push(ref)
+            
+            if(ref.referrerLevel1 == userAddress) referralsByLine[1].push(ref)
+            else if(ref.referrerLevel2 == userAddress) referralsByLine[2].push(ref)
+            else if(ref.referrerLevel3 == userAddress) referralsByLine[3].push(ref)
+            else if(ref.referrerLevel4 == userAddress) referralsByLine[4].push(ref)
+            else if(ref.referrerLevel5 == userAddress) referralsByLine[5].push(ref)
+            else if(ref.referrerLevel6 == userAddress) referralsByLine[6].push(ref)
+            else if(ref.referrerLevel7 == userAddress) referralsByLine[7].push(ref)
+            else if(ref.referrerLevel8 == userAddress) referralsByLine[8].push(ref)      
+        }
+
+
 
         const levelUps = await Event.findAll({
             where: {
@@ -160,16 +185,19 @@ module.exports.getUserData = (req, res) => {
         }
 
         // Get referral count by level
-        const referralCount = {
-            1: await User.count({where: {referrerAddress: userAddress, level: 1}}),
-            2: await User.count({where: {referrerAddress: userAddress, level: 2}}),
-            3: await User.count({where: {referrerAddress: userAddress, level: 3}}),
-            4: await User.count({where: {referrerAddress: userAddress, level: 4}}),
-            5: await User.count({where: {referrerAddress: userAddress, level: 5}}),
-            6: await User.count({where: {referrerAddress: userAddress, level: 6}}),
-            7: await User.count({where: {referrerAddress: userAddress, level: 7}}),
-            8: await User.count({where: {referrerAddress: userAddress, level: 8}}),
-        }
+        // const referralCount = {
+        //     1: await User.count({where: {referrerAddress: userAddress, level: 1}}),
+        //     2: await User.count({where: {referrerAddress: userAddress, level: 2}}),
+        //     3: await User.count({where: {referrerAddress: userAddress, level: 3}}),
+        //     4: await User.count({where: {referrerAddress: userAddress, level: 4}}),
+        //     5: await User.count({where: {referrerAddress: userAddress, level: 5}}),
+        //     6: await User.count({where: {referrerAddress: userAddress, level: 6}}),
+        //     7: await User.count({where: {referrerAddress: userAddress, level: 7}}),
+        //     8: await User.count({where: {referrerAddress: userAddress, level: 8}}),
+        // }
+
+
+
 
         const data = {
             user,
@@ -177,9 +205,10 @@ module.exports.getUserData = (req, res) => {
             totalReferrals: referrals.length,
             totalEarnings,
             levelExp,
-            levelUps,            
+            levelUps,
             myTxs,
-            referralCount,
+            referralsByLevel,
+            referralsByLine
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })
@@ -326,20 +355,34 @@ module.exports.updateData = (req, res) => {
         for (let i = 1; i <= totalUsers; i++) {
             let userAddress = await contract.methods.userList(i).call()
 
-            // Get ReferrerId
-            let referrerId = (await contract.methods.users(userAddress).call()).referrerID
+            // Get Level Expirations
+            let level1Exp = await contract.methods.viewUserLevelExpired(userAddress, 1).call()
+            let level2Exp = await contract.methods.viewUserLevelExpired(userAddress, 2).call()
+            let level3Exp = await contract.methods.viewUserLevelExpired(userAddress, 3).call()
+            let level4Exp = await contract.methods.viewUserLevelExpired(userAddress, 4).call()
+            let level5Exp = await contract.methods.viewUserLevelExpired(userAddress, 5).call()
+            let level6Exp = await contract.methods.viewUserLevelExpired(userAddress, 6).call()
+            let level7Exp = await contract.methods.viewUserLevelExpired(userAddress, 7).call()
+            let level8Exp = await contract.methods.viewUserLevelExpired(userAddress, 8).call()
 
-            // Get ReferrerAddress
-            let referrerAddress = await contract.methods.userList(referrerId).call()
+            // Get Referrers
+            let referrerLevel1 = await contract.methods.getUserReferrer(userAddress, 1).call()
+            let referrerLevel2 = await contract.methods.getUserReferrer(userAddress, 2).call()
+            let referrerLevel3 = await contract.methods.getUserReferrer(userAddress, 3).call()
+            let referrerLevel4 = await contract.methods.getUserReferrer(userAddress, 4).call()
+            let referrerLevel5 = await contract.methods.getUserReferrer(userAddress, 5).call()
+            let referrerLevel6 = await contract.methods.getUserReferrer(userAddress, 6).call()
+            let referrerLevel7 = await contract.methods.getUserReferrer(userAddress, 7).call()
+            let referrerLevel8 = await contract.methods.getUserReferrer(userAddress, 8).call()
 
-            level1Exp = await contract.methods.viewUserLevelExpired(userAddress, 1).call()
-            level2Exp = await contract.methods.viewUserLevelExpired(userAddress, 2).call()
-            level3Exp = await contract.methods.viewUserLevelExpired(userAddress, 3).call()
-            level4Exp = await contract.methods.viewUserLevelExpired(userAddress, 4).call()
-            level5Exp = await contract.methods.viewUserLevelExpired(userAddress, 5).call()
-            level6Exp = await contract.methods.viewUserLevelExpired(userAddress, 6).call()
-            level7Exp = await contract.methods.viewUserLevelExpired(userAddress, 7).call()
-            level8Exp = await contract.methods.viewUserLevelExpired(userAddress, 8).call()
+            referrerLevel1 = referrerLevel1 != '0x0000000000000000000000000000000000000000' ? referrerLevel1 : null
+            referrerLevel2 = referrerLevel2 != '0x0000000000000000000000000000000000000000' ? referrerLevel2 : null
+            referrerLevel3 = referrerLevel3 != '0x0000000000000000000000000000000000000000' ? referrerLevel3 : null
+            referrerLevel4 = referrerLevel4 != '0x0000000000000000000000000000000000000000' ? referrerLevel4 : null
+            referrerLevel5 = referrerLevel5 != '0x0000000000000000000000000000000000000000' ? referrerLevel5 : null
+            referrerLevel6 = referrerLevel6 != '0x0000000000000000000000000000000000000000' ? referrerLevel6 : null
+            referrerLevel7 = referrerLevel7 != '0x0000000000000000000000000000000000000000' ? referrerLevel7 : null
+            referrerLevel8 = referrerLevel8 != '0x0000000000000000000000000000000000000000' ? referrerLevel8 : null
 
             const [user, created] = await User.findOrCreate({
                 where: {
@@ -347,8 +390,14 @@ module.exports.updateData = (req, res) => {
                 },
                 defaults: {
                     id: i,
-                    referrerAddress,
-                    referrerId,
+                    referrerLevel1,
+                    referrerLevel2,
+                    referrerLevel3,
+                    referrerLevel4,
+                    referrerLevel5,
+                    referrerLevel6,
+                    referrerLevel7,
+                    referrerLevel8,
                     level1Exp,
                     level2Exp,
                     level3Exp,
@@ -362,6 +411,14 @@ module.exports.updateData = (req, res) => {
             })
 
             if (!created) {
+                user.referrerLevel1 = referrerLevel1
+                user.referrerLevel2 = referrerLevel2
+                user.referrerLevel3 = referrerLevel3
+                user.referrerLevel4 = referrerLevel4
+                user.referrerLevel5 = referrerLevel5
+                user.referrerLevel6 = referrerLevel6
+                user.referrerLevel7 = referrerLevel7
+                user.referrerLevel8 = referrerLevel8
                 user.level1Exp = level1Exp
                 user.level2Exp = level2Exp
                 user.level3Exp = level3Exp
@@ -505,35 +562,3 @@ module.exports.updateData = (req, res) => {
         })
 }
 
-module.exports.getQrCode = async (req, res) => {
-    const userId = req.params.userId
-    if (!userId) {
-        sendJSONresponse(res, 422, { status: 'ERROR', message: 'Missing required arguments' })
-        return
-    }
-
-    const user = await User.findOne({ where: { id: userId } })
-    if (!user) {
-        sendJSONresponse(res, 404, { status: 'ERROR', message: 'User not found' })
-        return
-    }
-
-    const qrCodes = []
-    const levelPrices = [0.08, 0.16, 0.32, 0.64, 1.28, 2.56, 5.12, 10.24]
-
-    for (let i = 0; i < 8; i++) {
-        QRCode.toDataURL(data, function (err, url) {
-            let data = `ethereum:${process.env.CONTRACT_ADDRESS}?amount=${levelPrices[i]}&data=${referrerAddress}`
-            qrCodes.push(url)
-        })
-    }
-
-    // QR codes
-    const referrerAddress = await contract.methods.userList(user.referrerId).call()
-
-    qrCodes = {
-        1: `ethereum:${process.env.CONTRACT_ADDRESS}?amount=${levelPrice}&data=${referrerAddress}`
-    }
-
-    let data = `ethereum:${contractAddress}?amount=${amount}&data=${referrerAddress}`
-}

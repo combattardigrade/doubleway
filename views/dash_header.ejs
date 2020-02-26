@@ -346,6 +346,10 @@
             .tab-list {
                 display: inline-block !important;
             }
+            .stats-alert{
+                margin-left: 5% !important;
+                margin-right: 5% !important;
+            }
 
         }
 
@@ -432,10 +436,21 @@
             text-decoration: underline;
         }
 
-        /* stats */
+        /* Stats */
         .stats-icon{
-            font-size: 2.5em;
+            font-size: 1.5em;
+            cursor: pointer;
         }
+        .stats-ref-row {
+            display:none;
+        }
+         
+
+        /* .stats-table tbody tr:hover {
+            color: white;
+            
+            background-color: #10122d;
+        } */
     </style>
 
 </head>
@@ -837,7 +852,7 @@
 
 
                         <li class="pa-navigation__item">
-                            <a href="./uplines.php"
+                            <a href="/uplines"
                                 class="pa-navigation__link pa-navigation__link--uplines  collapsed ">
                                 <h6 class="menu-title">
                                     <i class="fa fa-arrow-up menu-icon"></i>
@@ -856,7 +871,7 @@
                         </style>
 
                         <li class="pa-navigation__item li_logout_bodyaccountno">
-                            <a href="./signup.php" class="pa-navigation__link pa-navigation__link--logout">
+                            <a href="/logout" class="pa-navigation__link pa-navigation__link--logout">
                                 <h6 class="menu-title">
                                     <i class="fa fa-user menu-icon"></i>
                                     <span class="menu-text">CERRAR SESIÓN</span> </h6>
