@@ -11,16 +11,17 @@
                             <i class="fa fa-exclamation-circle"></i>
                             Las estadísticas y datos pueden tardar algunos minutos en actualizarse
                         </div>
-                        <table id="" class="table  tx-container stats-table"
+                        <table id="statsReferralsByLevel" class="table table-responsive stats-table"
                             style="margin: 0px auto; width: 50% !important; margin-top:40px; font-size: 1.5em">
                             <thead>
-                                <th>Detalles</th>
-                                <th>Nivel</th>
-                                <th>Total</th>
+                                <th style="text-align: left;">Detalles</th>
+                                <th style="text-align: left;">Nivel</th>
+                                <th style="text-align: left;">Total</th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='1' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='1'
+                                            data-show='0'></i>
                                     </td>
                                     <td>1</td>
                                     <td><%= userData.referralsByLevel[1].length %></td>
@@ -30,16 +31,21 @@
                                     for(ref of userData.referralsByLevel[1]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='1'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='2' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='2'
+                                            data-show='0'></i>
                                     </td>
                                     <td>2</td>
                                     <td><%= userData.referralsByLevel[1].length %></td>
@@ -49,16 +55,21 @@
                                     for(ref of userData.referralsByLevel[2]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='2'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='3' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='3'
+                                            data-show='0'></i>
                                     </td>
                                     <td>3</td>
                                     <td><%= userData.referralsByLevel[3].length %></td>
@@ -67,16 +78,21 @@
                                     for(ref of userData.referralsByLevel[3]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='3'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='4' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='4'
+                                            data-show='0'></i>
                                     </td>
                                     <td>4</td>
                                     <td><%= userData.referralsByLevel[4].length %></td>
@@ -85,16 +101,21 @@
                                     for(ref of userData.referralsByLevel[4]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='4'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='5' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='5'
+                                            data-show='0'></i>
                                     </td>
                                     <td>5</td>
                                     <td><%= userData.referralsByLevel[5].length %></td>
@@ -103,16 +124,21 @@
                                     for(ref of userData.referralsByLevel[5]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='5'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='6' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='6'
+                                            data-show='0'></i>
                                     </td>
                                     <td>6</td>
                                     <td><%= userData.referralsByLevel[6].length %></td>
@@ -121,16 +147,21 @@
                                     for(ref of userData.referralsByLevel[6]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='6'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='7' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='7'
+                                            data-show='0'></i>
                                     </td>
                                     <td>7</td>
                                     <td><%= userData.referralsByLevel[7].length %></td>
@@ -139,16 +170,21 @@
                                     for(ref of userData.referralsByLevel[7]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='7'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='8' data-show='0'></i>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='level' data-level='8'
+                                            data-show='0'></i>
                                     </td>
                                     <td>8</td>
                                     <td><%= userData.referralsByLevel[8].length %></td>
@@ -157,11 +193,15 @@
                                     for(ref of userData.referralsByLevel[8]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='level' data-level='8'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
                             </tbody>
@@ -169,16 +209,17 @@
 
 
 
-                        <table id="" class="table  tx-container stats-table"
-                            style="margin: 0px auto; width: 50% !important; margin-top:40px; font-size: 1.5em">
+                        <table id="statsReferrersByLine" class="table table-responsive stats-table"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px; font-size: 1.5em; text-align:left">
                             <thead>
-                                <th>Detalles</th>
-                                <th>Línea</th>
-                                <th>Total</th>
+                                <th style="text-align: left;">Detalles</th>
+                                <th style="text-align: left;">Línea</th>
+                                <th style="text-align: left;">Total</th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='1' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='1'
+                                            data-show='0'></i></td>
                                     <td>1</td>
                                     <td><%= userData.referralsByLine[1].length %></td>
                                 </tr>
@@ -186,17 +227,22 @@
                                     for(ref of userData.referralsByLine[1]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='1'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='2' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='2'
+                                            data-show='0'></i></td>
                                     <td>2</td>
                                     <td><%= userData.referralsByLine[2].length %></td>
                                 </tr>
@@ -204,16 +250,21 @@
                                     for(ref of userData.referralsByLine[2]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='2'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='3' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='3'
+                                            data-show='0'></i></td>
                                     <td>3</td>
                                     <td><%= userData.referralsByLine[3].length %></td>
                                 </tr>
@@ -221,16 +272,21 @@
                                     for(ref of userData.referralsByLine[3]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='3'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='4' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='4'
+                                            data-show='0'></i></td>
                                     <td>4</td>
                                     <td><%= userData.referralsByLine[4].length %></td>
                                 </tr>
@@ -238,16 +294,21 @@
                                     for(ref of userData.referralsByLine[4]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='4'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='5' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='5'
+                                            data-show='0'></i></td>
                                     <td>5</td>
                                     <td><%= userData.referralsByLine[5].length %></td>
                                 </tr>
@@ -255,16 +316,21 @@
                                     for(ref of userData.referralsByLine[5]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='5'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='6' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='6'
+                                            data-show='0'></i></td>
                                     <td>6</td>
                                     <td><%= userData.referralsByLine[6].length %></td>
                                 </tr>
@@ -272,16 +338,21 @@
                                     for(ref of userData.referralsByLine[6]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='6'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='7' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='7'
+                                            data-show='0'></i></td>
                                     <td>7</td>
                                     <td><%= userData.referralsByLine[7].length %></td>
                                 </tr>
@@ -289,16 +360,21 @@
                                     for(ref of userData.referralsByLine[7]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='7'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
 
                                 <tr>
-                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='8' data-show='0'></i></td>
+                                    <td><i class="fa fa-plus-square stats-icon" data-type='line' data-line='8'
+                                            data-show='0'></i></td>
                                     <td>8</td>
                                     <td><%= userData.referralsByLine[8].length %></td>
                                 </tr>
@@ -306,11 +382,15 @@
                                     for(ref of userData.referralsByLine[8]) {
                                 %>
                                 <tr class="stats-ref-row" data-type='line' data-line='8'>
-                                    <td>ID: <%= ref.id %></td>
-                                    <td>Dirección: <%= ref.address %></td>
-                                    <td>L1: <% ref.level1Exp %> L2: <% ref.level2Exp %> L3: <% ref.level3Exp %> L4:
-                                        <% ref.level4Exp %> L5: <% ref.level5Exp %> L6: <% ref.level6Exp %> L7:
-                                        <% ref.level8Exp %> L1: <% ref.level8Exp %></td>
+                                    <td style="text-align: left;">ID: <%= ref.id %> Dirección: <%= ref.address %><br>L1:
+                                        <span class="date2"><%= ref.level1Exp %></span> L2: <span
+                                            class="date2"><%= ref.level2Exp %></span> L3: <span
+                                            class="date2"><%= ref.level3Exp %></span> L4:
+                                        <span class="date2"><%= ref.level4Exp %></span> L5: <span
+                                            class="date2"><%= ref.level5Exp %></span> L6: <span
+                                            class="date2"><%= ref.level6Exp %></span> L7:
+                                        <span class="date2"><%= ref.level8Exp %></span> L8: <span
+                                            class="date2"><%= ref.level8Exp %></span></td>
                                 </tr>
                                 <% }} %>
                             </tbody>

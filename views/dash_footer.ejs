@@ -144,6 +144,12 @@
             $(this).html(date)
         })
 
+        $('.date2').each(function () {
+            let date = new Date($(this).html() * 1000)
+            date = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() 
+            $(this).html(date)
+        })
+
 
         // Stats
         $('.stats-icon').click(function () {
