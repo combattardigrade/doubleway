@@ -30,7 +30,12 @@ app.use(csurf({ cookie: true }))
 
 app.use('/', routes)
 
-// app.use('/admin',routesAdmin) 
+const CronJob = require('cron').CronJob
+const rp = require('request-promise')
+const job = new CronJob('*/30 * * * * *', async function () {
+    await rp(process.env.API_HOST + '/updateData')
+    console.log('Database updated...')
+})
 
 // error handlers
 // catch unauthorized errors
@@ -51,19 +56,24 @@ app.use((err, req, res, next) => {
             'Location': process.env.SERVER_HOST + '/login'
         });
         res.end();
-    }    
+    }
 })
 
-if(process.env.NODE_ENV === 'production'){
-	app.set('port',process.env.PORT || 3000);
-	app.listen(app.get('port'),function(){
-		console.log('Listening on port ' + app.get('port'));
-	});
-} else if(process.env.NODE_ENV === 'dev'){
-	app.set('port',process.env.PORT || 3000);
-	app.listen(app.get('port'),function(){
-		console.log('Listening on port ' + app.get('port'));
-	});
+
+if (process.env.NODE_ENV === 'production') {
+    app.set('port', process.env.PORT || 3000);
+    app.listen(app.get('port'), function () {
+        console.log('Listening on port ' + app.get('port'));
+        job.start()
+        console.log('Cronjob started...')
+    });
+} else if (process.env.NODE_ENV === 'dev') {
+    app.set('port', process.env.PORT || 3000);
+    app.listen(app.get('port'), function () {
+        console.log('Listening on port ' + app.get('port'));
+        job.start()
+        console.log('Cronjob started...')
+    });
 }
 
 module.exports = app
