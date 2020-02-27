@@ -199,7 +199,7 @@ module.exports.renderReferrals = async function (req, res) {
         api: process.env.API_HOST,
         title: 'Referidos',
         url: 'referrals',
-        jsFile: 'referrals.js',
+        
         userData: userData.payload,
         platformData: platformData.payload,        
     })
@@ -219,6 +219,7 @@ module.exports.renderUplines = async function (req, res) {
         host: process.env.SERVER_HOST,        
         title: 'Líneas Ascendentes',
         url: 'uplines',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
         userData: userData.payload,
         platformData: platformData.payload,        
     })

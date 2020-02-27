@@ -34,7 +34,7 @@
                             <tbody>
                                 <% let i = 1 %>
                                 <% for(tx of userData.levelUps) { %><tr>
-                                    <td><a href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.referral %></a></td>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a></td>
                                     <td><%= platformData.levels[tx.level].price %> ETH</td>
                                     <td><%= i %></td>
                                     <td class="date"><%= tx.time %></td>
@@ -57,7 +57,7 @@
                                 <% for(tx of userData.myTxs) { %><tr>
                                     <% if(tx.name == 'regLevelEvent') %>
                                     <td><a
-                                            href="<%= `${etherscanExplorer}/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
                                     </td>
                                     <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
                                     </td>

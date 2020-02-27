@@ -184,20 +184,17 @@ module.exports.getUserData = (req, res) => {
             8: user.level8Exp,
         }
 
-        // Get referral count by level
-        // const referralCount = {
-        //     1: await User.count({where: {referrerAddress: userAddress, level: 1}}),
-        //     2: await User.count({where: {referrerAddress: userAddress, level: 2}}),
-        //     3: await User.count({where: {referrerAddress: userAddress, level: 3}}),
-        //     4: await User.count({where: {referrerAddress: userAddress, level: 4}}),
-        //     5: await User.count({where: {referrerAddress: userAddress, level: 5}}),
-        //     6: await User.count({where: {referrerAddress: userAddress, level: 6}}),
-        //     7: await User.count({where: {referrerAddress: userAddress, level: 7}}),
-        //     8: await User.count({where: {referrerAddress: userAddress, level: 8}}),
-        // }
-
-
-
+        // Get Referrers        
+        const referrers = {
+            1: await User.findOne({ where: { address: user.referrerLevel1 }, transaction: t }),
+            2: await User.findOne({ where: { address: user.referrerLevel2 }, transaction: t }),
+            3: await User.findOne({ where: { address: user.referrerLevel3 }, transaction: t }),
+            4: await User.findOne({ where: { address: user.referrerLevel4 }, transaction: t }),
+            5: await User.findOne({ where: { address: user.referrerLevel5 }, transaction: t }),
+            6: await User.findOne({ where: { address: user.referrerLevel6 }, transaction: t }),
+            7: await User.findOne({ where: { address: user.referrerLevel7 }, transaction: t }),
+            8: await User.findOne({ where: { address: user.referrerLevel8 }, transaction: t })
+        }
 
         const data = {
             user,
@@ -208,7 +205,8 @@ module.exports.getUserData = (req, res) => {
             levelUps,
             myTxs,
             referralsByLevel,
-            referralsByLine
+            referralsByLine,
+            referrers
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })
@@ -570,9 +568,9 @@ module.exports.getReferrals = (req, res) => {
     }
     sequelize.transaction(async (t) => {
         // Check if user exists and get address
-        const user = await User.findOne({ where: {id: userId }, attributes: ['id', 'address'], transaction: t})
-        if(!user) {
-            sendJSONresponse(res, 404, {status: 'ERROR', message: 'User not found'})
+        const user = await User.findOne({ where: { id: userId }, attributes: ['id', 'address'], transaction: t })
+        if (!user) {
+            sendJSONresponse(res, 404, { status: 'ERROR', message: 'User not found' })
             return
         }
 
@@ -589,7 +587,7 @@ module.exports.getReferrals = (req, res) => {
             }
         })
 
-        sendJSONresponse(res, 200, {status: 'OK', payload: referrals})
+        sendJSONresponse(res, 200, { status: 'OK', payload: referrals })
         return
     })
         .catch((err) => {
