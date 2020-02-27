@@ -280,30 +280,25 @@
                                             </div>
                                             <div class="cpn-btns">
                                                 <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.55">
-                                                    <li><a href="#" class="btn btn-md btn-grad btn-round">OBTENER HASTA 3,500 ETH</a></li>
+                                                    <li><a href="/signup" class="btn btn-md btn-grad btn-round">OBTENER HASTA 3,500 ETH</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="cpn-social">
                                                 <ul class="social">
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a
-                                                            href="#"><em class="social-icon fab fa-facebook-f"></em></a>
+                                                            href="<%= platformData.facebook %>"><em class="social-icon fab fa-facebook-f"></em></a>
                                                     </li>
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a
-                                                            href="#"><em class="social-icon fab fa-twitter"></em></a>
+                                                            href="<%= platformData.twitter %>"><em class="social-icon fab fa-twitter"></em></a>
                                                     </li>
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a
-                                                            href="#"><em class="social-icon fab fa-youtube"></em></a>
+                                                            href="<%= platformData.youtube %>"><em class="social-icon fab fa-youtube"></em></a>
                                                     </li>
                                                     <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a
-                                                            href="#"><em class="social-icon fab fa-github"></em></a>
+                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>"><em class="social-icon fab fa-github"></em></a>
                                                     </li>
-                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.85"><a
-                                                            href="#"><em class="social-icon fab fa-bitcoin"></em></a>
-                                                    </li>
-                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.9"><a
-                                                            href="#"><em class="social-icon fab fa-medium-m"></em></a>
-                                                    </li>
+                                                    
                                                 </ul>
                                             </div>
                                         </div>

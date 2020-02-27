@@ -7,11 +7,14 @@ module.exports.renderHome = async function (req, res) {
         const response = await (await fetch(process.env.API_HOST + `/checkRefId/${req.query.rid}`)).json()
         if (response.status == 'OK') res.cookie('rid', req.query.rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
     }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('home', {
         host: process.env.SERVER_HOST,
         title: 'Inicio',
         homePage: true,
-        url: 'home'
+        url: 'home',
+        platformData: platformData.payload,
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL
     })
 }
 

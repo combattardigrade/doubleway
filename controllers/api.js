@@ -237,11 +237,17 @@ module.exports.getPlatformData = (req, res) => {
         // Get Total Txs and Volume
         const txs = await Tx.findAll({ attributes: ['id', 'value'], transaction: t })
         let volume = new BigNumber(0)
-        for (tx of txs) {
-            value = weiToEther(tx.value)
-            volume = volume.plus(value)
+        for (tx of txs) {            
+            volume = volume.plus(tx.value)
         }
 
+        // Get Total Txs in the last 24 hrs
+        const last24hTxs = await Tx.findAll({ where: { createdAt: { $gt: moment().subtract(1, 'days').toDate() } }, attributes: ['id', 'value'], transaction: t })
+        let last24hVolume = new BigNumber(0)
+        for (tx of last24hTxs) {                        
+            last24hVolume = last24hVolume.plus(tx.value)            
+        }
+        //console.log(parseFloat(last24hVolume))
         // Convertions        
         let usd_volume = volume.multipliedBy(new BigNumber(stats.eth_usd))
         let btc_volume = usd_volume.div(new BigNumber(stats.btc_usd))
@@ -261,6 +267,9 @@ module.exports.getPlatformData = (req, res) => {
             8: { price: 10.24, income: 2621.55, referrals: 256 },
         }
 
+        // Earnings
+        const moneyTxs = await Event.findAll({ where: {name: 'getMoneyForLevelEvent'}, limit: 10, order: [['time', 'DESC']], transaction: t})
+       
         const data = {
             totalUsers,
             totalUsersByLevel,
@@ -268,7 +277,9 @@ module.exports.getPlatformData = (req, res) => {
                 total: txs.length,
                 eth_volume: volume.toFixed(4),
                 usd_volume: usd_volume.toFixed(2),
-                btc_volume: btc_volume.toFixed(4)
+                btc_volume: btc_volume.toFixed(4),
+                last24hVolume: last24hVolume,
+                last24hTotal: last24hTxs.length
             },
             projectTime: moment.duration(now.diff(launch)).asYears().toFixed(4),
             levels,
@@ -276,7 +287,12 @@ module.exports.getPlatformData = (req, res) => {
             twitter: stats.twitter,
             telegram: stats.telegram,
             youtube: stats.youtube,
-            contractAddress: process.env.CONTRACT_ADDRESS
+            contractAddress: process.env.CONTRACT_ADDRESS,
+            prices: {
+                btc_usd: parseFloat(stats.btc_usd).toFixed(2),
+                eth_usd: parseFloat(stats.eth_usd).toFixed(2)
+            },            
+            moneyTxs,
         }
 
         sendJSONresponse(res, 200, { status: 'OK', payload: data })

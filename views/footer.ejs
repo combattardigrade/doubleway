@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="#" class="btn btn-md btn-grad btn-grad-alternet btn-round">OBTENER HASTA
+                            <a href="/signup" class="btn btn-md btn-grad btn-grad-alternet btn-round">OBTENER HASTA
                                 3,500 ETH ¡AHORA!</a>
                         </div>
                     </div>
@@ -36,12 +36,22 @@
                     <div class="col">
                         <div class="wgs wgs-text text-center mb-3">
                             <ul class="social pdb-m justify-content-center">
-                                <li><a href="#"><em class="social-icon fab fa-facebook-f"></em></a></li>
-                                <li><a href="#"><em class="social-icon fab fa-twitter"></em></a></li>
-                                <li><a href="#"><em class="social-icon fab fa-youtube"></em></a></li>
-                                <li><a href="#"><em class="social-icon fab fa-github"></em></a></li>
-                                <li><a href="#"><em class="social-icon fab fa-bitcoin"></em></a></li>
-                                <li><a href="#"><em class="social-icon fab fa-medium-m"></em></a></li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a
+                                        href="<%= platformData.facebook %>"><em
+                                            class="social-icon fab fa-facebook-f"></em></a>
+                                </li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a
+                                        href="<%= platformData.twitter %>"><em
+                                            class="social-icon fab fa-twitter"></em></a>
+                                </li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a
+                                        href="<%= platformData.youtube %>"><em
+                                            class="social-icon fab fa-youtube"></em></a>
+                                </li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a
+                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>"><em
+                                            class="social-icon fab fa-github"></em></a>
+                                </li>
                             </ul>
                             <div class="copyright-text copyright-text-s3 pdt-m">
                                 <p><span class="d-sm-block">Todos los derechos reservados &copy; 2020,
@@ -80,7 +90,37 @@
         })
 
 
+        $('.timeSince').each(function () {
+            let date = new Date($(this).html() * 1000)
+            $(this).html(timeSince(date))
+        })
     })
+
+    function timeSince(date) {
+        var seconds = Math.floor((new Date() - date) / 1000);
+        var interval = Math.floor(seconds / 31536000);
+
+        if (interval > 1) {
+            return interval + " años";
+        }
+        interval = Math.floor(seconds / 2592000);
+        if (interval > 1) {
+            return interval + " meses";
+        }
+        interval = Math.floor(seconds / 86400);
+        if (interval > 1) {
+            return interval + " días";
+        }
+        interval = Math.floor(seconds / 3600);
+        if (interval > 1) {
+            return interval + " horas";
+        }
+        interval = Math.floor(seconds / 60);
+        if (interval > 1) {
+            return interval + " minutos";
+        }
+        return Math.floor(seconds) + " segundos";
+    }
 </script>
 </body>
 

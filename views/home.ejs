@@ -122,9 +122,8 @@
                 </div>
                 <h2 class="title title-s4 animated" data-animate="fadeInUp" data-delay=".1" title="Funcionamiento">¿Cómo
                     funciona?</h2>
-                <p class="animated" data-animate="fadeInUp" data-delay=".2">The Cryptocurrency industry is one
-                    of the Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.</p>
+                <p class="animated" data-animate="fadeInUp" data-delay=".2">Necesitas una Wallet de Ethereum y 0.08 ETH.
+                    <br> (0.08 ETH = $<%= (platformData.prices.eth_usd * 0.08).toFixed(2) %> USDT) <br> <b>Paso 0:</b> Si no tienes una Wallet de Ethereum puedes consultar más detalles en <a style="color: #39d884" href='/faqeth'>Ethereum FAQ</a></p>
             </div>
             <!-- Block @s -->
             <div class="nk-block nk-block-roadmap">
@@ -457,6 +456,7 @@
             text-align: left;
             color: #39d884;
             font-weight: bold;
+            padding-right: 20px !important;
         }
 
         .stats-left {
@@ -571,7 +571,9 @@
                 </div>
             </div>
             <div class="text-center animated" data-animate="fadeInUp" data-delay=".4">
-                Estos son solo algunas de las ventajas. ¿Tienes alguna pregunta? <br> <a href="/faq" style="color: #39d884 !important" class="">Ver Preguntas Frecuentes</a><br> <a href="/faq" style="color: #39d884 !important" >Ver Preguntas Frecuentes sobre Ethereum</a>
+                Estos son solo algunas de las ventajas. ¿Tienes alguna pregunta? <br> <a href="/faq"
+                    style="color: #39d884 !important" class="">Ver Preguntas Frecuentes</a><br> <a href="/faq"
+                    style="color: #39d884 !important">Ver Preguntas Frecuentes sobre Ethereum</a>
             </div>
         </div>
     </section>
@@ -594,40 +596,40 @@
                                 <i class="fa fa-users" style="font-size:6em"></i>
                             </div>
                             <div>
-                                <h3>12636</h3>
+                                <h3><%= platformData.totalUsers %></h3>
                                 <div>Total de participantes</div>
                             </div>
                             <div style="margin-top:20px">
                                 <table class="table text-center" style="width: 100%;">
                                     <tr>
                                         <td class="stats-level-title">Nivel 1</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[0].total %></td>
                                         <td class="stats-level-title">Nivel 2</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[1].total %></td>
                                     </tr>
                                     <tr>
                                         <td class="stats-level-title">Nivel 3</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[2].total %></td>
                                         <td class="stats-level-title">Nivel 4</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[3].total %></td>
                                     </tr>
                                     <tr>
                                         <td class="stats-level-title">Nivel 5</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[4].total %></td>
                                         <td class="stats-level-title">Nivel 6</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[5].total %></td>
                                     </tr>
                                     <tr>
                                         <td class="stats-level-title">Nivel 7</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[6].total %></td>
                                         <td class="stats-level-title">Nivel 8</td>
-                                        <td class="stats-level-num">12636</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[7].total %></td>
                                     </tr>
                                 </table>
 
                             </div>
                             <div class="token-action" style="margin-top:20px">
-                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="#">INICIAR
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="/login">INICIAR
                                     SESIÓN</a>
                             </div>
 
@@ -650,22 +652,24 @@
                                     <tr>
                                         <td class="stats-left">Años del proyecto</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;">68.3991</span> BTC</td>
+                                                style="font-weight: bold;"><%= platformData.projectTime %></span> años
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="stats-left">Transacciones</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;">705015.35</span></td>
+                                                style="font-weight: bold;"><%= platformData.txs.total %></span></td>
                                     </tr>
                                     <tr>
                                         <td class="stats-left">Txs 24 horas</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;">155.68</span> ETH</td>
+                                                style="font-weight: bold;"><%= platformData.txs.last24hTotal %></span>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="token-action" style="margin-top:55px">
-                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="#">ABRIR
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="/signup">ABRIR
                                     CUENTA</a>
                             </div>
 
@@ -683,27 +687,32 @@
                                     <tr>
                                         <td class="stats-left">Equivalente BTC</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;">68.3991</span> BTC</td>
+                                                style="font-weight: bold;"><%= platformData.txs.btc_volume %></span> BTC
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="stats-left">Equivalente a $</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;">705015.35</span></td>
+                                                style="font-weight: bold;"><%= platformData.txs.usd_volume %></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="stats-left">Últimas 24 horas</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;">155.68</span> ETH</td>
+                                                style="font-weight: bold;"><%= platformData.txs.last24hVolume %></span>
+                                            ETH</td>
                                     </tr>
                                     <tr>
                                         <td class="stats-left">1 ETH</td>
                                         <td class="stats-right">= <span class="teal"
-                                                style="font-weight: bold;">$155.68</span> </td>
+                                                style="font-weight: bold;">$<%= platformData.prices.eth_usd %></span>
+                                            USDT</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="token-action" style="margin-top:80px">
-                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="#">VER
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round"
+                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">VER
                                     DIRECCIÓN</a>
                             </div>
 
@@ -733,70 +742,21 @@
                             <th style="padding: 0" class="teal">Destino</th>
                         </thead>
                         <tbody>
+                            <% for(let tx of platformData.moneyTxs) {%>
                             <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
+                                <td>Hace <span class="timeSince"><%= tx.time %></span></td>
+                                <td><%= tx.level %></td>
+                                <td><%=  platformData.levels[tx.level].price %></td>
+                                <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.userAddress %></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
-                            <tr>
-                                <td><span>Hace 5 minutos</span></td>
-                                <td>#1</td>
-                                <td>0.05</td>
-                                <td><a href="">0x0bd9A90707D59b7CC159D55b9D393CFE4Ac70d46</a></td>
-                            </tr>
+                            <% } %>
+
                         </tbody>
                     </table>
-                    <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue">Toas las
-                        estadísticas están disponibles en Etherscan</div>
+                    <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue"><a
+                            href="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>">Todas las
+                            estadísticas están disponibles en Etherscan</a></div>
                 </div>
             </div>
             <!-- Block @e -->
