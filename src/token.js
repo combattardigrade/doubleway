@@ -28,6 +28,8 @@ const App = {
                 window.location.replace('/dashboard')
                 return
             }
+        } else {
+            $('#metamaskModal').modal('show')
         }
     },
 
@@ -42,7 +44,6 @@ const App = {
         const userExists = await this.checkUserExists()
         if (userExists) {
             await fetch(process.env.API_HOST + '/setUserAddress/' + App.account)
-            window.location.replace('/dashboard')
             window.location.replace('/dashboard')
             return
         }
@@ -93,7 +94,7 @@ const App = {
 
             let uplineUser
             if (rid) {
-                uplineUser = await App.meta.methods.userList(rid).call()                
+                uplineUser = await App.meta.methods.userList(rid).call()
             } else {
                 // Get upline address
                 uplineUser = JSON.parse(localStorage.getItem('uplineUser'))
@@ -109,12 +110,31 @@ const App = {
             }
             this.web3.eth.sendTransaction(tx, function (err, res) {
                 if (err) {
+                    $('#tx-alert-error').show()
                     console.log(err)
                     return
                 }
                 console.log(res)
-                // redirect or show message
+                // show message
+                $('#tx-alert-success').show()
+
+                // poll server to check if user exists
+                async function checkUser() {
+                    let res = await (await fetch(process.env.API_HOST + '/checkUserExists/' + App.account)).json()
+                    if (res.status == 'OK') {
+                        // set coockie and redirect
+                        await fetch(process.env.API_HOST + '/setUserAddress/' + App.account)
+                        window.location.replace('/dashboard')
+                        return
+                    }
+                    setTimeout(checkUser, 5000);
+                }
+
+                // initial call, or just call refresh directly
+                setTimeout(checkUser, 5000);
             })
+        } else {
+            $('#metamaskModal').modal('show')
         }
     },
 
@@ -196,7 +216,7 @@ const App = {
             referrerID: 0
         }
         localStorage.setItem('uplineUser', JSON.stringify(uplineUser))
-        console.log(localStorage.getItem('uplineUser'))
+        document.getElementById('uplineManualSignup').value = uplineUser.address
         document.getElementById('signupForm-2').style.display = 'block'
         document.getElementById('signupForm-1').style.display = 'none'
         return
@@ -238,7 +258,7 @@ const App = {
         }
     },
 
-    
+
 
 
 }

@@ -201,7 +201,7 @@ module.exports.renderStats = async function (req, res) {
         title: 'Estadísticas',
         url: 'stats',
         userData: userData.payload,
-        platformData: platformData.payload,        
+        platformData: platformData.payload,
     })
 }
 
@@ -220,9 +220,9 @@ module.exports.renderReferrals = async function (req, res) {
         api: process.env.API_HOST,
         title: 'Referidos',
         url: 'referrals',
-        
+
         userData: userData.payload,
-        platformData: platformData.payload,        
+        platformData: platformData.payload,
     })
 }
 
@@ -237,11 +237,12 @@ module.exports.renderUplines = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     res.render('uplines', {
-        host: process.env.SERVER_HOST,        
+        host: process.env.SERVER_HOST,
         title: 'Líneas Ascendentes',
         url: 'uplines',
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
         userData: userData.payload,
-        platformData: platformData.payload,        
+        platformData: platformData.payload,
     })
 }
+

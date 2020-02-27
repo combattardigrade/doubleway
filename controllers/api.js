@@ -237,17 +237,17 @@ module.exports.getPlatformData = (req, res) => {
         // Get Total Txs and Volume
         const txs = await Tx.findAll({ attributes: ['id', 'value'], transaction: t })
         let volume = new BigNumber(0)
-        for (tx of txs) {            
+        for (tx of txs) {
             volume = volume.plus(tx.value)
         }
 
         // Get Total Txs in the last 24 hrs
         const last24hTxs = await Tx.findAll({ where: { createdAt: { $gt: moment().subtract(1, 'days').toDate() } }, attributes: ['id', 'value'], transaction: t })
         let last24hVolume = new BigNumber(0)
-        for (tx of last24hTxs) {                        
-            last24hVolume = last24hVolume.plus(tx.value)            
+        for (tx of last24hTxs) {
+            last24hVolume = last24hVolume.plus(tx.value)
         }
-        
+
         // Convertions        
         let usd_volume = volume.multipliedBy(new BigNumber(stats.eth_usd))
         let btc_volume = usd_volume.div(new BigNumber(stats.btc_usd))
@@ -268,8 +268,8 @@ module.exports.getPlatformData = (req, res) => {
         }
 
         // Earnings
-        const moneyTxs = await Event.findAll({ where: {name: 'getMoneyForLevelEvent'}, limit: 10, order: [['time', 'DESC']], transaction: t})
-       
+        const moneyTxs = await Event.findAll({ where: { name: 'getMoneyForLevelEvent' }, limit: 10, order: [['time', 'DESC']], transaction: t })
+
         const data = {
             totalUsers,
             totalUsersByLevel,
@@ -291,7 +291,7 @@ module.exports.getPlatformData = (req, res) => {
             prices: {
                 btc_usd: parseFloat(stats.btc_usd).toFixed(2),
                 eth_usd: parseFloat(stats.eth_usd).toFixed(2)
-            },            
+            },
             moneyTxs,
         }
 
@@ -613,3 +613,19 @@ module.exports.getReferrals = (req, res) => {
         })
 }
 
+module.exports.checkUserExists = (req, res) => {
+    const userAddress = req.params.userAddress
+    if (!userAddress) {
+        sendJSONresponse(res, 422, { status: 'ERROR', message: 'Missing required arguments' })
+        return
+    }
+    User.findOne({ where: { address: userAddress } })
+        .then((user) => {
+            if (!user) {
+                sendJSONresponse(res, 404, { status: 'ERROR', message: 'User not found' })
+                return
+            }
+            sendJSONresponse(res, 200, { status: 'OK', message: 'User exists' })
+            return
+        })
+}

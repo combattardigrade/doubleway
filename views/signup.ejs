@@ -318,7 +318,7 @@
                                                                 <div>Enviar a (dirección del Contrato Inteligente):
                                                                 </div>
                                                                 <input type="text" readonly
-                                                                    value="0x45266CD8e2bd4F25a5DDa555C86244503768f22d"
+                                                                    value="<%= platformData.contractAddress %>"
                                                                     class="input-solid input-solid-md required email"
                                                                     style="background:#0b0c22;border:1px solid #171a4b">
                                                             </div>
@@ -331,8 +331,8 @@
                                                             <div style="margin-top:15px">
                                                                 <div>Ingrese DATOS (su dirección de línea ascendente)
                                                                     :</div>
-                                                                <input type="text" readonly
-                                                                    value="0x34a78D7B0315F38145Ec0867acb586C1fb4c7D38"
+                                                                <input id="uplineManualSignup" type="text" readonly
+                                                                    value=""
                                                                     class="input-solid input-solid-md required email"
                                                                     style="background:#0b0c22;border:1px solid #171a4b">
                                                             </div>
@@ -356,7 +356,7 @@
                                                         <div style="margin-top:40px;margin-bottom:40px">
 
                                                             <input type="text" readonly
-                                                                value="0xA22c1B5320108C19dB53f58241Fd64b105562296"
+                                                                value="<%= platformData.contractAddress %>"
                                                                 class="input-solid input-solid-md required email"
                                                                 style="background:#0b0c22;border:1px solid #171a4b">
                                                         </div>
@@ -429,12 +429,13 @@
                                                                         </span></p>
                                                                 </div>
                                                                 <div style="font-size: 14px;margin-top: 20px"><a
-                                                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Dirección
-                                                                    de Contrato Inteligente</a></div>
+                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Dirección
+                                                                        de Contrato Inteligente</a></div>
                                                                 <div style="font-size: 14px"><a href="/terminos"">Términos y condiciones</a>
                                                                 </div>
-                                                                <div style="font-size: 14px"><a
-                                                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Código Abierto</a></div>
+                                                                <div style=" font-size: 14px"><a
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Código
+                                                                            Abierto</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -460,10 +461,43 @@
             <!-- .header-banner @e -->
         </header>
 
-        <main class="nk-pages">
+        <div id="tx-alert-success"
+            style="position: fixed; bottom: 0; left:0; right: 0; margin: auto; background-color: #39d884; width: 100%; z-index: 20;  padding: 16px 64px; display: none;">
+            <div style="color: white; font-weight: 500; font-size: 2em; ">Transacción Enviada</div>
+            <div style="color: white; font-weight: 500; font-size: 1.2em;">Puedes ver el estado de la transacción aquí:
+                <a style="color: #0c195a; font-weight: 500; text-decoration: underline;" href="">etherscan.io</a></div>
+        </div>
 
+        <div id="tx-alert-error"
+            style="position: fixed; bottom: 0; left:0; right: 0; margin: auto; background-color: #dc3545; width: 100%; z-index: 20;  padding: 16px 64px;display:none ">
+            <div style="color: white; font-weight: 500; font-size: 2em; ">Error al intentar enviar la transacción </div>
+            <div style="color: white; font-weight: 500; font-size: 1.2em;">Ocurrió un error inesperado al intentar
+                realizar la operación.
+            </div>
+        </div>
 
-        </main>
+        <div class="modal fade" id="metamaskModal" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
+                            class="ti ti-close"></em></a>
+                    <div class="modal-body p-md-4 p-lg-5">
+
+                        <div class="row">
+                            <div class="col-10 offset-1 text-center">
+                                <h3 class="title title-md">Descarga MetaMask</h3>
+                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png"
+                                        alt=""></a>
+                                <p style="text-align: justify;margin-top:20px">Para registrarte e ingresar a la
+                                    plataforma automáticamente necesitas instalar la billetera de Ethereum, MetaMask
+                                    para navegador.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
