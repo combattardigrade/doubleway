@@ -10,5 +10,5 @@ module.exports = {
     plugins: [
         new Dotenv()
     ],
-    devServer: { contentBase: path.resolve(__dirname, 'public'), compress: true }
+    devServer: { contentBase: path.resolve(__dirname, 'public'), compress: true,  }
 }

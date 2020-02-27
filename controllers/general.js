@@ -199,6 +199,7 @@ module.exports.renderReferrals = async function (req, res) {
         api: process.env.API_HOST,
         title: 'Referidos',
         url: 'referrals',
+        jsFile: 'referrals.js',
         userData: userData.payload,
         platformData: platformData.payload,        
     })
