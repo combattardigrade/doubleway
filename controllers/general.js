@@ -54,35 +54,47 @@ module.exports.renderSignup = async function (req, res) {
     })
 }
 
-module.exports.renderFaq = function (req, res) {
+module.exports.renderFaq = async function (req, res) {
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('faq', {
         host: process.env.SERVER_HOST,
         title: 'Preguntas Frecuentes',
-        url: 'faq'
+        url: 'faq',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        platformData: platformData.payload
     })
 }
 
-module.exports.renderFaqEth = function (req, res) {
+module.exports.renderFaqEth = async function (req, res) {
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('faqeth', {
         host: process.env.SERVER_HOST,
         title: 'Preguntas Frecuentes Sobre Ethereum',
-        url: 'faqeth'
+        url: 'faqeth',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        platformData: platformData.payload
     })
 }
 
-module.exports.renderTerminos = function (req, res) {
+module.exports.renderTerminos = async function (req, res) {
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('terminos', {
         host: process.env.SERVER_HOST,
         title: 'Términos y condiciones',
-        url: 'terminos'
+        url: 'terminos',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        platformData: platformData.payload
     })
 }
 
-module.exports.renderComofunciona = function (req, res) {
+module.exports.renderComofunciona = async function (req, res) {
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('comofunciona', {
         host: process.env.SERVER_HOST,
         title: '¿Cómo funciona?',
-        url: 'comofunciona'
+        url: 'comofunciona',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        platformData: platformData.payload
     })
 }
 
