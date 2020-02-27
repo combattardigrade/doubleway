@@ -23,10 +23,13 @@ module.exports.renderLogin = async function (req, res) {
         const response = await (await fetch(process.env.API_HOST + `/checkRefId/${req.query.rid}`)).json()
         if (response.status == 'OK') res.cookie('rid', req.query.rid, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
     }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('login', {
         host: process.env.SERVER_HOST,
         title: 'Iniciar sesión',
-        url: 'login'
+        url: 'login',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        platformData: platformData.payload
     })
 }
 
@@ -40,11 +43,14 @@ module.exports.renderSignup = async function (req, res) {
             rid = null
         }
     }
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     res.render('signup', {
         host: process.env.SERVER_HOST,
         title: 'Registrar cuenta',
         url: 'signup',
-        rid: rid ? rid : req.cookies.rid ? req.cookies.rid : null
+        rid: rid ? rid : req.cookies.rid ? req.cookies.rid : null,
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        platformData: platformData.payload
     })
 }
 

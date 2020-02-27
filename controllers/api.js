@@ -247,7 +247,7 @@ module.exports.getPlatformData = (req, res) => {
         for (tx of last24hTxs) {                        
             last24hVolume = last24hVolume.plus(tx.value)            
         }
-        //console.log(parseFloat(last24hVolume))
+        
         // Convertions        
         let usd_volume = volume.multipliedBy(new BigNumber(stats.eth_usd))
         let btc_volume = usd_volume.div(new BigNumber(stats.btc_usd))

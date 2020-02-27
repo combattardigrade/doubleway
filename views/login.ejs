@@ -97,7 +97,7 @@
                                                     </h5>
                                                 </a>
                                                 <h6 style="color: white;margin-top:30px;font-size:16px"
-                                                            id="networkResponse"></h6>
+                                                    id="networkResponse"></h6>
                                                 <div style="padding-top:20px">Recomendado para:</div>
                                                 <div style="margin-bottom: 40px">
                                                     <p
@@ -131,12 +131,13 @@
                                                     style="text-align: left;margin-top: 40px;padding-left: 10px;padding-bottom: 10px">
                                                     <img src="images/dark/eth-white.png" style="height: 20px;" alt="">
                                                     Tu dirección ETH</div>
-                                                
+
                                                 <input id="manualLoginAccount"
                                                     placeholder="Ingresa la dirección de tu monedero de Ethereum"
                                                     type="text" class="input-solid input-solid-md required email"
                                                     style="background:#0b0c22;border:1px solid #171a4b">
-                                                <a onclick="App.manualLogin()" style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
+                                                <a onclick="App.manualLogin()"
+                                                    style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                     <h5 style="font-size:1em">Iniciar sesión manualmente</h5>
                                                 </a>
@@ -167,23 +168,25 @@
                                                         <div class="col">
                                                             <div class="wgs wgs-text text-center mb-3">
                                                                 <ul class="social pdb-m justify-content-center">
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.65"><a
+                                                                            href="<%= platformData.facebook %>"><em
                                                                                 class="social-icon fab fa-facebook-f"></em></a>
                                                                     </li>
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.7"><a
+                                                                            href="<%= platformData.twitter %>"><em
                                                                                 class="social-icon fab fa-twitter"></em></a>
                                                                     </li>
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.75"><a
+                                                                            href="<%= platformData.youtube %>"><em
                                                                                 class="social-icon fab fa-youtube"></em></a>
                                                                     </li>
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.8"><a
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>"><em
                                                                                 class="social-icon fab fa-github"></em></a>
-                                                                    </li>
-                                                                    <li><a href="#"><em
-                                                                                class="social-icon fab fa-bitcoin"></em></a>
-                                                                    </li>
-                                                                    <li><a href="#"><em
-                                                                                class="social-icon fab fa-medium-m"></em></a>
                                                                     </li>
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
@@ -192,11 +195,13 @@
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
-                                                                <div style="font-size: 14px;margin-top: 20px">Dirección
-                                                                    de Contrato Inteligente</div>
-                                                                <div style="font-size: 14px">Términos y condiciones
+                                                                <div style="font-size: 14px;margin-top: 20px"><a
+                                                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Dirección
+                                                                    de Contrato Inteligente</a></div>
+                                                                <div style="font-size: 14px"><a href="/terminos"">Términos y condiciones</a>
                                                                 </div>
-                                                                <div style="font-size: 14px">Código Abierto</div>
+                                                                <div style="font-size: 14px"><a
+                                                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Código Abierto</a></div>
                                                             </div>
                                                         </div>
                                                     </div>

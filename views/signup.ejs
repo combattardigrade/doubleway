@@ -148,7 +148,8 @@
                                                         Obtén una línea ascendente del sistem. Sin línea ascendente, el
                                                         contrato inteligente no aceptará la transferencia</div>
 
-                                                    <a onclick="App.getUpline()" style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
+                                                    <a onclick="App.getUpline()"
+                                                        style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
                                                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                         <h5 style="font-size:1em">Obtener línea ascendente</h5>
                                                     </a>
@@ -218,25 +219,28 @@
                                                         cursor: pointer;
                                                     }
                                                 </style>
-                                                
+
                                                 <div id='signupForm-2' style="display:<%= rid ? 'block' : 'none' %>">
                                                     <h5>(Compra de Nivel 1)</h5>
                                                     <ul class="tab-list text-center"
                                                         style="margin-bottom: 40px;display:flex">
-                                                        <li id="method1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
-                                                                class="pa-btn pa-btn--tab"
+                                                        <li id="method1" class="methodSelector active"><a href="#tab_1"
+                                                                data-toggle="tab" class="pa-btn pa-btn--tab"
                                                                 aria-expanded="true">automáticamente</a></li>
-                                                        <li id="method2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
-                                                                class="pa-btn pa-btn--tab" aria-expanded="false">Manualmente</a></li>
-                                                        <li id="method3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
-                                                                class="pa-btn pa-btn--tab" aria-expanded="false">vía
+                                                        <li id="method2" class="methodSelector"><a href="#tab_2"
+                                                                data-toggle="tab" class="pa-btn pa-btn--tab"
+                                                                aria-expanded="false">Manualmente</a></li>
+                                                        <li id="method3" class="methodSelector"><a href="#tab_3"
+                                                                data-toggle="tab" class="pa-btn pa-btn--tab"
+                                                                aria-expanded="false">vía
                                                                 CryptoHands</a></li>
                                                     </ul>
                                                     <div id="signupMethod1" class="signupMethod" style="">
                                                         <div style="display: flex;">
 
 
-                                                            <a id="signup-btn" onclick="App.signup(<%= rid && (rid)  %>)"
+                                                            <a id="signup-btn"
+                                                                onclick="App.signup(<%= rid && (rid)  %>)"
                                                                 style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
                                                                 href="#"
                                                                 class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
@@ -314,19 +318,26 @@
                                                                 <div>Enviar a (dirección del Contrato Inteligente):
                                                                 </div>
                                                                 <input type="text" readonly
-                                                                    value="0x45266CD8e2bd4F25a5DDa555C86244503768f22d" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                                    value="0x45266CD8e2bd4F25a5DDa555C86244503768f22d"
+                                                                    class="input-solid input-solid-md required email"
+                                                                    style="background:#0b0c22;border:1px solid #171a4b">
                                                             </div>
                                                             <div style="margin-top:15px">
                                                                 <div>La cantidad en ETH:</div>
-                                                                <input type="text" readonly value="0.08" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                                <input type="text" readonly value="0.08"
+                                                                    class="input-solid input-solid-md required email"
+                                                                    style="background:#0b0c22;border:1px solid #171a4b">
                                                             </div>
                                                             <div style="margin-top:15px">
                                                                 <div>Ingrese DATOS (su dirección de línea ascendente)
                                                                     :</div>
                                                                 <input type="text" readonly
-                                                                    value="0x34a78D7B0315F38145Ec0867acb586C1fb4c7D38" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                                    value="0x34a78D7B0315F38145Ec0867acb586C1fb4c7D38"
+                                                                    class="input-solid input-solid-md required email"
+                                                                    style="background:#0b0c22;border:1px solid #171a4b">
                                                             </div>
-                                                            <div style="text-align: justify;margin-top:30px; font-size: 14px;">
+                                                            <div
+                                                                style="text-align: justify;margin-top:30px; font-size: 14px;">
                                                                 Después de una transacción exitosa, el registro (compra
                                                                 a
                                                                 nivel 1) se completará automáticamente y será posible
@@ -342,10 +353,12 @@
                                                             contrato inteligente. En el campo Datos de entrada ingrese
                                                             la dirección de Ethereum de su línea ascendente.
                                                         </div>
-                                                        <div style="margin-top:40px;margin-bottom:40px">                                                            
-                                                               
+                                                        <div style="margin-top:40px;margin-bottom:40px">
+
                                                             <input type="text" readonly
-                                                                value="0xA22c1B5320108C19dB53f58241Fd64b105562296" class="input-solid input-solid-md required email" style="background:#0b0c22;border:1px solid #171a4b">
+                                                                value="0xA22c1B5320108C19dB53f58241Fd64b105562296"
+                                                                class="input-solid input-solid-md required email"
+                                                                style="background:#0b0c22;border:1px solid #171a4b">
                                                         </div>
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:20px">
@@ -388,23 +401,25 @@
                                                         <div class="col">
                                                             <div class="wgs wgs-text text-center mb-3">
                                                                 <ul class="social pdb-m justify-content-center">
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.65"><a
+                                                                            href="<%= platformData.facebook %>"><em
                                                                                 class="social-icon fab fa-facebook-f"></em></a>
                                                                     </li>
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.7"><a
+                                                                            href="<%= platformData.twitter %>"><em
                                                                                 class="social-icon fab fa-twitter"></em></a>
                                                                     </li>
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.75"><a
+                                                                            href="<%= platformData.youtube %>"><em
                                                                                 class="social-icon fab fa-youtube"></em></a>
                                                                     </li>
-                                                                    <li><a href="#"><em
+                                                                    <li class="animated" data-animate="fadeInUp"
+                                                                        data-delay="1.8"><a
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>"><em
                                                                                 class="social-icon fab fa-github"></em></a>
-                                                                    </li>
-                                                                    <li><a href="#"><em
-                                                                                class="social-icon fab fa-bitcoin"></em></a>
-                                                                    </li>
-                                                                    <li><a href="#"><em
-                                                                                class="social-icon fab fa-medium-m"></em></a>
                                                                     </li>
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
@@ -413,11 +428,13 @@
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
-                                                                <div style="font-size: 14px;margin-top: 20px">Dirección
-                                                                    de Contrato Inteligente</div>
-                                                                <div style="font-size: 14px">Términos y condiciones
+                                                                <div style="font-size: 14px;margin-top: 20px"><a
+                                                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Dirección
+                                                                    de Contrato Inteligente</a></div>
+                                                                <div style="font-size: 14px"><a href="/terminos"">Términos y condiciones</a>
                                                                 </div>
-                                                                <div style="font-size: 14px">Código Abierto</div>
+                                                                <div style="font-size: 14px"><a
+                                                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Código Abierto</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -474,23 +491,23 @@
             })
 
             // method selection
-            $('#method1').click(function(e) {
+            $('#method1').click(function (e) {
                 e.preventDefault()
                 $('.signupMethod').hide()
                 $('.methodSelector').removeClass('active')
-                $('#method1').addClass('active')        
-                $('#signupMethod1').show()       
+                $('#method1').addClass('active')
+                $('#signupMethod1').show()
             })
 
-            $('#method2').click(function(e){
+            $('#method2').click(function (e) {
                 e.preventDefault()
                 $('.signupMethod').hide()
                 $('.methodSelector').removeClass('active')
                 $('#method2').addClass('active')
-                $('#signupMethod2').show()                
+                $('#signupMethod2').show()
             })
 
-            $('#method3').click(function(e){
+            $('#method3').click(function (e) {
                 e.preventDefault()
                 $('.signupMethod').hide()
                 $('.methodSelector').removeClass('active')
