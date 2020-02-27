@@ -115,6 +115,7 @@ const App = {
                     return
                 }
                 console.log(res)
+                $('#signup-tx').attr('href', `${process.env.ETHERSCAN_EXPLORER_URL}/tx/${res}`)
                 // show message
                 $('#tx-alert-success').show()
 
@@ -234,7 +235,7 @@ const App = {
             App.account = accounts[0]
             // Start contract
             await App.startContract()
-            console.log('test')
+            
             // Get level price
             let levelPrice = await App.meta.methods.LEVEL_PRICE(level).call()
             console.log(levelPrice)
@@ -267,7 +268,7 @@ window.App = App
 
 window.addEventListener("load", async function () {
     // App.getPlatformData()
-
+    
 
 });
 
