@@ -1,0 +1,180 @@
+<style>   
+    .langbutton-active:before {
+        content: ' ';
+        position: absolute;
+        top: 12px;
+        /* left: -6px; */
+        right: 17%;
+        bottom: -6px;
+        display: block;
+        height: 48px;
+        width: 48px;
+        border-radius: 36px;
+        border: 2px solid #888888;
+        background: rgba(0, 0, 0, 0.14);
+        visibility: visible;
+        opacity: 1;
+        transition: 0.2s;
+    }
+
+    .langbutton-active:hover:before {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .langbuttons-block {
+        transition: 0.4s transform ease-in-out, 0.7s opacity ease;
+        transform: translate(72px, 0);
+        position: fixed;
+        animation: langbuttonsshow 0.7s 1;
+        animation-fill-mode: forwards;
+        animation-delay: 0.4s;
+        z-index: 20;
+        top: 25vh;
+        right: 6vh;
+    }
+
+    .langbutton {
+        position: relative;
+        display: block;
+        /* margin-top: 12px; */
+        width: 72px;
+        height: 60px;
+    }
+
+    .langbutton:first-child {
+        margin-top: 0;
+    }
+
+    .langbutton-descr {
+        position: absolute;
+        top: 40%;
+        right: 100%;
+        bottom: 0;
+        /* margin-right: 12px; */
+        display: block;
+        width: auto;
+        height: 100%;
+        line-height: 24px;
+        font-size: 12px;
+        color: #888888;
+        white-space: nowrap;
+        /* visibility: hidden; */
+        opacity: 0;
+        transition: 0.2s;
+    }
+
+    .langbutton-a {
+        display: block;
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+    .langbutton-i {
+        transition: 0.4s transform ease-in-out, 0.7s opacity ease;
+        transform: scale(0.5);
+
+        animation: langbuttonscale 0.7s 1;
+        animation-fill-mode: forwards;
+        animation-delay: 0.4s;
+    }
+
+    .langbutton-i {
+        display: block;
+        width: 72px;
+        height: 72px;
+        border-radius: 36px;
+        overflow: hidden;
+    }
+
+    .langbutton-img {
+        display: block;
+        width: 72px;
+        height: 72px;
+    }
+</style>
+<div class="langbuttons-block ">
+
+    <div class="langbutton langbutton-en">
+        <span class="langbutton-descr">English</span>
+        <a href="/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/en.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-cn">
+        <span class="langbutton-descr">中文</span>
+        <a href="/cn/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/cn.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-ru">
+        <span class="langbutton-descr">Русский</span>
+        <a href="/ru/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/ru.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-es langbutton-active">
+        <span class="langbutton-descr">Español</span>
+        <a href="/es/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/es.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-it">
+        <span class="langbutton-descr">Italiano</span>
+        <a href="/it/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/it.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-de">
+        <span class="langbutton-descr">Deutsch</span>
+        <a href="/de/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/de.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-fr">
+        <span class="langbutton-descr">Français</span>
+        <a href="/fr/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/fr.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-hi">
+        <span class="langbutton-descr">हिंदी</span>
+        <a href="/hi/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/hi.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-ja">
+        <span class="langbutton-descr">日本語</span>
+        <a href="/ja/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/ja.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+    <div class="langbutton langbutton-kr">
+        <span class="langbutton-descr">한국어</span>
+        <a href="/kr/" class="langbutton-a">
+            <i class="langbutton-i">
+                <img src="images/dark/flags/kr.svg" class="langbutton-img">
+            </i>
+        </a>
+    </div>
+</div>

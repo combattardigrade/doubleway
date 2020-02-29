@@ -1,5 +1,6 @@
 <%- include('header'); -%>
 
+<%- include('language_sidebar'); -%>
 <main class="nk-pages">
     <section class="section mask-c-blend-dark bg-theme-dark-alt tc-light ov-h" id="what">
         <div class="container">
@@ -123,7 +124,9 @@
                 <h2 class="title title-s4 animated" data-animate="fadeInUp" data-delay=".1" title="Funcionamiento">¿Cómo
                     funciona?</h2>
                 <p class="animated" data-animate="fadeInUp" data-delay=".2">Necesitas una Wallet de Ethereum y 0.08 ETH.
-                    <br> (0.08 ETH = $<%= (platformData.prices.eth_usd * 0.08).toFixed(2) %> USDT) <br> <b>Paso 0:</b> Si no tienes una Wallet de Ethereum puedes consultar más detalles en <a style="color: #39d884" href='/faqeth'>Ethereum FAQ</a></p>
+                    <br> (0.08 ETH = $<%= (platformData.prices.eth_usd * 0.08).toFixed(2) %> USDT) <br> <b>Paso 0:</b>
+                    Si no tienes una Wallet de Ethereum puedes consultar más detalles en <a style="color: #39d884"
+                        href='/faqeth'>Ethereum FAQ</a></p>
             </div>
             <!-- Block @s -->
             <div class="nk-block nk-block-roadmap">
