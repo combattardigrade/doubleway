@@ -92,14 +92,14 @@ const App = {
             // Start contract
             await App.startContract()
 
-            let uplineUser
+            let uplineUser = {}
             if (rid) {
-                uplineUser = await App.meta.methods.userList(rid).call()
+                uplineUser.address = await App.meta.methods.userList(rid).call()                
             } else {
                 // Get upline address
                 uplineUser = JSON.parse(localStorage.getItem('uplineUser'))
             }
-
+            console.log(uplineUser)
             // Send transaction
             const tx = {
                 from: App.account,
