@@ -33,8 +33,12 @@ app.use('/', routes)
 const CronJob = require('cron').CronJob
 const rp = require('request-promise')
 const job = new CronJob('*/30 * * * * *', async function () {
-    await rp(process.env.API_HOST + '/updateData')
+    await rp(process.env.API_HOST + '/updateData')    
     console.log('Database updated...')
+})
+const job2 = new CronJob('0 0 */2 * * *', async function() {
+    await rp(process.env.API_HOST + '/updatePrices')
+    console.log('Prices updated...')
 })
 
 // error handlers
@@ -65,6 +69,7 @@ if (process.env.NODE_ENV === 'production') {
     app.listen(app.get('port'), function () {
         console.log('Listening on port ' + app.get('port'));
         job.start()
+        job2.start()
         console.log('Cronjob started...')
     });
 } else if (process.env.NODE_ENV === 'dev') {
@@ -72,6 +77,7 @@ if (process.env.NODE_ENV === 'production') {
     app.listen(app.get('port'), function () {
         console.log('Listening on port ' + app.get('port'));
         job.start()
+        job2.start()
         console.log('Cronjob started...')
     });
 }

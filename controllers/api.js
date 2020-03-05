@@ -508,17 +508,7 @@ module.exports.updateData = (req, res) => {
             })
         }
 
-        // Get prices
-        let prices = await rp({
-            uri: process.env.COINMARKETCAP_API_URL,
-            qs: {
-                symbol: 'BTC,ETH'
-            },
-            headers: {
-                'X-CMC_PRO_API_KEY': process.env.COINMARKETCAP_API_KEY
-            },
-            json: true
-        })
+
 
         // Get Level Prices
         const level1Price = weiToEther(await contract.methods.LEVEL_PRICE(1).call()).toFixed(8)
@@ -537,8 +527,6 @@ module.exports.updateData = (req, res) => {
             },
             defaults: {
                 totalUsers,
-                btc_usd: prices.data.BTC.quote.USD.price,
-                eth_usd: prices.data.ETH.quote.USD.price,
                 level1Price,
                 level2Price,
                 level3Price,
@@ -553,9 +541,7 @@ module.exports.updateData = (req, res) => {
 
         if (!created) {
             stats.totalUsers = totalUsers
-            stats.btc_usd = prices.data.BTC.quote.USD.price
-            stats.eth_usd = prices.data.ETH.quote.USD.price,
-                stats.level1Price = level1Price
+            stats.level1Price = level1Price
             stats.level2Price = level2Price
             stats.level3Price = level3Price
             stats.level4Price = level4Price
@@ -566,6 +552,40 @@ module.exports.updateData = (req, res) => {
             await stats.save({ transaction: t })
         }
 
+        sendJSONresponse(res, 200, { status: 'OK', message: 'Data updated successfully...' })
+        return
+    })
+        .catch((err) => {
+            console.log(err)
+            sendJSONresponse(res, 404, { status: 'ERROR', message: 'Ocurrió un error al intentar actualizar los datos' })
+            return
+        })
+}
+
+module.exports.updatePrices = (req, res) => {
+
+    sequelize.transaction(async (t) => {
+        // Get prices
+        let prices = await rp({
+            uri: process.env.COINMARKETCAP_API_URL,
+            qs: {
+                symbol: 'BTC,ETH'
+            },
+            headers: {
+                'X-CMC_PRO_API_KEY': process.env.COINMARKETCAP_API_KEY
+            },
+            json: true
+        })
+        // Update prices data
+        const stats = await Stats.findOne({
+            where: {
+                id: 1
+            },
+            transaction: t
+        })
+        stats.btc_usd = prices.data.BTC.quote.USD.price
+        stats.eth_usd = prices.data.ETH.quote.USD.price
+        await stats.save({ transaction: t })
         sendJSONresponse(res, 200, { status: 'OK', message: 'Data updated successfully...' })
         return
     })
