@@ -3,12 +3,13 @@ const path = require('path')
 const translate = require('@vitalets/google-translate-api')
 
 start = async () => {
-    let htmlFile = fs.readFileSync(path.join('views', 'locales', 'en', 'home.ejs'), 'utf8')
+    let htmlFile = fs.readFileSync(path.join('views', 'locales', 'origin.ejs'), 'utf8')
     // remove white spaces
     htmlFile = htmlFile.replace(/(\r\n|\n|\r)/gm, "");
     const re = /\>.*?\</g
     let results = htmlFile.match(re)
     let i, j = 0
+    let error = 0
     try {
         for (let r of results) {
             // Get text
@@ -19,14 +20,14 @@ start = async () => {
             if (r == '') continue
 
             // Translate text
-            let res = await translate(r, { to: 'it' })
+            let res = await translate(r, { to: 'ru' })
 
             htmlFile = htmlFile.replace(r, res.text)
             i++
             j++
             if (i == 199) {
                 i = 0
-                await sleep(60000)
+                await sleep(20000)
             }
             console.log(`${j} of ${results.length} `)
             await sleep(250)
@@ -34,15 +35,19 @@ start = async () => {
     }
     catch (e) {
         console.log(e)
-        fs.appendFile(path.join('views', 'locales', 'en', 'home-it.ejs'), htmlFile, function (err) {
+        // let error = 1
+        // fs.appendFile(path.join('views', 'locales', 'en', 'home-hi.ejs'), htmlFile, function (err) {
+        //     if (err) return console.log(err);
+        // })
+    }
+    finally {
+        console.log('appending file...')
+        fs.appendFile(path.join('views', 'locales', 'ru', 'faqeth.ejs'), htmlFile, function (err) {
             if (err) return console.log(err);
         })
     }
 
-    console.log('appending file...')
-    fs.appendFile(path.join('views', 'locales', 'en', 'home-it.ejs'), htmlFile, function (err) {
-        if (err) return console.log(err);
-    })
+
 
 
 }
