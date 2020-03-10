@@ -24,9 +24,15 @@ const App = {
             // Check if user exists in contract
             const userExists = await this.checkUserExists()
             if (userExists) {
-                await fetch(process.env.API_HOST + '/setUserAddress/' + App.account)
-                window.location.replace('/dashboard')
-                return
+                try {
+                    await fetch(process.env.API_HOST + '/setUserAddress/' + App.account)
+                    window.location.replace('/dashboard')
+                    return
+                }
+                catch(e) {
+                    console.log(e)
+                    return
+                }
             }
         } else {
             $('#metamaskModal').modal('show')
@@ -94,7 +100,7 @@ const App = {
 
             let uplineUser = {}
             if (rid) {
-                uplineUser.address = await App.meta.methods.userList(rid).call()                
+                uplineUser.address = await App.meta.methods.userList(rid).call()
             } else {
                 // Get upline address
                 uplineUser = JSON.parse(localStorage.getItem('uplineUser'))
@@ -235,7 +241,7 @@ const App = {
             App.account = accounts[0]
             // Start contract
             await App.startContract()
-            
+
             // Get level price
             let levelPrice = await App.meta.methods.LEVEL_PRICE(level).call()
             console.log(levelPrice)
@@ -268,7 +274,7 @@ window.App = App
 
 window.addEventListener("load", async function () {
     // App.getPlatformData()
-    
+
 
 });
 

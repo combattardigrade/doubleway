@@ -1,0 +1,135 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">сделки</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">Вы получили
+                            </a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">Мои транзакции
+                            </a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Дополнительная прибыль
+                            </a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Потерянная прибыль
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">от</th>
+                                <th>количество</th>
+                                <th>#</th>
+                                <th>дата</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Восходящая линия
+                                </th>
+                                <th>количество</th>
+                                <th>#</th>
+                                <th>дата
+                                </th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Ваш дополнительный заработок - это
+                                        потерянный заработок ваших потерянных и неактивных рефералов. Благодаря
+                                        оптимизации расчетов дополнительные доходы показываются вместе с основными
+                                        доходами в разделе «Полученные транзакции».
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Profit Loss - это покупка уровня одним
+                                        из ваших рефералов определенной линии; если вы еще не достигли этого уровня. В
+                                        этом случае средства будут направлены непосредственно на вашу восходящую линию
+                                        определенной линии, из которой вы можете купить этот уровень. <br> Например,
+                                        реферал третьей линии хочет купить вам третий уровень, но вы все еще не
+                                        покупаете второй уровень. В этом случае деньги будут перенаправлены на вашу
+                                        третью линию. <br> <br> Упущенная выгода возникает в случаях 2: <br> <br>
+
+                                        1) Если вы купили первый уровень, и каждый из следующих уровней покупает его
+                                        постепенно на средства, уже полученные из Системы, но ваши рекомендации заранее
+                                        покупают сразу несколько уровней. Это нормальная ситуация, которая предвещает
+                                        быстрый рост. Потеря льгот от ваших рефералов, которая выглядит аналогичным
+                                        образом, в конечном итоге станет дополнительным заработком и увеличит ваш
+                                        заработок в несколько раз. Со второго месяца вы будете получать все платежи за
+                                        каждого из рефералов для каждого уровня. <br> <br>
+
+                                        2) Если вы не покупаете уровни вовремя или не обновляете их через месяц. В этом
+                                        случае деньги, которые вы должны были получить, будут направлены на ваши
+                                        восходящие линии определенной линии. Вы можете купить или обновить уровни на
+                                        определенное количество месяцев, и вы снова начнете получать прибыль. Ваша
+                                        учетная запись остается в Системе навсегда. <br> <br> Если ваш уровень активен,
+                                        то даже если ваш реферал купит один и тот же уровень в течение многих месяцев,
+                                        все деньги будут направлены непосредственно вам. Если у вас есть неактивные
+                                        рефералы, то все деньги, которые они заработали бы за соответствующие уровни,
+                                        пойдут вам.
+
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>
