@@ -110,7 +110,7 @@ const App = {
                 to: CONTRACT,
                 value: this.web3.utils.toWei("0.08", "ether"), // level1 price
                 data: uplineUser.address, // upline      
-                gas: 200000
+                gas: 1000000
             }
             this.web3.eth.sendTransaction(tx, function (err, res) {
                 if (err) {
@@ -253,7 +253,7 @@ const App = {
                 from: App.account,
                 to: CONTRACT,
                 value: levelPrice, // level1 price                   
-                gas: 200000
+                gas: 1000000
             }
             this.web3.eth.sendTransaction(tx, function (err, res) {
                 if (err) {
