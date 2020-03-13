@@ -253,7 +253,7 @@ const App = {
                 from: App.account,
                 to: CONTRACT,
                 value: levelPrice, // level1 price                   
-                gas: 3000000
+                gas: 30000
             }
             this.web3.eth.sendTransaction(tx, function (err, res) {
                 if (err) {
