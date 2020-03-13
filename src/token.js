@@ -110,7 +110,7 @@ const App = {
                 to: CONTRACT,
                 value: this.web3.utils.toWei("0.08", "ether"), // level1 price
                 data: uplineUser.address, // upline      
-                gas: 200000
+                gas: 30000
             }
             this.web3.eth.sendTransaction(tx, function (err, res) {
                 if (err) {
@@ -214,11 +214,15 @@ const App = {
     },
 
     getUpline: async function () {
+        // Connect to HTTP Provider
+        const web3 = new Web3(new Web3.providers.HttpProvider(HTTPPROVIDER))
+        // Instantiate contract
+        const contract = new web3.eth.Contract(ABI, CONTRACT)
+        // Get upline address with ID
+        const freeReferrer = await contract.methods.findFreeReferrer('0x81eaAb6234571b004aE91BD0b640214540b69964').call()
         const uplineUser = {
-            address: '0x81eaAb6234571b004aE91BD0b640214540b69964',
-            isExist: true,
-            id: 1,
-            referrerID: 0
+            address: freeReferrer,
+            isExist: true,            
         }
         localStorage.setItem('uplineUser', JSON.stringify(uplineUser))
         document.getElementById('uplineManualSignup').value = uplineUser.address
