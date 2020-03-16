@@ -1,0 +1,121 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">Partner Hyperlink</h3>
+
+                <div class="status__inputs">
+
+                    <div class="form-group form-group--copy form-group--status" style="margin: 0 100px;">
+                        <input type="text" readonly="" value="<%= host %>?rid=<%= userData.user.id %>" id="agent-url" class="input"
+                            title=""
+                            style="height: 48px;width:100%;letter-spacing: 0.036rem; background-color:white;padding:0 24px;color:black;margin:12px 0 24px;border:none !important"
+                            data-original-title="Partner link copied!">
+                        <b id="copyUrlBtn" class="agent-url agent-url-dashboard toastr-success"
+                            data-clipboard-target="#agent-url"></b>
+                    </div>
+
+                </div>
+
+                <h3 style="color: white;padding:60px 0px 20px 0px">Social Buttons with Referral Links</h3>
+                <h5 style="color: white;font-weight: 300;">Share and get referrals from third parties (they are already searching for hashtags)</h5>
+                <div style="display:flex;    justify-content: center;">
+                    <div>
+                        <a rel="nofollow" id="vs_twitter" href="#"
+                            onclick="window.open('http://twitter.com/share?text=<%= `${host}/rif=${userData.user.id}` %>', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false"
+                            title="<%= host %>" target="_blank" class="bread__link" style="height: 16px;">
+                            <i class="fab fa-twitter social-icon-lg"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a rel="nofollow" id="vs_facebook" href="#"
+                            onclick="window.open('http://www.facebook.com/sharer.php?u=<%= `${host}/rif=${userData.user.id}` %>', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false"
+                            title="<%= host %>" target="_blank" class="bread__link" style="height: 16px;">
+                            <i class="fab fa-facebook social-icon-lg"></i>
+                        </a></div>
+                    <div><i class="fab fa-telegram social-icon-lg"></i></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <style>
+        .pa-stats-card {
+            background-color: #171a40;
+            text-align: center;
+            color: white;
+        }
+
+        .card-title {
+            font-weight: 500;
+            font-size: 28px;
+            padding-top: 32px;
+        }
+
+        .card-active {
+            color: rgb(76, 217, 100);
+        }
+
+        .cart-inactive {
+            color: rgb(39, 104, 255);
+        }
+
+        .card-price {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .card-bottom-box {
+            background-color: #1c1f4f;
+            margin-top: 32px;
+            padding: 16px
+        }
+
+        .card-referral-no {
+            font-weight: bold;
+            font-size: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #ffffff14;
+        }
+
+        .card-revenue {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .pa-btn-leveldisabled {
+            border-color: #555555;
+            color: #555555;
+            cursor: default;
+        }
+
+        .btn-buy {
+            background-image: linear-gradient(to right, #39d884 0%, #27c21d 100%) !important;
+        }
+
+        .pa-card:hover {
+            background-color: #3746ff !important;
+        }
+
+        .card-icon {
+
+
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        .card-icon-hover {
+
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    </style>
+
+
+
+    <%- include('dash_footer'); -%>
