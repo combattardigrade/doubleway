@@ -1,7 +1,7 @@
 <%-include('header');-%>
 <%-include('language_sidebar');-%>
 <main class="nk-pages">
-    <section class="sectionmask-c-blend-darkbg-theme-dark-alttc-lightov-h" id="what">
+    <section class="section mask-c-blend-dark bg-theme-dark-alt tc-light ov-h" id="what">
         <div class="container">
             <!--Block@s-->
             <div class="nk-block nk-block-text-wrap">
@@ -488,10 +488,10 @@
         <div class="">
             <!-- Section Head @s -->
             <div class="section-head text-center wide-auto-sm tc-light">
-                <h2 class="title title-s4 animated" data-animate="fadeInUp" data-delay=".1" title="Estadísticas">实时统计信息
-                </h2>
-            </div>
-            <!-- .section-head @e -->
+                <h2 class="title title-s4 animated" data-animate="fadeInUp" data-delay=".1" title="Estadísticas">
+                    实时统计
+</h2>
+            </div><!-- .section-head @e -->
             <!-- Block @s -->
             <div class="">
                 <div class="row justify-content-center">
@@ -499,111 +499,108 @@
                         <div class="token-status token-status-s5 bg-theme-alt round no-bd animated fadeInUp"
                             data-animate="fadeInUp" data-delay=".9"
                             style="visibility: visible; animation-delay: 0.9s;height: 100%;">
-                            <div class="token-box token-box-s3" style="padding-top:50px;padding-bottom:50px"><i
-                                    class="fa fa-users" style="font-size:6em"></i></div>
+                            <div class="token-box token-box-s3" style="padding-top:50px;padding-bottom:50px">
+                                <i class="fa fa-users" style="font-size:6em"></i>
+                            </div>
                             <div>
                                 <h3><%= platformData.totalUsers %></h3>
-                                <div>总参与</div>
+                                <div>参加人数
+                                </div>
                             </div>
                             <div style="margin-top:20px">
                                 <table class="table text-center" style="width: 100%;">
                                     <tr>
-                                        <td class="stats-level-title">1级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[0].total %>
-                                        </td>
-                                        <td class="stats-level-title">2级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[1].total %>
-                                        </td>
+                                        <td class="stats-level-title">等级 1</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[0].total %></td>
+                                        <td class="stats-level-title">等级 2</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[1].total %></td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-level-title">3级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[2].total %>
-                                        </td>
-                                        <td class="stats-level-title">4级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[3].total %>
-                                        </td>
+                                        <td class="stats-level-title">等级 3</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[2].total %></td>
+                                        <td class="stats-level-title">等级 4</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[3].total %></td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-level-title">5级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[4].total %>
-                                        </td>
-                                        <td class="stats-level-title">6级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[5].total %>
-                                        </td>
+                                        <td class="stats-level-title">等级 5</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[4].total %></td>
+                                        <td class="stats-level-title">等级 6</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[5].total %></td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-level-title">7级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[6].total %>
-                                        </td>
-                                        <td class="stats-level-title">8级</td>
-                                        <td class="stats-level-num">
-                                            <%= platformData.totalUsersByLevel[7].total %>
-                                        </td>
+                                        <td class="stats-level-title">等级 7</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[6].total %></td>
+                                        <td class="stats-level-title">等级 8</td>
+                                        <td class="stats-level-num"><%= platformData.totalUsersByLevel[7].total %></td>
                                     </tr>
                                 </table>
+
                             </div>
-                            <div class="token-action" style="margin-top:20px"><a
-                                    class="btn btn-md btn-grad btn-grad-alternet btn-round" href="/login">登录</a></div>
+                            <div class="token-action" style="margin-top:20px">
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="/login">登入
+</a>
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-mb-10 col-sm-10 col-md-10 col-lg-8 col-xl-2 " style="margin-top: 20px">
                         <div class="token-status token-status-s5 bg-theme-alt round no-bd animated fadeInUp"
                             data-animate="fadeInUp" data-delay=".9"
                             style="visibility: visible; animation-delay: 0.9s;height: 100%;">
-                            <div class="token-box token-box-s3" style="padding-top:50px;padding-bottom:50px"><img
-                                    src="images/dark/points.svg" style="height: 100px; width: auto" alt=""></div>
+                            <div class="token-box token-box-s3" style="padding-top:50px;padding-bottom:50px">
+                                <img src="images/dark/points.svg" style="height: 100px; width: auto" alt="">
+                            </div>
+
                             <div>
                                 <h3>12636</h3>
-                                <div>在线客人</div>
+                                <div>来宾在线</div>
                             </div>
                             <div style="margin-top:20px">
                                 <table class="table">
                                     <tr>
-                                        <td class="stats-left">年项目</td>
+                                        <td class="stats-left">项目年限
+                                        </td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;"><%= platformData.projectTime %></span>岁</td>
+                                                style="font-weight: bold;"><%= platformData.projectTime %></span> años
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-left">交易</td>
+                                        <td class="stats-left">交易次数</td>
                                         <td class="stats-right"><span class="teal"
                                                 style="font-weight: bold;"><%= platformData.txs.total %></span></td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-left">XS24小时</td>
+                                        <td class="stats-left">Txs 24小时</td>
                                         <td class="stats-right"><span class="teal"
                                                 style="font-weight: bold;"><%= platformData.txs.last24hTotal %></span>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
-                            <div class="token-action" style="margin-top:55px"><a
-                                    class="btn btn-md btn-grad btn-grad-alternet btn-round" href="/signup">开设账户</a>
+                            <div class="token-action" style="margin-top:55px">
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round" href="/signup">开设账户
+                                </a>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-mb-10 col-sm-10 col-md-10 col-lg-8 col-xl-2 " style="margin-top: 20px">
                         <div class="token-status token-status-s5 bg-theme-alt round no-bd animated fadeInUp"
                             data-animate="fadeInUp" data-delay=".9"
                             style="visibility: visible; animation-delay: 0.9s;height: 100%;">
-                            <div class="token-box token-box-s3" style="padding-top:50px;padding-bottom:50px"><img
-                                    src="images/dark/eth-white.png" style="height: 100px; width: auto" alt=""></div>
+                            <div class="token-box token-box-s3" style="padding-top:50px;padding-bottom:50px">
+                                <img src="images/dark/eth-white.png" style="height: 100px; width: auto" alt="">
+                            </div>
                             <div style="margin-top:20px">
                                 <table id="txs-table" class="table">
                                     <tr>
-                                        <td class="stats-left">BTC相当于</td>
+                                        <td class="stats-left">相当于 BTC</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;"><%= platformData.txs.btc_volume %></span>BTC
+                                                style="font-weight: bold;"><%= platformData.txs.btc_volume %></span> BTC
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-left">折合人民币</td>
+                                        <td class="stats-left">相当于 $</td>
                                         <td class="stats-right"><span class="teal"
                                                 style="font-weight: bold;"><%= platformData.txs.usd_volume %></span>
                                         </td>
@@ -611,100 +608,125 @@
                                     <tr>
                                         <td class="stats-left">最近24小时</td>
                                         <td class="stats-right"><span class="teal"
-                                                style="font-weight: bold;"><%= platformData.txs.last24hVolume %></span>ETH
-                                        </td>
+                                                style="font-weight: bold;"><%= platformData.txs.last24hVolume %></span>
+                                            ETH</td>
                                     </tr>
                                     <tr>
-                                        <td class="stats-left">1个ETH</td>
+                                        <td class="stats-left">1 ETH</td>
                                         <td class="stats-right">= <span class="teal"
-                                                style="font-weight: bold;">$<%= platformData.prices.eth_usd %></span>USDT
-                                        </td>
+                                                style="font-weight: bold;">$<%= platformData.prices.eth_usd %></span>
+                                            USDT</td>
                                     </tr>
                                 </table>
                             </div>
-                            <div class="token-action" style="margin-top:80px"> <a
-                                    class="btn btn-md btn-grad btn-grad-alternet btn-round"
-                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>“>查看地址</a>    </div></div>                    </div>                </div>            </div>            <!-- Block @e -->        </div>    </section>    <!-- // -->    <section class="
-                                    section bg-theme-alt tc-light section-connect " id="
-                                    media-partner ">        <div class=" transform-line "></div>        <div class="
-                                    container ">            <div class=" section-head text-center
-                                    wide-auto-sm ">                <h2 class=" title title-s4 animated " data-animate="
-                                    fadeInUp " data-delay=" .1 " title="
-                                    Transacciones ">新事务</h2>            </div><!-- .section-head @e -->            <!-- Block @s -->            <div class="
-                                    row ">                <div class=" col-mb-10 col-sm-10 col-md-12 col-lg-12
-                                    col-xl-12 ">                    <table class=" table
-                                    text-center " style=" ">                        <thead><th style=" padding:
-                                    0; " class=" teal ">日期</th><th style=" padding: 0; " class="
-                                    teal ">水平</th><th style=" padding: 0; " class=" teal ">数量</th><th style=" padding:
-                                    0 " class="
-                                    teal ">目的地</th>                        </thead>                        <tbody><% for(let tx of platformData.moneyTxs) {%><tr><td>前<span class="
-                                    timeSince "><%= tx.time %></span></td><td><%= tx.level %></td><td><%=  platformData.levels[tx.level].price %></td><td><a href="
-                                    <%=` ${etherscanExplorer}/tx/${tx.txHash}` %>">
-                                    <%= tx.userAddress %>
+                            <div class="token-action" style="margin-top:80px">
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round"
+                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">查看地址
                                 </a>
-                                </td>
-                                </tr>
-                                <% } %>
-                                </tbody>
-                                </table>
-                                <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue">
-                                    <ahref="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>“>
-                                        所有的统计数据都在Etherscan可用</a>
-                                </div>
                             </div>
-                        </div> <!-- Block @e -->
+
+                        </div>
                     </div>
-    </section> <!-- // -->
-    <section class=" section bg-theme bg-theme-dark tc-light " id="faqs ">
-        <div class="container ">
-            <div class="section-head text-center wide-auto-sm ">
-                <h2 class="title title-s4 animated " data-animate="fadeInUp " data-delay=".1 " title="FAQS ">常问问题</h2>
-                <p class="animated " data-animate="fadeInUp " data-delay=".2 ">我们知道您可能对系统的操作问题。</p>
+                </div>
+            </div>
+            <!-- Block @e -->
+        </div>
+    </section>
+
+    <section class="section bg-theme-alt tc-light section-connect" id="media-partner">
+        <div class="transform-line"></div>
+        <div class="container">
+            <div class="section-head text-center wide-auto-sm">
+                <h2 class="title title-s4 animated" data-animate="fadeInUp" data-delay=".1" title="Transacciones">新交易
+                </h2>
             </div><!-- .section-head @e -->
             <!-- Block @s -->
-            <div class="nk-block ">
-                <div class="row justify-content-center ">
-                    <div class="col-xl-8 col-lg-10 ">
-                        <ul class="nav tab-nav tab-nav-line mgb-r animated " data-animate="fadeInUp " data-delay=".3 ">
-                            <li><a class="active " data-toggle="tab " href="#sistema-1 ">系统</a></li>
-                            <li><a data-toggle="tab " href="#faq-registro ">注册</a></li>
-                            <li><a data-toggle="tab " href="#faq-referidos ">介绍人</a></li>
-                            <li><a data-toggle="tab " href="#faq-niveles ">水平</a></li>
-                            <li><a data-toggle="tab " href="#faq-repetir ">功能“重复”</a></li>
-                            <li><a data-toggle="tab " href="#faq-riesgos ">风险</a></li>
+            <div class="row">
+                <div class="col-mb-10 col-sm-10 col-md-12 col-lg-12 col-xl-12">
+                    <table class="table text-center" style="">
+                        <thead>
+                            <th style="padding: 0;" class="teal">日期
+                            </th>
+                            <th style="padding: 0;" class="teal">等级
+                            </th>
+                            <th style="padding: 0;" class="teal">数量
+                            </th>
+                            <th style="padding: 0" class="teal">目的地
+                            </th>
+                        </thead>
+                        <tbody>
+                            <% for(let tx of platformData.moneyTxs) {%>
+                            <tr>
+                                <td>前 <span class="timeSince"><%= tx.time %></span></td>
+                                <td><%= tx.level %></td>
+                                <td><%=  platformData.levels[tx.level].price %></td>
+                                <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.userAddress %></a>
+                                </td>
+                            </tr>
+                            <% } %>
+
+                        </tbody>
+                    </table>
+                    <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue"><a
+                            href="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>">所有统计信息均可在Etherscan上获得
+                        </a></div>
+                </div>
+            </div>
+            <!-- Block @e -->
+        </div>
+    </section>
+
+
+    <section class="section bg-theme bg-theme-dark tc-light" id="faqs" style="height: 100vh;overflow: hidden;">
+        <div class="container">
+            <div class="section-head text-center wide-auto-sm">
+                <h2 class="title title-s4 animated" data-animate="fadeInUp" data-delay=".1" title="FAQS">常问问题</h2>
+                <p class="animated" data-animate="fadeInUp" data-delay=".2">我们知道您可能对系统的操作问题。</p>
+            </div><!-- .section-head @e -->
+            <!-- Block @s -->
+            <div class="nk-block">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10">
+                        <ul class="nav tab-nav tab-nav-line mgb-r animated" data-animate="fadeInUp" data-delay=".3">
+                            <li><a class="active" data-toggle="tab" href="#sistema-1">系统</a></li>
+                            <li><a data-toggle="tab" href="#faq-registro">注册</a></li>
+                            <li><a data-toggle="tab" href="#faq-referidos">介绍人</a></li>
+                            <li><a data-toggle="tab" href="#faq-niveles">水平</a></li>
+                            <li><a data-toggle="tab" href="#faq-repetir">功能“重复”</a></li>
+                            <li><a data-toggle="tab" href="#faq-riesgos">风险</a></li>
                         </ul>
-                        <div class="tab-content animated " data-animate="fadeInUp " data-delay=".4 ">
-                            <div class="tab-pane fade show active " id="sistema-1 ">
-                                <div class="accordion accordion-faq " id="#faq-67 ">
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title " data-toggle="collapse " data-target="#faq-67 ">
+                        <div class="tab-content animated" data-animate="fadeInUp" data-delay=".4">
+                            <div class="tab-pane fade show active" id="sistema-1">
+                                <div class="accordion accordion-faq" id="#faq-67">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title" data-toggle="collapse" data-target="#faq-67">
                                             之前类似系统的出现已经存在criptomonedas为什么好？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-67 " class="collapse " data-parent="#faq-67 ">
-                                            <div class="accordion-content ">
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-67" class="collapse " data-parent="#faq-67">
+                                            <div class="accordion-content">
                                                 <p>是的，的确，存在了5年，互联网出现之前这样的系统，并且他们的工作。然而，他有几大问题：<br><br>1）不同的支付系统不断阻挡钱包参会。<br>2）在人的因素和不断的过程，谁转移的资金给谁，谁形式的所有由此带来的后果确认手动转移是没有的。<br>3）无复发。一个人一旦创建了一个结构，一旦收到钱，虽然比较大。然后，他们把所有的曲折深入到结构，并且参与者没有得到更多。<br>4）关闭或黑客网站意味着系统的封锁，有时黑客网站。<br><br>该Criptomonedas和复仇解决所有这些问题：<br><br>1）电子钱包甚至不能在理论上被阻止。在硬币的反面：在任何情况下，做你的钱包不会失去控制。这将是不可能与别人取代你的钱包。<br>2）公共事务和即时自动确认。人的因素被完全排除。<br>3）我们做了“重复”功能，它在与会者在其他系统之前应用。一旦你创建一个结构，每年获得的收入。如果有人在你的结构不每年延长其参与，你的收入增加了很多倍。更多页它是如何工作的“重复”部分。
                                                     4）关闭或劫持以任何方式影响现场系统的操作中，当智能CRYPTOHANDS合同被加载到所述主网络复仇，没有人可以将其删除，包括它的开发。<br><br>这意味着，在人类历史上第一次（无论多么声音响亮），有一个真正的100％的保证，该帐户将不被盗版，甚至在理论上当网站被关闭，智能合同系统本身将继续反正存在。<br>此外，世界上任何一个程序员可以创建基于相同的智能合同和结构的任何领导人可以使相同的智能合同上的站点结构上的一个新的站点。因此，该系统免受该项目的管理采取任何行动。
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-67-2 ">如何赚钱吗？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-67-2 " class="collapse show " data-parent="#faq-67 ">
-                                            <div class="accordion-content ">
-                                                <p>快的 入门指南是在<a href="# ">家</a>在“如何运作”一节。<br>详细说明是一个单独的页面上。<a
-                                                        href="# ">它是如何工作</a></p>
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-67-2">如何赚钱吗？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-67-2" class="collapse show" data-parent="#faq-67">
+                                            <div class="accordion-content">
+                                                <p>Rápidop入门指南是在<a href="#">家</a>在“如何运作”一节。<br>详细说明是一个单独的页面上。<a
+                                                        href="#">它是如何工作</a></p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-67-3 ">什么是保证他们不会关闭或挡住我的帐户？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-67-3 " class="collapse " data-parent="#faq-67 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-67-3">什么是保证他们不会关闭或挡住我的帐户？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-67-3" class="collapse" data-parent="#faq-67">
+                                            <div class="accordion-content">
                                                 <p>这是最重要的问题之一！<br><br>对于在人类历史上第一次，有99％，而100个％保证没有人可以阻止你的钱包或您的帐户，包括项目（这是cryptocurrency的功能）的管理。<br><br>该guaratees都写在页面上。它是如何工作的最后一个“担保”点。<br>
                                                 </p>
                                             </div>
@@ -712,35 +734,35 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade " id="faq-registro ">
-                                <div class="accordion accordion-faq " id="faq-68 ">
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title " data-toggle="collapse " data-target="#faq-68-1 ">
-                                            如何DoubleHands注册？<span class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-68-1 " class="collapse show " data-parent="#faq-68 ">
-                                            <div class="accordion-content ">
+                            <div class="tab-pane fade" id="faq-registro">
+                                <div class="accordion accordion-faq" id="faq-68">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title" data-toggle="collapse" data-target="#faq-68-1">
+                                            如何DoubleHands注册？<span class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-68-1" class="collapse show" data-parent="#faq-68">
+                                            <div class="accordion-content">
                                                 <p>通过注册登录（电子邮件或电话）和密码是一个过时的概念。由于访问邮件的丢失意味着丢失访问该帐户。<br><br>在成功购买了线的第1级是升序注册的事实。<br><br>简要指南是存在于页SIGN。<br><br>详细指导如何运作的部分“注册”。<br>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-68-2 ">是否有可能不上线（邀请）来注册？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-68-2 " class="collapse " data-parent="#faq-68 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-68-2">是否有可能不上线（邀请）来注册？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-68-2" class="collapse" data-parent="#faq-68">
+                                            <div class="accordion-content">
                                                 <p>这是不可能登录到系统中，而上线。如果没有指定的上线，智能合同将不接受该交易。这是思想水平的根本点之一。<br><br>字段“数据”不评论或钱包的一个附加功能。这是链本身复仇块的一个组成部分。<br><br>而经由邀请者的推荐链接或QR码的自动登记，所有数据，包括与您的上线的地址“数据”字段中，则自动指定。只要按一下按钮“注册在一次点击。”<br><br>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-68-3 ">如何访问您的帐户？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-68-3 " class="collapse " data-parent="#faq-68 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-68-3">如何访问您的帐户？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-68-3" class="collapse" data-parent="#faq-68">
+                                            <div class="accordion-content">
                                                 <p>你可以在页面SIGNING访问您的帐户<br><br>您登录到您的帐户是完全没有密码和帐号无法被黑客攻击或阻塞。<br><br>了解如何登录到您的帐户上的工作原理页中的“登录”。
                                                 </p>
                                             </div>
@@ -748,101 +770,101 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade " id="faq-referidos ">
-                                <div class="accordion accordion-faq " id="faq-69 ">
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title " data-toggle="collapse " data-target="#faq-69-1 ">
-                                            我需要吸引下线？<span class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-69-1 " class="collapse show " data-parent="#faq-69 ">
-                                            <div class="accordion-content ">
+                            <div class="tab-pane fade" id="faq-referidos">
+                                <div class="accordion accordion-faq" id="faq-69">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title" data-toggle="collapse" data-target="#faq-69-1">
+                                            我需要吸引下线？<span class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-69-1" class="collapse show" data-parent="#faq-69">
+                                            <div class="accordion-content">
                                                 <p>尽管该系统的基础是从引用建立一个结构，并引用您的利益之源，一个有趣的事实是，需要引用。<br><br>除了邀请时，你可以从两个方面得到引用：“溢出”和“无参考”。对于这些方法，在下面的段落阅读以下内容。
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-69-2 ">有多少下线可以邀请以及它们是如何分配的？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-69-2 " class="collapse " data-parent="#faq-69 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-69-2">有多少下线可以邀请以及它们是如何分配的？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-69-2" class="collapse" data-parent="#faq-69">
+                                            <div class="accordion-content">
                                                 <p>就个人而言，我只能邀请2个引用，它直接连接到你和被称为“引用一号线。”<br><br>2个引用1号线（由您亲自邀请）还邀请他引用2。这些参与者结构4是“引用第2行”。<br><br>然后，通过类比，它具有参照图8和参考文献第三线16线4。<br><br>如果继续邀请引用时已经有两个，后续引用连接到其结构的深度，成为依此类推，直到第10行第2，第3的引用。这就是所谓的“溢出”。您可以在下面的段落“是什么”溢出“？”看到更多的“溢出”。
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-69-3 ">什么是“溢出”？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-69-3 " class="collapse " data-parent="#faq-69 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-69-3">什么是“溢出”？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-69-3" class="collapse" data-parent="#faq-69">
+                                            <div class="accordion-content">
                                                 <p>溢流是从他们的所有行的上线，获得转诊的方法，该方法，填充所有间隙与2个请示，再下一个经过提及“溢出”，即给你。<br><br>例：priumera上线（邀请者到系统）邀请了两个引用，并继续邀请更多，或者不立即停止广告。第三个参考值将是你的“溢出”。<br><br>注意：溢出不仅填补其所有行8完全，但也落入线10，1536中的所有线路8填充在除了其参考结构510更多的空间的下方。<br><br>线10之后，气体量变得小于付款金额。更重要的是，过度由cryptocurrency复仇本身的限制，因为最大可能的限度复仇气体是8000000。因此，通过智能合同无穷溢出的定义是不可能的。
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-69-3 ">什么的“溢出”的工作路线？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-69-3 " class="collapse " data-parent="#faq-69 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-69-3">什么的“溢出”的工作路线？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-69-3" class="collapse" data-parent="#faq-69">
+                                            <div class="accordion-content">
                                                 <p>简述：<br><br>如果没有通过智能合同线5包容性网站。溢出线运行，直到10包容性。</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-69-5 ">什么是“自由转诊”？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-69-5 " class="collapse " data-parent="#faq-69 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-69-5">什么是“自由转诊”？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-69-5" class="collapse" data-parent="#faq-69">
+                                            <div class="accordion-content">
                                                 <p>无偿引用是谁已经前来出于某种原因不推荐链接系统的成员。<br><br>无偿引用均匀分布于整个系统，并与先前被记录在系统的上行线开始。<br><br>重要说明：引用自由穿过智能合同NO系统分布的，而是由网站系统。<br><br>这是一个让聪明合同的唯一的事情，这是为什么：<br><br>如果引用是免费的通过与系统的生长智能合同分布会消耗大量的石头大量气体，这将不利于用户。其他的一切，包括“溢出”被智能合同分配。
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-69-6 ">我可以邀请引用不买的第一级？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-69-6 " class="collapse " data-parent="#faq-69 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-69-6">我可以邀请引用不买的第一级？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-69-6" class="collapse" data-parent="#faq-69">
+                                            <div class="accordion-content">
                                                 <p>你可以，但会成为自由转诊和到达系统的其他成员，而不是你。由于购买1级，系统会先不“知道”。</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade " id="faq-niveles ">
-                                <div class="accordion accordion-faq " id="faq-70 ">
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title " data-toggle="collapse " data-target="#faq-70-1 ">
-                                            什么是系统中的水平？<span class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-70-1 " class="collapse show " data-parent="#faq-70 ">
-                                            <div class="accordion-content ">
+                            <div class="tab-pane fade" id="faq-niveles">
+                                <div class="accordion accordion-faq" id="faq-70">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title" data-toggle="collapse" data-target="#faq-70-1">
+                                            什么是系统中的水平？<span class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-70-1" class="collapse show" data-parent="#faq-70">
+                                            <div class="accordion-content">
                                                 <p>等级：这是授予在它的“深度”因此引用获得报酬权的状态。<br><br>例如：<br>1级你有权获得奖励购买了2亲自邀请引用的1级（转诊1号线）。<br>等级2为您提供了获得奖励购买2级参考4个客人为他们的客人正确的个人参考文献2以上（参考文献2线）。<br>3级你有权获得奖励购买3级引用8号线3。<br>6级你有权获得奖励购买64平6基准线6。<br><br>7级赋予你获得奖励购买128
                                                     7的参考线7。<br><br>而最后的第八等级赋予你获得奖励购买8行8所引用的第八级。</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-70-2 ">如果我有2级能买到4级不立即3级？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-70-2 " class="collapse " data-parent="#faq-70 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-70-2">如果我有2级能买到4级不立即3级？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-70-2" class="collapse" data-parent="#faq-70">
+                                            <div class="accordion-content">
                                                 <p>水平只购买顺序和秩序。如果你尽量买4级，而无需第三，智能合同将不接受转让。在这种情况下，钱是不会去任何地方，并会陪着你。</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                            data-target="#faq-70-3 ">会发生什么，如果我的推荐，例如，3号线，3级想买，但我仍然只有2级系统？<span
-                                                class="accordion-icon accordion-icon-s2 "></span></h5>
-                                        <div id="faq-70-3 " class="collapse " data-parent="#faq-70 ">
-                                            <div class="accordion-content ">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                            data-target="#faq-70-3">会发生什么，如果我的推荐，例如，3号线，3级想买，但我仍然只有2级系统？<span
+                                                class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-70-3" class="collapse" data-parent="#faq-70">
+                                            <div class="accordion-content">
                                                 <p>将发生以下情况：<br><br>坏消息：<br>这些钱不会去给你，但你的上线在同一条线上，在这种情况下，第3位。如果您在购买时的水平，这将不会发生。此外，所有后续的水平（除第一个），并从赚来的，不是自己的钱购买的。此外。你提前看到当情况变得“危险”，并有足够的时间来购买每个级别。<br>如果发生过一次，不可怕，因为在每个级别（除第一）增益大许多倍的水平的成本，甚至在以后的购买水平，所有后续的购买资金的后一种情况下同级引用的其余部分他们去给你。<br><br>好消息：<br>如果从你的推荐人不买的水平的时候，你的钱将告诉你。如果您引用的一个连，例如，3号线，由于某种原因，从系统退休（例如，失去了获得钱包），然后所有引用8的第三行转让款（不是他）
                                                     YOU！到3号线的所有其他引用您还汇款。<br>一个实例中，给出了参考。如果有两个或更多？你的收入增加了很多倍。<br><br>结果是：更拒绝或无效参考在其结构中，那些最有有时会被你的收入
                                                 </p>
@@ -851,59 +873,59 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade " id="faq-repetir ">
-                                <div class="accordion accordion-faq " id="faq-71 ">
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title " data-toggle="collapse " data-target="#faq-71-1 ">
-                                            什么是功能“重复”，为什么有必要吗？<span class="accordion-icon accordion-icon-s2 "></span>
+                            <div class="tab-pane fade" id="faq-repetir">
+                                <div class="accordion accordion-faq" id="faq-71">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title" data-toggle="collapse" data-target="#faq-71-1">
+                                            什么是功能“重复”，为什么有必要吗？<span class="accordion-icon accordion-icon-s2"></span>
                                         </h5>
-                                        <div id="faq-71-1 " class="collapse show " data-parent="#faq-71 ">
-                                            <div class="accordion-content ">
+                                        <div id="faq-71-1" class="collapse show" data-parent="#faq-71">
+                                            <div class="accordion-content">
                                                 <p>“重复”功能是一个选项，可以让你重复的收益每个月获得的所有的时间。此外，每一个离开了系统的倍增奖励引用。<br><br>工作原理进行了详细页上介绍。<a
-                                                        href="# ">它是如何工作</a>在“重复”。</p>
+                                                        href="#">它是如何工作</a>在“重复”。</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                    <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                        data-target="#faq-71-4 ">如果你在一个月内延伸的水平会发生什么？<span
-                                            class="accordion-icon accordion-icon-s2 "></span></h5>
-                                    <div id="faq-71-4 " class="collapse " data-parent="#faq-71 ">
-                                        <div class="accordion-content ">
+                                <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                    <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                        data-target="#faq-71-4">如果你在一个月内延伸的水平会发生什么？<span
+                                            class="accordion-icon accordion-icon-s2"></span></h5>
+                                    <div id="faq-71-4" class="collapse" data-parent="#faq-71">
+                                        <div class="accordion-content">
                                             <p>您的帐户仍保留在系统中，直到永远，在任何时间可以延长，并再次获得收入水平。</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade " id="faq-riesgos ">
-                                <div class="accordion accordion-faq " id="faq-72 ">
-                                    <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                        <h5 class="accordion-title " data-toggle="collapse " data-target="#faq-72-1 ">
-                                            版权是什么？<span class="accordion-icon accordion-icon-s2 "></span> </h5>
-                                        <div id="faq-72-1 " class="collapse show " data-parent="#faq-72 ">
-                                            <div class="accordion-content ">
+                            <div class="tab-pane fade" id="faq-riesgos">
+                                <div class="accordion accordion-faq" id="faq-72">
+                                    <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                        <h5 class="accordion-title" data-toggle="collapse" data-target="#faq-72-1">
+                                            版权是什么？<span class="accordion-icon accordion-icon-s2"></span></h5>
+                                        <div id="faq-72-1" class="collapse show" data-parent="#faq-72">
+                                            <div class="accordion-content">
                                                 <p>是的，因为没有人强迫你汇款给任何人。所有的交易都是自愿的。</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                    <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                        data-target="#faq-72-4 ">版权是什么？<span
-                                            class="accordion-icon accordion-icon-s2 "></span> </h5>
-                                    <div id="faq-72-4 " class="collapse " data-parent="#faq-72 ">
-                                        <div class="accordion-content ">
+                                <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                    <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                        data-target="#faq-72-4">版权是什么？<span
+                                            class="accordion-icon accordion-icon-s2"></span> </h5>
+                                    <div id="faq-72-4" class="collapse" data-parent="#faq-72">
+                                        <div class="accordion-content">
                                             <p>是的，因为没有人强迫你汇款给任何人。所有的交易都是自愿的。</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item accordion-item-s4 bg-theme-alt ">
-                                    <h5 class="accordion-title collapsed " data-toggle="collapse "
-                                        data-target="#faq-72-5 ">有没有风险吗？如果是这样，什么？<span
-                                            class="accordion-icon accordion-icon-s2 "></span> </h5>
-                                    <div id="faq-72-5 " class="collapse " data-parent="#faq-72 ">
-                                        <div class="accordion-content ">
+                                <div class="accordion-item accordion-item-s4 bg-theme-alt">
+                                    <h5 class="accordion-title collapsed" data-toggle="collapse"
+                                        data-target="#faq-72-5">有没有风险吗？如果是这样，什么？<span
+                                            class="accordion-icon accordion-icon-s2"></span> </h5>
+                                    <div id="faq-72-5" class="collapse" data-parent="#faq-72">
+                                        <div class="accordion-content">
                                             <p>整个网站，我们写在系统中没有任何风险。通过这一点，我们说所有的钱被立即传送到你的钱包，并储存起来。这意味着没有风险。<br><br>然而，这是值得考虑的是，在注册他们的第一个参考的记录之间的时间间隔，这种情况，他转移到他的上线是创造0.08
                                                 ETH，但尚未收到第一参考。<br>因此，在技术上的最大理论风险为0.08 ETH。这些ETH
                                                 0.08将立即从第一参考返回。<br><br>即使明确没有邀请任何引用，你迟早会在没有他们的参与，通过以下方式接收推荐：<br>1）溢出其上升线，<br>2）自由参考系统。<br><br>因此，即使这种象征性的风险趋近于0。

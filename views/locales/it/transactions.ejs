@@ -1,0 +1,127 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">relazioni</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">Hai ricevuto</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">Le mie transazioni</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Profitto extra</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Profitto perduto</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">da</th>
+                                <th>quantità</th>
+                                <th>#</th>
+                                <th>data</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Línea Ascendente</th>
+                                <th>quantità</th>
+                                <th>#</th>
+                                <th>data</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">I tuoi guadagni extra sono i guadagni
+                                        persi dei tuoi referral persi e inattivi. Grazie all'ottimizzazione del calcolo,
+                                        le entrate extra vengono visualizzate insieme alle entrate principali, nella
+                                        sezione "Transazioni ricevute".</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Perdita di guadagno - è l'acquisto di
+                                        un livello da parte di uno dei tuoi referral da una determinata linea; se non
+                                        hai ancora raggiunto quel livello. In questo caso i fondi verranno indirizzati
+                                        direttamente alla tua upline della linea determinata, da cui puoi acquistare
+                                        quel livello. <br> Ad esempio, un referral di terza linea vuole comprarti il
+                                        terzo livello, ma non acquisti ancora il secondo livello. In questo caso, il
+                                        denaro verrà reindirizzato alla tua upline di terza linea. <br><br>
+                                        La perdita di profitto sorge nei casi di 2:<br><br>
+                                        1) Se hai acquistato il primo livello e ciascuno dei seguenti livelli lo
+                                        acquista gradualmente con i fondi già ricevuti dal Sistema, ma i tuoi
+                                        riferimenti acquistano in anticipo più livelli contemporaneamente. Questa è una
+                                        situazione normale, che annuncia una rapida crescita. La perdita di benefici dei
+                                        tuoi referral, che appare allo stesso modo, alla fine si trasformerà in profitti
+                                        extra e aumenterà i tuoi guadagni più volte. A partire dal secondo mese,
+                                        riceverai tutti i pagamenti di ciascuno dei referral per ciascun
+                                        livello.<br><br>
+                                        2) Se non acquisti i livelli in tempo o non li rinnovi dopo un mese. In questo
+                                        caso, il denaro che avresti dovuto ricevere verrà indirizzato ai tuoi upline,
+                                        dalla linea data. Puoi acquistare o rinnovare i livelli per un certo numero di
+                                        mesi e ricomincerai a ricevere profitti. Il tuo account rimane nel sistema per
+                                        sempre.<br><br>
+                                        Se il tuo livello è attivo, quindi, anche se il tuo referral acquista lo stesso
+                                        livello per molti mesi, tutto il denaro andrà direttamente a te. Se hai referral
+                                        inattivi, tutti i soldi che questi avrebbero guadagnato per i livelli
+                                        corrispondenti andranno a te.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

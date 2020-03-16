@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Site Title  -->
+    <title><%= title %> | DoubleHands - क्रिप्टोकरेंसी के साथ पैसा कमाने का सबसे आसान और सुरक्षित तरीका</title>
+    <!-- Bundle and Base CSS -->
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=192">
+    <link rel="stylesheet" href="assets/css/style-dark.css?ver=192" id="changeTheme">
+    <!-- Extra CSS -->
+    <link rel="stylesheet" href="assets/css/theme.css?ver=192">
+
+
+
+    <style>
+        .imageRot {
+            -webkit-animation: spin 22s ease-in-out;
+            -moz-animation: spin 22s ease-in-out;
+            animation: spin 22s ease-in-out;
+        }
+
+        @-moz-keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .card-title {
+            color: #39d884;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 0px !important;
+        }
+
+        .card-icon {
+            font-size: 36px;
+        }
+
+        .remark {
+            color: #39d884 !important;
+            font-weight: bold;
+        }
+
+        .notice {
+            color: #39d884 !important;
+        }
+
+        .teal {
+            color: #39d884 !important;
+        }
+
+        .blue {
+            color: #2094fa !important;
+        }
+
+        .eth-text {
+            font-size: 12px;
+            color: #a2b4d2;
+            text-align: justify;
+        }
+
+        @media (min-width: 992px) {
+            .roadmap-step-2 {
+                margin-top: -320px;
+            }
+
+            .roadmap-step-3 {
+                margin-top: -60px;
+            }
+
+            .roadmap-step-4 {
+                margin-top: -400px;
+            }
+
+            .roadmap-step-5 {
+                margin-top: -10px;
+            }
+
+            .roadmap-step-6 {
+                margin-top: -400px;
+            }
+
+            .section-dark-bg:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background: url(images/dark/dark_bg.svg) center center no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .roadmap-img {
+            position: absolute;
+            right: -7%;
+            top: 15%;
+            transform: translateY(-50%);
+            width: 77px;
+            height: 77px;
+            line-height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            color: #fff;
+            background: #2b56f5;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 700;
+            font-size: .88rem;
+            content: '\f00c';
+        }
+
+        .card-text {
+            text-align: justify;
+        }
+
+        .table tr,
+        .table thead th {
+            border-bottom: none !important;
+        }
+
+        #ganancias-table .table td {
+            padding: 20px 20px;
+            font-size: 1.2em;
+        }
+
+        .table th {
+            border-top: none;
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        .table-eth-logo {
+            height: 28px;
+        }
+
+        @media (max-width: 992px) {
+            .step-int:after {
+                display: none !important;
+            }
+        }
+
+
+        .step-ext {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .step-int {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: #007bff;
+            text-align: center;
+            display: flex;
+            vertical-align: middle;
+            z-index: 10;
+        }
+
+        .step-int:after {
+            content: ' ';
+            height: 120px;
+            position: absolute;
+            left: 110px;
+            top: 65px;
+            width: 340px;
+            overflow: hidden;
+            background: url(images/dark/wave.png) no-repeat center;
+            -webkit-background-size: contain;
+            background-size: contain;
+            z-index: -1;
+        }
+
+        .step-int-last {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: #007bff;
+            text-align: center;
+            display: flex;
+            vertical-align: middle;
+        }
+
+        .step-img {
+            position: relative;
+            margin: auto;
+            display: inline-block;
+            vertical-align: middle;
+            z-index: 1;
+        }
+
+        .step-title {
+            margin-top: 40px;
+        }
+
+        .step-detail-img {
+            width: 336px;
+        }
+
+        .step-detail-img-container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .step-detail-description {
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .step-detail-subtitle {
+            margin-top: 50px;
+        }
+
+        .step-detail-container {
+            margin-top: 100px;
+        }
+
+        
+    </style>
+
+</head>
+
+
+<body class="nk-body body-wider theme-dark mode-onepage">
+
+    <div class="nk-wrap">
+        <header class="nk-header page-header is-transparent is-sticky is-shrink is-dark" id="header">
+            <!-- Header @s -->
+            <%- include('header__menu') -%>
+
+            <% if(typeof homePage  != 'undefined') { %>
+            <!-- Banner @s -->
+            <div class="header-banner bg-theme-dark">
+                <div class="nk-banner">
+                    <div class="banner banner-mask-fix banner-fs banner-single tc-light">
+                        <div class="banner-wrap">
+                            <div class="container">
+                                <div class="row align-items-center justify-content-center gutter-vr-30px">
+
+                                    <div class="col-lg-12 text-center text-lg-center">
+
+                                        <div class="banner-caption wide-auto text-center text-lg-center">
+
+                                            <img id="headerImg" src="images/dark/blue.png" class="" style="width: 55%;"
+                                                data-animate="fadeInUp" data-delay="" alt="header">
+
+                                            <div class="cpn-head mt-10">
+                                                <h1 class="title title-xl-2 title-semibold animated"
+                                                    data-animate="fadeInUp" data-delay="1.35">DOUBLEHANDS</h1>
+                                            </div>
+                                            <div class="cpn-text cpn-text-s1">
+                                                <p class="lead animated" data-animate="fadeInUp" data-delay="1.45">
+                                                    क्रिप्टोक्यूरेंसी उद्योग में पैसा बनाने का सबसे सुरक्षित और तेज़ तरीका</p>
+                                            </div>
+                                            <div class="cpn-btns">
+                                                <ul class="btn-grp animated" data-animate="fadeInUp" data-delay="1.55">
+                                                    <li><a href="/signup" class="btn btn-md btn-grad btn-round">अप करने के लिए 3,500 ETH प्राप्त करें</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="cpn-social">
+                                                <ul class="social">
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a
+                                                            href="<%= platformData.facebook %>"><em class="social-icon fab fa-facebook-f"></em></a>
+                                                    </li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a
+                                                            href="<%= platformData.twitter %>"><em class="social-icon fab fa-twitter"></em></a>
+                                                    </li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a
+                                                            href="<%= platformData.youtube %>"><em class="social-icon fab fa-youtube"></em></a>
+                                                    </li>
+                                                    <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a
+                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>"><em class="social-icon fab fa-github"></em></a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><!-- .col -->
+                                </div><!-- .row -->
+
+                                <div class="row justify-content-center">
+                                    <a href="#what"><i class="fa fa-chevron-down animated" data-animate="fadeInUp"
+                                            data-delay="2"
+                                            style="position:absolute;font-size: 28px; bottom: 30px"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .nk-banner -->
+                <div class="nk-ovm mask-c-dark shape-v mask-contain-bottom"></div>
+
+                <!-- Place Particle Js -->
+                <div id="particles-bg" class="particles-container particles-bg" data-pt-base="#00c0fa"
+                    data-pt-base-op=".3" data-pt-line="#2b56f5" data-pt-line-op=".5" data-pt-shape="#00c0fa"
+                    data-pt-shape-op=".2"></div>
+            </div>
+            <!-- .header-banner @e -->
+            <% } %>
+        </header>

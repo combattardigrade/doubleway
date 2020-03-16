@@ -67,18 +67,18 @@ app.use((err, req, res, next) => {
 if (process.env.NODE_ENV === 'production') {
     app.set('port', process.env.PORT || 3000);
     app.listen(app.get('port'), function () {
-        console.log('Listening on port ' + app.get('port'));
-        job.start()
-        job2.start()
-        console.log('Cronjob started...')
+        // console.log('Listening on port ' + app.get('port'));
+        // job.start()
+        // job2.start()
+        // console.log('Cronjob started...')
     });
 } else if (process.env.NODE_ENV === 'dev') {
     app.set('port', process.env.PORT || 3000);
     app.listen(app.get('port'), function () {
-        console.log('Listening on port ' + app.get('port'));
-        job.start()
-        job2.start()
-        console.log('Cronjob started...')
+        // console.log('Listening on port ' + app.get('port'));
+        // job.start()
+        // job2.start()
+        // console.log('Cronjob started...')
     });
 }
 

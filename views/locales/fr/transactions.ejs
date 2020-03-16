@@ -1,0 +1,127 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">Les transactions</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">Reçu</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">Mes transactions</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Bénéfice supplémentaire</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Perte de profit</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Depuis</th>
+                                <th>La quantité</th>
+                                <th>#</th>
+                                <th>Date</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Ligne ascendante</th>
+                                <th>La quantité</th>
+                                <th>#</th>
+                                <th>Fecha</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Vos revenus supplémentaires sont les
+                                        revenus perdus de vos filleuls perdus et inactifs. En raison de l'optimisation
+                                        du calcul, les revenus supplémentaires sont affichés avec les revenus
+                                        principaux, dans la section "Transactions reçues".</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Perte de revenus - est l'achat d'un
+                                        niveau par l'un de vos filleuls d'une certaine ligne; si vous n'avez pas encore
+                                        atteint ce niveau. Dans ce cas, les fonds seront directement dirigés vers votre
+                                        amont de la ligne déterminée, à partir de laquelle vous pouvez acheter ce
+                                        niveau. <br> Par exemple, un parrain de troisième ligne veut vous acheter le
+                                        troisième niveau, mais vous n'achetez toujours pas le deuxième niveau. Dans ce
+                                        cas, l'argent sera redirigé vers votre troisième ligne ascendante. <br><br>
+                                        Le manque à gagner survient dans les cas de 2:<br><br>
+                                        1) Si vous avez acheté le premier niveau et que chacun des niveaux suivants
+                                        l'achète progressivement avec les fonds déjà reçus du système, mais vos
+                                        références achètent à l'avance plusieurs niveaux à la fois. Il s'agit d'une
+                                        situation normale, qui annonce une croissance rapide. La perte d'avantages de
+                                        vos filleuls, qui apparaît de la même manière, finira par se transformer en
+                                        bénéfices supplémentaires et augmentera vos revenus plusieurs fois. À partir du
+                                        deuxième mois, vous recevrez tous les paiements de chacun des filleuls pour
+                                        chaque niveau.<br><br>
+                                        2) Si vous n'achetez pas les niveaux à temps ou si vous ne les renouvelez pas
+                                        après un mois. Dans ce cas, l'argent que vous auriez dû recevoir sera dirigé
+                                        vers vos ascendants, à partir de la ligne donnée. Vous pouvez acheter ou
+                                        renouveler des niveaux pour un certain nombre de mois et recommencer à recevoir
+                                        des bénéfices. Votre compte reste dans le système pour toujours.<br><br>
+                                        Si votre niveau est actif, alors, même si votre filleul achète le même niveau
+                                        pendant plusieurs mois, tout l'argent vous ira directement. Si vous avez des
+                                        filleuls inactifs, tout l'argent qu'ils auraient gagné pour les niveaux
+                                        correspondants vous reviendra.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

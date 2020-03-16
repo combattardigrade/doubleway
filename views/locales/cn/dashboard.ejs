@@ -15,50 +15,53 @@
                 <i class="fab fa-facebook-f" style="font-size: 22px;"></i>
             </a>
         </li>
-        
+
         <li class="bread__item">
-            <span class="bread__link bread__link--current" style="">Compartir y obtener referidos de
-                terceros (ya están buscando los hashtags)</span>
+            <span class="bread__link bread__link--current" style="">
+                分享并获得第三方的推荐（他们已经在寻找主题标签）</span>
         </li>
     </ul>
     <div class="row">
         <div class="col-mb-12 col-sm-12 col-md-12 col-lg-6">
             <div class="pa-well text-center ">
-                <h3 style="color: white;padding:30px 0px">Nivel Actual: <span><%= userData.user.level %></span></h3>
+                <h3 style="color: white;padding:30px 0px">当前水平: <span><%= userData.user.level %></span></h3>
                 <div style="margin:20px 0 55px">
                     <p class="pa-text text--xs" style="color: #ffffff;">
-                        Nivel <span id="vs_level_top_p_t"><%= userData.user.level  %></span>: precio <b
+                        等级 <span id="vs_level_top_p_t"><%= userData.user.level  %></span>: 价格 <b
                             style="color: #f2f4ff;"
                             id="vs_level_top_sending"><%= platformData.levels[userData.user.level].price %></b> ETH,
                         <br>
-                        Nivel <span id="vs_level_top_p_t"><%= userData.user.level  %></span>: ingresos <b
-                            style="color: #f2f4ff;"
+                        等级<span id="vs_level_top_p_t"><%= userData.user.level  %></span>:收入 <b style="color: #f2f4ff;"
                             id="vs_level_top_getting"><%= platformData.levels[userData.user.level].income %></b> ETH
                     </p>
                 </div>
-                <a style="margin-bottom: 60px;padding:20px 40px" onclick="App.buyLevel('<%= parseInt(userData.user.level) + 1 %>')"
+                <a style="margin-bottom: 60px;padding:20px 40px"
+                    onclick="App.buyLevel('<%= parseInt(userData.user.level) + 1 %>')"
                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy ">
                     <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                             style="font-size:15px;"></i>
-                        Aumentar de Nivel </h5>
+                        增加等级 </h5>
                 </a>
                 <div class="status__inputs">
                     <p class="pa-text pa-text--grey pa-text--status" style="color: #f2f4ff;margin-bottom:0px">
-                        Hipervínculo de socio</p>
+
+                        合作伙伴超链接</p>
                     <div class="form-group form-group--copy form-group--status" style="margin: 0 100px;">
-                        <input type="text" readonly="" value="<%= host %>?rid=<%= userData.user.id %>" id="agent-url" class="input"
-                            title=""
+                        <input type="text" readonly="" value="<%= host %>?rid=<%= userData.user.id %>" id="agent-url"
+                            class="input" title=""
                             style="height: 48px;width:100%;letter-spacing: 0.036rem; background-color:white;padding:0 24px;color:black;margin:12px 0 24px;border:none !important"
                             data-original-title="Partner link copied!">
-                        <b id="copyUrlBtn" class="agent-url agent-url-dashboard toastr-success" data-clipboard-target="#agent-url"></b>
+                        <b id="copyUrlBtn" class="agent-url agent-url-dashboard toastr-success"
+                            data-clipboard-target="#agent-url"></b>
                     </div>
-                    
-                    
+
+
                 </div>
                 <div class="pa-well__foot" style="background: none;">
                     <p class="pa-text pa-text--grey" style="color: #f2f4ff;">
-                        <a href="reflinks" class="pa-link" style="color: white; text-decoration: underline !important;">Invitar referencias</a>
-                         </p>
+                        <a href="reflinks" class="pa-link" style="color: white; text-decoration: underline !important;">
+                            邀请参考</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -80,10 +83,12 @@
                         style="font-size: 4em; padding-top: 30px;position: absolute; padding-left: 30px"></i>
                 </div>
                 <div class="col-mb-12 col-md-12 col-lg-10">
-                    <div>Ingresos totales</div>
+                    <div>
+                        总收入</div>
                     <div><span style="font-size: 28px;"><%= userData.totalEarnings %></span><img
                             src="images/dark/eth-white.png" style="height: 28px; margin-top: -12px" alt=""> </div>
-                    <div style="font-size:14px"><a href="/transactions" style="text-decoration: underline !important;">Ver transacciones</a></div>
+                    <div style="font-size:14px"><a href="/transactions" style="text-decoration: underline !important;">
+                            查看交易</a></div>
                 </div>
             </div>
             <div class="row pa-card" style="margin-right: 1px;">
@@ -92,9 +97,10 @@
                         style="font-size: 4em; padding-top: 30px;position: absolute; padding-left: 30px"></i>
                 </div>
                 <div class="col-mb-12 col-md-12 col-lg-10">
-                    <div>Referidos totales</div>
+                    <div>推荐总数</div>
                     <div> <span style="font-size: 28px;"><%= userData.totalReferrals %></span></div>
-                    <div style="font-size:14px" ><a href="/referrals" style="text-decoration: underline !important;">Ver referidos</a></div>
+                    <div style="font-size:14px"><a href="/referrals"
+                            style="text-decoration: underline !important;">查看推荐</a></div>
                 </div>
             </div>
         </div>
@@ -160,323 +166,323 @@
         }
 
         .card-icon {
-            
-           
+
+
             -webkit-transition: 0.5s;
             transition: 0.5s;
         }
 
         .card-icon-hover {
-            
+
             -webkit-transform: scale(1.2);
             transform: scale(1.2);
         }
     </style>
 
-    <div class="row">
-        <div class="col-mb-12 col-sm-6 col-md-3">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 1</div>
-                <%- userData.levelExp[1] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[1] != 0 ? '<div class="card-active expDate">' + userData.levelExp[1] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[1].price %> ETH</div>
-                <% if(userData.user.level + 1 == 1) { %>
-                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('1')"
-                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                            style="font-size:15px;"></i>
-                        Comprar</h5>
-                </a>
-                <% } else if (userData.user.level >= 1 ) { %>
-                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('1')"
-                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                        Ampliar</h5>
-                </a>
-                <% } else { %>
-                <a style="margin-bottom: 15px;padding:20px 40px"
-                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                            style="font-size:15px;"></i>
-                        Comprar</h5>
-                </a>
-                <% } %>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[1].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[1].income %> ETH</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-mb-12 col-sm-6 col-md-3 card-col">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 2</div>
-                <%- userData.levelExp[2] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[2] != 0 ? '<div class="card-active expDate">' + userData.levelExp[2] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[2].price %> ETH</div>
-                <% if(userData.user.level + 1 == 2) { %>
-                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('2')"
-                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                            style="font-size:15px;"></i>
-                        Comprar</h5>
-                </a>
-                <% } else if (userData.user.level >= 2 ) { %>
-                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('2')"
-                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                        Ampliar</h5>
-                </a>
-                <% } else { %>
-                <a style="margin-bottom: 15px;padding:20px 40px"
-                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                            style="font-size:15px;"></i>
-                        Comprar</h5>
-                </a>
-                <% } %>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[2].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[2].income %> ETH</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-mb-12 col-sm-6 col-md-3 card-col">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 3</div>
-                <%- userData.levelExp[3] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[3] != 0 ? '<div class="card-active expDate">' + userData.levelExp[3] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[3].price %> ETH</div>
-                <div>
-                    <% if(userData.user.level + 1 == 3) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('3')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } else if (userData.user.level >= 3 ) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('3')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Ampliar</h5>
-                    </a>
-                    <% } else { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px"
-                        class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } %>
-                </div>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[3].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[3].income %> ETH</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-mb-12 col-sm-6 col-md-3 card-col">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 4</div>
-                <%- userData.levelExp[4] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[4] != 0 ? '<div class="card-active expDate">' + userData.levelExp[4] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[4].price %> ETH</div>
-                <div>
-                    <% if(userData.user.level + 1 == 4) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('4')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } else if (userData.user.level >= 4 ) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('4')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Ampliar</h5>
-                    </a>
-                    <% } else { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px"
-                        class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } %>
-                </div>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[4].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[4].income %> ETH</div>
-                </div>
+<div class="row">
+    <div class="col-mb-12 col-sm-6 col-md-3">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 1</div>
+            <%- userData.levelExp[1] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[1] != 0 ? '<div class="card-active expDate">' + userData.levelExp[1] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[1].price %> ETH</div>
+            <% if(userData.user.level + 1 == 1) { %>
+            <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('1')"
+                class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                        style="font-size:15px;"></i>
+                    买</h5>
+            </a>
+            <% } else if (userData.user.level >= 1 ) { %>
+            <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('1')"
+                class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                    展开</h5>
+            </a>
+            <% } else { %>
+            <a style="margin-bottom: 15px;padding:20px 40px"
+                class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                        style="font-size:15px;"></i>
+                    买</h5>
+            </a>
+            <% } %>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[1].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[1].income %> ETH</div>
             </div>
         </div>
     </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 2</div>
+            <%- userData.levelExp[2] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[2] != 0 ? '<div class="card-active expDate">' + userData.levelExp[2] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[2].price %> ETH</div>
+            <% if(userData.user.level + 1 == 2) { %>
+            <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('2')"
+                class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                        style="font-size:15px;"></i>
+                    买</h5>
+            </a>
+            <% } else if (userData.user.level >= 2 ) { %>
+            <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('2')"
+                class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                    展开</h5>
+            </a>
+            <% } else { %>
+            <a style="margin-bottom: 15px;padding:20px 40px"
+                class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                        style="font-size:15px;"></i>
+                    买</h5>
+            </a>
+            <% } %>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[2].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[2].income %> ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 3</div>
+            <%- userData.levelExp[3] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[3] != 0 ? '<div class="card-active expDate">' + userData.levelExp[3] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[3].price %> ETH</div>
+            <div>
+                <% if(userData.user.level + 1 == 3) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('3')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } else if (userData.user.level >= 3 ) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('3')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        展开</h5>
+                </a>
+                <% } else { %>
+                <a style="margin-bottom: 15px;padding:20px 40px"
+                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } %>
+            </div>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[3].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[3].income %> ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 4</div>
+            <%- userData.levelExp[4] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[4] != 0 ? '<div class="card-active expDate">' + userData.levelExp[4] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[4].price %> ETH</div>
+            <div>
+                <% if(userData.user.level + 1 == 4) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('4')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } else if (userData.user.level >= 4 ) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('4')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        展开</h5>
+                </a>
+                <% } else { %>
+                <a style="margin-bottom: 15px;padding:20px 40px"
+                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } %>
+            </div>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[4].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[4].income %> ETH</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <div class="row" style="margin-top:15px">
-        <div class="col-mb-12 col-sm-6 col-md-3">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 5</div>
-                <%- userData.levelExp[5] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[5] != 0 ? '<div class="card-active expDate">' + userData.levelExp[5] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[5].price %> ETH</div>
-                <div>
-                    <% if(userData.user.level + 1 == 5) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('5')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } else if (userData.user.level >= 5 ) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('5')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Ampliar</h5>
-                    </a>
-                    <% } else { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px"
-                        class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } %>
-                </div>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[5].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[1].income %> ETH</div>
-                </div>
+<div class="row" style="margin-top:15px">
+    <div class="col-mb-12 col-sm-6 col-md-3">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 5</div>
+            <%- userData.levelExp[5] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[5] != 0 ? '<div class="card-active expDate">' + userData.levelExp[5] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[5].price %> ETH</div>
+            <div>
+                <% if(userData.user.level + 1 == 5) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('5')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } else if (userData.user.level >= 5 ) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('5')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        展开</h5>
+                </a>
+                <% } else { %>
+                <a style="margin-bottom: 15px;padding:20px 40px"
+                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } %>
             </div>
-        </div>
-        <div class="col-mb-12 col-sm-6 col-md-3 card-col">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 6</div>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[6].price %> ETH</div>
-                <div>
-                    <% if(userData.user.level + 1 == 6) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('6')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } else if (userData.user.level >= 6 ) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('6')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Ampliar</h5>
-                    </a>
-                    <% } else { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px"
-                        class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } %>
-                </div>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[6].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[1].income %> ETH</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-mb-12 col-sm-6 col-md-3 card-col">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 7</div>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[7].price %> ETH</div>
-                <div>
-                    <% if(userData.user.level + 1 == 7) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('7')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } else if (userData.user.level >= 7 ) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('7')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Ampliar</h5>
-                    </a>
-                    <% } else { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px"
-                        class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } %>
-                </div>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[7].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[7].income %> ETH</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-mb-12 col-sm-6 col-md-3 card-col">
-            <div class="pa-stats-card">
-                <div class="card-title">Nivel 8</div>
-                <%- userData.levelExp[8] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[8] != 0 ? '<div class="card-active expDate">' + userData.levelExp[8] + '</div>' : '<div class="card-inactive">Sin fecha</div>' %>
-                <div class="card-price"><%= platformData.levels[8].price %> ETH</div>
-                <div>
-                    <% if(userData.user.level + 1 == 8) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('8')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } else if (userData.user.level >= 8 ) { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('8')"
-                        class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            Ampliar</h5>
-                    </a>
-                    <% } else { %>
-                    <a style="margin-bottom: 15px;padding:20px 40px"
-                        class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
-                        <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
-                                style="font-size:15px;"></i>
-                            Comprar</h5>
-                    </a>
-                    <% } %>
-                </div>
-                <div>+64 días</div>
-                <div class="card-bottom-box">
-                    <div style="padding-top:16px">Referidos</div>
-                    <div class="card-referral-no"><%= platformData.levels[8].referrals %></div>
-                    <div style="padding-top:16px">Ingresos</div>
-                    <div class="card-revenue"><%= platformData.levels[8].income %> ETH</div>
-                </div>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[5].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[1].income %> ETH</div>
             </div>
         </div>
     </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 6</div>
+            <%- userData.levelExp[6] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[6].price %> ETH</div>
+            <div>
+                <% if(userData.user.level + 1 == 6) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('6')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } else if (userData.user.level >= 6 ) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('6')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        展开</h5>
+                </a>
+                <% } else { %>
+                <a style="margin-bottom: 15px;padding:20px 40px"
+                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } %>
+            </div>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[6].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[1].income %> ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 7</div>
+            <%- userData.levelExp[6] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[7].price %> ETH</div>
+            <div>
+                <% if(userData.user.level + 1 == 7) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('7')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } else if (userData.user.level >= 7 ) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('7')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        展开</h5>
+                </a>
+                <% } else { %>
+                <a style="margin-bottom: 15px;padding:20px 40px"
+                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } %>
+            </div>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[7].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[7].income %> ETH</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mb-12 col-sm-6 col-md-3 card-col">
+        <div class="pa-stats-card">
+            <div class="card-title">等级 8</div>
+            <%- userData.levelExp[8] != 0 ? '<div class="card-active">活跃的</div>' : '<div class="card-inactive">不活跃</div>' %>
+            <%- userData.levelExp[8] != 0 ? '<div class="card-active expDate">' + userData.levelExp[8] + '</div>' : '<div class="card-inactive">没有日期</div>' %>
+            <div class="card-price"><%= platformData.levels[8].price %> ETH</div>
+            <div>
+                <% if(userData.user.level + 1 == 8) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('8')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } else if (userData.user.level >= 8 ) { %>
+                <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('8')"
+                    class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
+                        展开</h5>
+                </a>
+                <% } else { %>
+                <a style="margin-bottom: 15px;padding:20px 40px"
+                    class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
+                    <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
+                            style="font-size:15px;"></i>
+                        买</h5>
+                </a>
+                <% } %>
+            </div>
+            <div>+64 天</div>
+            <div class="card-bottom-box">
+                <div style="padding-top:16px">被推荐</div>
+                <div class="card-referral-no"><%= platformData.levels[8].referrals %></div>
+                <div style="padding-top:16px">入息</div>
+                <div class="card-revenue"><%= platformData.levels[8].income %> ETH</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <%- include('dash_footer'); -%>

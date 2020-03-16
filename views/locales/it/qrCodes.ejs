@@ -1,0 +1,95 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">Codici QR</h3>  
+                
+                
+                <div style="margin-top:30px;margin-bottom:30px">
+                    <% const data = `ethereum:${platformData.contractAddress}?amount=${0.08}&data=${userData.user.referrerAddress}` %>
+                    <img src="<%= `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=` + data + `&choe=UTF-8` %>" alt="">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <style>
+        .pa-stats-card {
+            background-color: #171a40;
+            text-align: center;
+            color: white;
+        }
+
+        .card-title {
+            font-weight: 500;
+            font-size: 28px;
+            padding-top: 32px;
+        }
+
+        .card-active {
+            color: rgb(76, 217, 100);
+        }
+
+        .cart-inactive {
+            color: rgb(39, 104, 255);
+        }
+
+        .card-price {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .card-bottom-box {
+            background-color: #1c1f4f;
+            margin-top: 32px;
+            padding: 16px
+        }
+
+        .card-referral-no {
+            font-weight: bold;
+            font-size: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #ffffff14;
+        }
+
+        .card-revenue {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .pa-btn-leveldisabled {
+            border-color: #555555;
+            color: #555555;
+            cursor: default;
+        }
+
+        .btn-buy {
+            background-image: linear-gradient(to right, #39d884 0%, #27c21d 100%) !important;
+        }
+
+        .pa-card:hover {
+            background-color: #3746ff !important;
+        }
+
+        .card-icon {
+
+
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        .card-icon-hover {
+
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    </style>
+
+
+
+    <%- include('dash_footer'); -%>

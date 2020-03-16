@@ -1,0 +1,142 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">लेन-देन</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">आप प्राप्त</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">मेरे लेन-देन</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                अतिरिक्त लाभ</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                खोया हुआ लाभ</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">से</th>
+                                <th>मात्रा</th>
+                                <th>#</th>
+                                <th>तिथि</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">आरोही रेखा</th>
+                                <th>मात्रा</th>
+                                <th>#</th>
+                                <th>तिथि</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">आपकी अतिरिक्त कमाई कमाई है
+                                                                                 तुम्हारा खो गया
+                                                                                 खोया और निष्क्रिय रेफरल।
+                                                                                 गणना अनुकूलन के कारण, अतिरिक्त कमाई के
+                                        साथ प्रदर्शित होते हैं
+                                                                                
+                                                                                 मुख्य लेनदेन, "लेन-देन प्राप्त" अनुभाग
+                                        में.</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">आय का नुकसान - की खरीद है
+                                        एक निश्चित रेखा से आपके रेफरल द्वारा एक
+                                        स्तर; हाँ अभी नहीं
+                                        आप अभी भी उस स्तर तक पहुँच गए हैं। इस
+                                        मामले में धनराशि निर्देशित की जाएगी
+                                          दिए गए लाइन से सीधे आपके अपलाइन तक, जिस
+                                        पर आप जा सकते हैं
+                                         उसे उस स्तर पर खरीदें। <br> उदाहरण के
+                                        लिए, एक तीसरी-पंक्ति रेफरल चाहता है
+                                        तीसरा स्तर खरीदें, लेकिन आप अभी भी
+                                        दूसरा स्तर नहीं खरीदते हैं। इसमें मामले में, पैसे को आपकी तीसरी पंक्ति
+                                        अपलाइन पर पुनर्निर्देशित किया जाएगा। <br><br>
+                                        2 के मामलों में लाभ की हानि:<br><br>
+                                        1) यदि आपने पहला स्तर खरीदा है, और निम्न में से प्रत्येक स्तर आप इसे खरीदते हैं
+                                          धीरे-धीरे सिस्टम से प्राप्त धन के साथ,
+                                        लेकिन उनके संदर्भ
+                                          वे एक बार पहले ही कई स्तर खरीद लेते
+                                        हैं। यह एक स्थिति है
+                                          सामान्य, जो तेजी से विकास करता है। अपने
+                                        से लाभ की हानि
+                                        रेफरल, जो उसी तरह से प्रकट होता है,
+                                        अंततः बन जाएगा
+                                          अतिरिक्त लाभ, और आपके मुनाफे को कई गुना
+                                        बढ़ा देगा। से
+                                        दूसरे महीने, आप प्रत्येक के लिए रेफरल
+                                        के सभी भुगतान प्राप्त करेंगे
+                                        स्तर।<br><br>
+                                        2) यदि आप समय पर स्तर नहीं खरीदते हैं, या एक महीने के बाद उन्हें नवीनीकृत नहीं
+                                        करते हैं। इस मामले में, आपको जो पैसा मिलना चाहिए, वह आपकी लाइनों को निर्देशित
+                                        किया जाएगा
+                                        आरोही, निर्धारित रेखा से। आप कुछ निश्चित महीनों के लिए स्तरों को खरीद या
+                                        नवीनीकृत कर सकते हैं और आपको फिर से लाभ प्राप्त होने लगेगा। आपका खाता सिस्टम में
+                                        हमेशा के लिए रहता है।<br><br>
+                                        यदि आपका स्तर सक्रिय है, तो, भले ही आपका रेफरल कई महीनों के लिए समान स्तर खरीदता
+                                        है, सभी पैसे सीधे आपके पास जाएंगे। यदि आपके पास निष्क्रिय रेफरल है, तो आपके
+                                        द्वारा अर्जित किए गए सभी पैसे इसी स्तर पर आपके पास जाएंगे।
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

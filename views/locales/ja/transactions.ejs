@@ -1,0 +1,112 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">取引</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">受け取った</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">私の取引</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                追加利益</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                逸失利益</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">から</th>
+                                <th>数量</th>
+                                <th>#</th>
+                                <th>日付</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">上昇線</th>
+                                <th>数量</th>
+                                <th>#</th>
+                                <th>日付</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">追加の収益は、失われた非アクティブな紹介の失われた収益です。
+                                        計算が最適化されているため、追加の収益がメインの収益とともに「Received Transactions」セクションに表示されます.</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">収益の損失-特定の行からの紹介の1つによるレベルの購入です。
+                                        まだそのレベルに達していない場合。 この場合、資金は決定されたラインのアップラインに直接送られ、そこからそのレベルを購入できます。 <br>
+                                        たとえば、3行目の紹介では、3番目のレベルを購入したいが、2番目のレベルは購入しません。 この場合、お金は3行目のアップラインにリダイレクトされます。
+                                        <br><br>
+                                        2の場合に利益の損失が発生します。<br><br>
+                                        1）最初のレベルを購入し、次の各レベルがシステムからすでに受け取った資金で徐々に購入するが、あなたのリファレンスは事前にいくつかのレベルを一度に購入する場合。
+                                        これは通常の状況であり、急速な成長を示しています。 同じように表示される紹介の利益の損失は、最終的には余分な利益に変わり、収益を複数回増加させます。
+                                        2か月目から、各レベルの各紹介のすべての支払いを受け取ります。<br><br>
+                                        2）期限内にレベルを購入しない場合、または1か月後にレベルを更新しない場合。 この場合、受け取ったはずのお金は、指定された回線からアップラインに送られます。
+                                        一定の月数の間、レベルを購入または更新でき、再び利益を受け取り始めます。 アカウントは永久にシステムに残ります。<br><br>
+                                        あなたのレベルがアクティブであれば、紹介者が同じレベルを何ヶ月も購入しても、すべてのお金はあなたに直接送られます。
+                                        非アクティブな紹介がある場合、これらが対応するレベルで獲得したすべてのお金があなたに送られます。
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

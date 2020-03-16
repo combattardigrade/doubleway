@@ -1,0 +1,131 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">Transaktionen</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">Erhalten</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">Mis Transaktionen</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                Zusätzlicher Gewinn</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+
+                                Verlorener Gewinn</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Von</th>
+                                <th>Menge</th>
+                                <th>#</th>
+                                <th>Datum</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">Aufsteigende Linie</th>
+                                <th>Menge</th>
+                                <th>#</th>
+                                <th>Datum</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">
+                                        Ihr zusätzliches Einkommen ist das Einkommen
+                                        verloren von Ihren verlorenen und inaktiven Empfehlungen. Aufgrund der
+                                        Optimierung der Berechnung werden die zusätzlichen Einnahmen zusammen mit den
+                                        Haupteinnahmen im Abschnitt "Erhaltene Transaktionen" angezeigt.</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">Gewinnverlust - ist der Kauf eines
+                                        Levels durch eine Ihrer Empfehlungen einer bestimmten Linie; wenn Sie dieses
+                                        Niveau noch nicht erreicht haben. In diesem Fall wird das Geld direkt an Ihre
+                                        aufsteigende Linie der festgelegten Linie weitergeleitet, von der Sie dieses
+                                        Level kaufen können <br>
+                                        Zum Beispiel möchte eine Überweisung in der dritten Zeile Ihnen die dritte Ebene
+                                        kaufen, aber Sie kaufen immer noch nicht die zweite Ebene. In diesem Fall wird
+                                        das Geld an Ihre dritte Zeile weitergeleitet. <br><br>
+                                        Gewinnverlust entsteht in Fällen von 2:<br><br>
+                                        1) Wenn Sie die erste Stufe gekauft haben und jede der folgenden Stufen sie
+                                        schrittweise mit den bereits vom System erhaltenen Mitteln kauft, Ihre
+                                        Referenzen jedoch im Voraus mehrere Stufen gleichzeitig kaufen. Dies ist eine
+                                        normale Situation, die ein schnelles Wachstum ankündigt. Der Verlust von
+                                        Vorteilen aus Ihren Empfehlungen, der auf die gleiche Weise auftritt, wird
+                                        schließlich zu zusätzlichen Einnahmen und erhöht Ihre Einnahmen um ein
+                                        Vielfaches. Ab dem zweiten Monat erhalten Sie alle Zahlungen für jede Empfehlung
+                                        für jede Ebene.<br><br>
+                                        2) Wenn Sie die Levels nicht rechtzeitig kaufen oder nach einem Monat nicht
+                                        erneuern. In diesem Fall wird das Geld, das Sie hätten erhalten sollen, von der
+                                        angegebenen Zeile an Ihre Uplines weitergeleitet. Sie können Levels für eine
+                                        bestimmte Anzahl von Monaten kaufen oder erneuern und erhalten wieder Gewinne.
+                                        Ihr Konto bleibt für immer im System.<br><br>
+                                        
+                                        Wenn Ihr Level aktiv ist, wird das gesamte Geld direkt an Sie gehen, selbst wenn
+                                        Ihre Empfehlung viele Monate lang dasselbe Level kauft. Wenn Sie inaktive
+                                        Empfehlungen haben, geht das gesamte Geld, das diese für die entsprechenden
+                                        Level verdient hätten, an Sie.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

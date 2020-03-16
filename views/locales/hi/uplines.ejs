@@ -1,0 +1,179 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">आरोही रेखाएँ</h3>
+
+
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">पहली आरोही रेखा</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[1] ? userData.referrers[1].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[1]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[1].address  %>"><%= userData.referrers[1].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">दूसरी आरोही रेखा</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[2] ? userData.referrers[2].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[2]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[2].address  %>"><%= userData.referrers[2].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">तीसरा अपलाइन</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[3] ? userData.referrers[3].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[3]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[3].address  %>"><%= userData.referrers[3].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">चौथा आरोही रेखा</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[4] ? userData.referrers[4].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[4]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[4].address  %>"><%= userData.referrers[4].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">पांचवीं आरोही रेखा</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[5] ? userData.referrers[5].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[5]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[5].address  %>"><%= userData.referrers[5].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">छठी आरोही रेखा</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[6] ? userData.referrers[6].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[6]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[6].address  %>"><%= userData.referrers[6].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">सातवां अपलाइन</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[7] ? userData.referrers[7].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[7]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[7].address  %>"><%= userData.referrers[7].address %></a></div>
+                            <% } %> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px; color:white">
+                    <div class="col-mb-2 offset-mb-1">
+                        <div>
+                            <img style="height: 4em" src="images/dark/upline_img.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-mb-9 " style="text-align: left;">
+                        <div>
+                            <h4 style="color:white">आठवीं आरोही रेखा</h4>
+                        </div>
+                        <div>
+                            <div>ID:
+                                <span><%= userData.referrers[8] ? userData.referrers[8].id : 'Sin línea ascendente' %></span>
+                            </div>
+                            <% if(userData.referrers[8]) { %>
+                                <div>पता: <a style="color:black;font-weight: bold;" href="<%= etherscanExplorer + 'address/' + userData.referrers[8].address  %>"><%= userData.referrers[8].address %></a></div>
+                            <% } %>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

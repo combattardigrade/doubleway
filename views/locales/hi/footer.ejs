@@ -1,0 +1,142 @@
+<footer class="nk-footer bg-theme-alt ">
+    <div class="section section-m pb-0 tc-light ov-h">
+        <div class="container py-4">
+            <!-- Block @s -->
+            <div class="nk-block pb-lg-5">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-6 col-md-9">
+                        <div class="wide-auto-sm section-head section-head-sm pdb-r">
+                            <img src="images/dark/blue.png" style="height: 300px;" alt="">
+                            <h1 class="title title-xl-2 title-semibold animated fadeInUp" data-animate="fadeInUp"
+                                data-delay="0.35" style="visibility: visible; animation-delay: 1.35s;margin-top:30px">
+                                DOUBLEHANDS
+                            </h1>
+                            <div class="cpn-text cpn-text-s1">
+                                <p class="lead animated fadeInUp" data-animate="fadeInUp" data-delay="0.40"
+                                    style="visibility: visible; animation-delay: 1.45s;">
+                                    La forma más fácil y rápida de ganar dinero en la industria de las
+                                    criptomonedas</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/signup" class="btn btn-md btn-grad btn-grad-alternet btn-round">OBTENER HASTA
+                                3,500 ETH ¡AHORA!</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .block @e -->
+        </div>
+        <div class="nk-ovm shape-contain shape-center-top shape-p"></div>
+    </div>
+    <div class="section section-footer section-s tc-light bg-transparent">
+        <div class="container">
+            <!-- Block @s -->
+            <div class="nk-block block-footer">
+                <div class="row">
+                    <div class="col">
+                        <div class="wgs wgs-text text-center mb-3">
+                            <ul class="social pdb-m justify-content-center">
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.65"><a
+                                        href="<%= platformData.facebook %>"><em
+                                            class="social-icon fab fa-facebook-f"></em></a>
+                                </li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.7"><a
+                                        href="<%= platformData.twitter %>"><em
+                                            class="social-icon fab fa-twitter"></em></a>
+                                </li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.75"><a
+                                        href="<%= platformData.youtube %>"><em
+                                            class="social-icon fab fa-youtube"></em></a>
+                                </li>
+                                <li class="animated" data-animate="fadeInUp" data-delay="1.8"><a
+                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>"><em
+                                            class="social-icon fab fa-github"></em></a>
+                                </li>
+                            </ul>
+                            <div class="copyright-text copyright-text-s3 pdt-m">
+                                <p><span class="d-sm-block">Todos los derechos reservados &copy; 2020,
+                                        DoubleHands
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .block @e -->
+        </div>
+    </div>
+</footer>
+</div>
+
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+
+<!-- JavaScript -->
+<script src="assets/js/jquery.bundle.js?ver=192"></script>
+<script src="assets/js/scripts.js?ver=192"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        $("#headerImg").addClass("imageRot")
+
+        setTimeout(function () {
+            $("#headerImg").removeClass("imageRot")
+        }, 22200)
+
+        $('#headerImg').click(function () {
+            $("#headerImg").addClass("imageRot")
+            setTimeout(function () {
+                $("#headerImg").removeClass("imageRot")
+            }, 22200)
+        })
+
+
+        $('.timeSince').each(function () {
+            let date = new Date($(this).html() * 1000)
+            $(this).html(timeSince(date))
+        })
+    })
+
+    function timeSince(date) {
+        var seconds = Math.floor((new Date() - date) / 1000);
+        var interval = Math.floor(seconds / 31536000);
+
+        if (interval > 1) {
+            return interval + " años";
+        }
+        interval = Math.floor(seconds / 2592000);
+        if (interval > 1) {
+            return interval + " meses";
+        }
+        interval = Math.floor(seconds / 86400);
+        if (interval > 1) {
+            return interval + " días";
+        }
+        interval = Math.floor(seconds / 3600);
+        if (interval > 1) {
+            return interval + " horas";
+        }
+        interval = Math.floor(seconds / 60);
+        if (interval > 1) {
+            return interval + " minutos";
+        }
+        return Math.floor(seconds) + " segundos";
+    }
+
+    // Language
+    $('.langbutton').hover(function(){
+        $(this).find('span').css('opacity', '1')        
+    }, function() {
+        $(this).find('span').css('opacity', '0')
+    })
+
+    $('.langbutton').click(function(e) {
+        e.preventDefault()
+        $('.langbutton').removeClass('langbutton-active')
+        $(this).addClass('langbutton-active')
+    })
+
+    
+</script>
+</body>
+
+</html>

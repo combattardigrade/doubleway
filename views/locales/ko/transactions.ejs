@@ -1,0 +1,113 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">거래</h3>
+
+                <div>
+                    <ul class="tab-list text-center" style="margin-bottom: 40px;display:flex">
+                        <li data-table="1" class="methodSelector active"><a href="#tab_1" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="true">받았습니다</a></li>
+                        <li data-table="2" class="methodSelector"><a href="#tab_2" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">내 거래</a></li>
+
+                        <li data-table="3" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                추가 이익</a></li>
+                        <li data-table="4" class="methodSelector"><a href="#tab_3" data-toggle="tab"
+                                class="pa-btn pa-btn--tab" aria-expanded="false">
+                                잃어버린 이익</a></li>
+                    </ul>
+                </div>
+                <div class="row" style="margin-top:30px;margin-bottom:30px">
+                    <div class="col-mb-12 text-center">
+                        <table id="inTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">부터</th>
+                                <th>수량</th>
+                                <th>#</th>
+                                <th>날짜</th>
+                            </thead>
+                            <tbody>
+                                <% let i = 1 %>
+                                <% for(tx of userData.levelUps) { %><tr>
+                                    <td><a href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.referral %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.level].price %> ETH</td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <!-- My Txs -->
+                        <table id="myTxs" class="table table-responsive  table-hover tx-container"
+                            style="margin: 0px auto; width: 50% !important;display:none; margin-top:40px">
+                            <thead>
+                                <th style="width: 25%;text-align: left;">오름차순 라인</th>
+                                <th>수량</th>
+                                <th>#</th>
+                                <th>Fecha</th>
+                            </thead>
+                            <tbody>
+                                <% i = 1 %>
+                                <% for(tx of userData.myTxs) { %><tr>
+                                    <% if(tx.name == 'regLevelEvent') %>
+                                    <td><a
+                                            href="<%= `${etherscanExplorer}/tx/${tx.txHash}` %>"><%= tx.name == 'regLevelEvent' ? tx.referrer : tx.tx.input %></a>
+                                    </td>
+                                    <td><%= platformData.levels[tx.name == 'regLevelEvent' ? 1 : tx.level].price %> ETH
+                                    </td>
+                                    <td><%= i %></td>
+                                    <td class="date"><%= tx.time %></td>
+                                </tr>
+                                <% i++ %>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <div id="extraEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">추가 수입은 손실 및 비활성 추천의 손실 수입입니다. 계산 최적화로
+                                        인해 "수신 된 거래"섹션에 추가 수입이 주요 수입과 함께 표시됩니다..</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lostEarnings" class="tx-container" style="display: none; margin-top: 40px">
+                            <div class="row">
+                                <div class="col-mb-8  offset-mb-2 col-md-8 offset-md-2">
+                                    <h5 style="color: white;text-align: justify;">수입 상실-특정 라인에서 추천 중 하나에 의해 레벨을 구매하는
+                                        것입니다. 아직 그 수준에 도달하지 않은 경우. 이 경우 자금은 결정된 라인의 업 라인으로 직접 연결되어 해당 레벨을 구입할 수 있습니다.
+                                        <br> 예를 들어, 3 차 추천은 3 차 레벨을 구매하려고하지만 여전히 2 차 레벨을 구매하지는 않습니다. 이 경우 돈은 세 번째 라인 업
+                                        라인으로 리디렉션됩니다. <br><br>
+                                        2의 경우 수입 손실이 발생합니다:<br><br>
+                                        1) 첫 번째 레벨을 구입하고 다음 각 레벨이 시스템에서 이미받은 자금으로 점진적으로 구매하지만 참조는 한 번에 여러 레벨을 사전에 구입합니다.
+                                        이것은 정상적인 상황이며 빠른 성장을 예고합니다. 같은 방식으로 나타나는 추천의 혜택 상실은 결국 추가 이익으로 바뀌고 수입이 여러 번
+                                        증가합니다. 두 번째 달부터 각 수준에 대한 각 추천의 모든 지불금을 받게됩니다.<br><br>
+                                        2) 정시에 구매하지 않거나 한 달 후에 갱신하지 않는 경우. 이 경우, 입금해야 할 금액은 주어진 라인에서 귀하의 업 라인으로 연결됩니다.
+                                        특정 개월 동안 레벨을 구매하거나 갱신 할 수 있으며 다시 수익을 받기 시작합니다. 귀하의 계정은 시스템에 영구적으로 남아
+                                        있습니다.<br><br>
+                                        귀하의 레벨이 활성화 된 경우, 추천이 수 개월 동안 동일한 레벨을 구매하더라도 모든 금액은 귀하에게 직접 전달됩니다. 비활성 추천이있는 경우
+                                        해당 레벨에 대해 얻은 모든 금액이 귀하에게 전달됩니다.
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include('dash_footer'); -%>

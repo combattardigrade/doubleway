@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="<%= host %>/images/favicon.png">
     <!-- Site Title  -->
-    <title>Iniciar Sesión | DoubleHands - La forma más fácil y segura de ganar dinero con Criptomonedas</title>
+    <title>
+        登入 | DoubleHands - 最简单，最安全的加密货币赚钱方式</title>
     <!-- Bundle and Base CSS -->
-    <link rel="stylesheet" href="assets/css/vendor.bundle.css?ver=192">
-    <link rel="stylesheet" href="assets/css/style-dark.css?ver=192" id="changeTheme">
+    <link rel="stylesheet" href="<%= host %>/assets/css/vendor.bundle.css?ver=192">
+    <link rel="stylesheet" href="<%= host %>/assets/css/style-dark.css?ver=192" id="changeTheme">
     <!-- Extra CSS -->
-    <link rel="stylesheet" href="assets/css/theme.css?ver=192">
+    <link rel="stylesheet" href="<%= host %>/assets/css/theme.css?ver=192">
 
     < <style>
         .imageRot {
@@ -84,21 +85,23 @@
                                     <div style="vertical-align: middle;">
                                         <div class="row">
                                             <div class="col-8 offset-2">
-                                                <h1 style="padding:10px">Iniciar sesión</h1>
-                                                <h6 style="margin-bottom:40px">Nunca le pedimos que increse sus claves
-                                                    privadas</h6>
+                                                <h1 style="padding:10px">
+                                                    登入</h1>
+                                                <h6 style="margin-bottom:40px">
+                                                    我们从不要求您输入私钥</h6>
 
                                                 <a id="auto-login-btn" onclick="App.login()"
                                                     style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
                                                     href="#"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                     <h5 style="font-size:1em"><i class="fa fa-sign-in-alt"
-                                                            style="font-size:15px"></i> Iniciar sesión automáticamente
+                                                            style="font-size:15px"></i> 自动登录
                                                     </h5>
                                                 </a>
                                                 <h6 style="color: white;margin-top:30px;font-size:16px"
                                                     id="networkResponse"></h6>
-                                                <div style="padding-top:20px">Recomendado para:</div>
+                                                <div style="padding-top:20px">
+                                                    推荐用于:</div>
                                                 <div style="margin-bottom: 40px">
                                                     <p
                                                         style="margin-top: 12px; color: #888888; font-size: 13px; font-weight: 400;">
@@ -106,16 +109,16 @@
                                                         <span style="vertical-align: middle;margin-right: 4px;">:</span>
                                                         <img class="button_signup_descrlogo_img"
                                                             style="display:inline-block;height: 18px;"
-                                                            src="images/dark/metamask-fox.svg">
+                                                            src="<%= host %>/images/dark/metamask-fox.svg">
                                                         <i class="fas fa-mobile-alt"
                                                             style="vertical-align: middle; margin-left: 12px;"></i>
                                                         <span style="vertical-align: middle;margin-right: 4px;">:</span>
                                                         <img class="button_signup_descrlogo_img"
                                                             style="display:inline-block;height: 18px;"
-                                                            src="images/dark/trustwallet_icon.svg">
+                                                            src="<%= host %>/images/dark/trustwallet_icon.svg">
                                                         <img class="button_signup_descrlogo_img"
                                                             style="display:inline-block;height: 18px;"
-                                                            src="images/dark/coinbase_icon.png">
+                                                            src="<%= host %>/images/dark/coinbase_icon.png">
 
                                                     </p>
                                                 </div>
@@ -129,8 +132,9 @@
                                                 </p>
                                                 <div
                                                     style="text-align: left;margin-top: 40px;padding-left: 10px;padding-bottom: 10px">
-                                                    <img src="images/dark/eth-white.png" style="height: 20px;" alt="">
-                                                    Tu dirección ETH</div>
+                                                    <img src="<%= host %>/images/dark/eth-white.png" style="height: 20px;" alt="">
+
+                                                    您的ETH地址</div>
 
                                                 <input id="manualLoginAccount"
                                                     placeholder="Ingresa la dirección de tu monedero de Ethereum"
@@ -139,7 +143,8 @@
                                                 <a onclick="App.manualLogin()"
                                                     style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
-                                                    <h5 style="font-size:1em">Iniciar sesión manualmente</h5>
+                                                    <h5 style="font-size:1em">
+                                                        手动登录</h5>
                                                 </a>
 
                                             </div>
@@ -153,14 +158,14 @@
                                         style="vertical-align: middle;position: relative; top: 20vh">
                                         <div class="row" style="height: 100%;">
                                             <div class="col-8 offset-2">
-                                                <img id="headerImg" src="images/dark/blue.png" style="height: 200px;"
+                                                <img id="headerImg" src="<%= host %>/images/dark/blue.png" style="height: 200px;"
                                                     alt="">
                                                 <h1 style="margin-top: 40px">DoubleHands</h1>
-                                                <h5>La fórmula más antigua del mundo y tecnología Blockchain</h5>
+                                                <h5>世界上最古老的公式和区块链技术</h5>
                                                 <a style="margin-top: 20px;width:40%;padding:20px 40px" href="/signup"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                     <h5 style="font-size:1em"><i class="fa fa-user-plus"
-                                                            style="font-size:15px;"></i> Registrarme</h5>
+                                                            style="font-size:15px;"></i> 注册我</h5>
                                                 </a>
 
                                                 <div class="nk-block block-footer" style="margin-top: 60px">
@@ -190,19 +195,20 @@
                                                                     </li>
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
-                                                                    <p><span class="d-sm-block">Todos los derechos
-                                                                            reservados © 2020,
+                                                                    <p><span class="d-sm-block">
+                                                                            版权所有 © 2020,
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
                                                                 <div style="font-size: 14px;margin-top: 20px"><a
-                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Dirección
-                                                                        de Contrato Inteligente</a></div>
-                                                                <div style="font-size: 14px"><a href="/terminos"">Términos y condiciones</a>
+                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">
+                                                                        智能合约地址</a></div>
+                                                                <div style="font-size: 14px"><a href="/terminos"">
+                                                                    条款及细则</a>
                                                                 </div>
                                                                 <div style=" font-size: 14px"><a
-                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Código
-                                                                            Abierto</a></div>
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">开源</a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -228,7 +234,7 @@
             <!-- .header-banner @e -->
         </header>
 
-        
+
 
         <div class="modal fade" id="metamaskModal" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-dialog-centered">
@@ -236,14 +242,16 @@
                     <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
                             class="ti ti-close"></em></a>
                     <div class="modal-body p-md-4 p-lg-5">
-                        
+
                         <div class="row">
                             <div class="col-10 offset-1 text-center">
-                                <h3 class="title title-md">Descarga MetaMask</h3>
-                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png" alt=""></a>
-                                <p style="text-align: justify;margin-top:20px">Para registrarte e ingresar a la plataforma automáticamente necesitas instalar la billetera de Ethereum, MetaMask para navegador.</p>
+                                <h3 class="title title-md">下载MetaMask</h3>
+                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png"
+                                        alt=""></a>
+                                <p style="text-align: justify;margin-top:20px">
+                                    要自动注册并进入平台，您需要安装以太坊钱包，用于浏览器的MetaMask.</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -255,9 +263,9 @@
     <div class="preloader"><span class="spinner spinner-round"></span></div>
 
     <!-- JavaScript -->
-    <script src="assets/js/jquery.bundle.js?ver=192"></script>
-    <script src="assets/js/scripts.js?ver=192"></script>
-    <script src="assets/js/charts.js"></script>
+    <script src="<%= host %>/assets/js/jquery.bundle.js?ver=192"></script>
+    <script src="<%= host %>/assets/js/scripts.js?ver=192"></script>
+    <script src="<%= host %>/assets/js/charts.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -275,7 +283,7 @@
                 }, 22200)
             })
 
-            
+
         })
     </script>
     <script src="<%= `${host}/assets/js/bundle.js` %>"></script>
