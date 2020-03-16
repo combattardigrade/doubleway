@@ -712,36 +712,53 @@
             </div>
             <!-- Block @e -->
         </div>
-    </section>    <section class="section bg-theme-alt tc-light section-connect" id="media-partner">
+    </section>
+    <section class="section bg-theme-alt tc-light section-connect" id="media-partner">
         <div class="transform-line"></div>
         <div class="container">
             <div class="section-head text-center wide-auto-sm">
-                            <h2 class=" title title-s4 animated " data-animate="
+                <h2 class=" title title-s4 animated " data-animate="
                                     fadeInUp " data-delay=" .1 " title="
-                                    Transacciones ">NOUVELLES TRANSACTIONS</h2>            </div><!-- .section-head @e -->            <!-- Block @s -->            <div class="
-                                    row ">                <div class=" col-mb-10 col-sm-10 col-md-12 col-lg-12
-                                    col-xl-12 ">                    <table class=" table
-                                    text-center " style=" ">                        <thead><th style=" padding:
-                                    0; " class=" teal ">date</th><th style=" padding: 0; " class="
-                                    teal ">niveau</th><th style=" padding: 0; " class=" teal ">quantité</th><th style="
+                                    Txs ">NOUVELLES TRANSACTIONS</h2>
+            </div><!-- .section-head @e -->
+            <!-- Block @s -->
+            <div class="
+                                    row ">
+                <div class=" col-mb-10 col-sm-10 col-md-12 col-lg-12
+                                    col-xl-12 ">
+                    <table class=" table table-responsive
+                                    text-center " style=" ">
+                        <thead>
+                            <th style=" padding:
+                                    0; " class=" teal ">date</th>
+                            <th style=" padding: 0; " class="
+                                    teal ">niveau</th>
+                            <th style=" padding: 0; " class=" teal ">quantité</th>
+                            <th style="
                                     padding: 0 " class="
-                                    teal ">destination</th>                        </thead>                        <tbody><% for(let tx of platformData.moneyTxs) {%><tr><td>il y a<span class="
-                                    timeSince "><%= tx.time %></span></td><td><%= tx.level %></td><td><%=  platformData.levels[tx.level].price %></td><td><a href="
+                                    teal ">destination</th>
+                        </thead>
+                        <tbody><% for(let tx of platformData.moneyTxs) {%><tr>
+                                <td>il y a<span class="
+                                    timeSince "><%= tx.time %></span></td>
+                                <td><%= tx.level %></td>
+                                <td><%=  platformData.levels[tx.level].price %></td>
+                                <td><a href="
                                     <%=` ${etherscanExplorer}/tx/${tx.txHash}` %>">
-                                    <%= tx.userAddress %>
-                                </a>
+                                        <%= tx.userAddress %>
+                                    </a>
                                 </td>
-                                </tr>
-                                <% } %>
-                                </tbody>
-                                </table>
-                                <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue">
-                                    <ahref="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>«>
-                                        Toutes les statistiques sont disponibles dans Etherscan</a>
-                                </div>
-                            </div>
-                        </div> <!-- Block @e -->
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue">
+                        <ahref="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>«>
+                            Toutes les statistiques sont disponibles dans Etherscan</a>
                     </div>
+                </div>
+            </div> <!-- Block @e -->
+        </div>
     </section> <!-- // -->
     <section class=" section bg-theme bg-theme-dark tc-light " id="faqs ">
         <div class="container ">
