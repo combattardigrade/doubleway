@@ -9,26 +9,27 @@ module.exports.renderHome = async function (req, res) {
     }
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     
-    if (req.params.language && languages.includes(req.params.language)) {
-        res.cookie('language', req.params.language, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
     }
 
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/home`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/home`
     }
-
+    
     res.render(langPage, {
         host: process.env.SERVER_HOST,
         title: 'Inicio',
         homePage: true,
         url: 'home',
         platformData: platformData.payload,
-        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        language
     })
 }
 
@@ -39,16 +40,16 @@ module.exports.renderLogin = async function (req, res) {
     }
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
 
-    if (req.params.language && languages.includes(req.params.language)) {
-        res.cookie('language', req.params.language, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
     }
 
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/login`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/login`
     }
     
@@ -57,7 +58,8 @@ module.exports.renderLogin = async function (req, res) {
         title: 'Iniciar sesión',
         url: 'login',
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
@@ -73,16 +75,16 @@ module.exports.renderSignup = async function (req, res) {
     }
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     
-    if (req.params.language && languages.includes(req.params.language)) {
-        res.cookie('language', req.params.language, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
     }
 
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/signup`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/signup`
     }
 
@@ -92,19 +94,24 @@ module.exports.renderSignup = async function (req, res) {
         url: 'signup',
         rid: rid ? rid : req.cookies.rid ? req.cookies.rid : null,
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
 module.exports.renderFaq = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/faq`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/faq`
     }    
 
@@ -113,19 +120,24 @@ module.exports.renderFaq = async function (req, res) {
         title: 'Preguntas Frecuentes',
         url: 'faq',
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
 module.exports.renderFaqEth = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/faqeth`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/faqeth`
     }
     
@@ -134,19 +146,24 @@ module.exports.renderFaqEth = async function (req, res) {
         title: 'Preguntas Frecuentes Sobre Ethereum',
         url: 'faqeth',
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
 module.exports.renderTerminos = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/terminos`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/terminos`
     }
 
@@ -155,28 +172,34 @@ module.exports.renderTerminos = async function (req, res) {
         title: 'Términos y condiciones',
         url: 'terminos',
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
 module.exports.renderComofunciona = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/comofunciona`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/comofunciona`
     }
-
+    
     res.render(langPage, {
         host: process.env.SERVER_HOST,
         title: '¿Cómo funciona?',
         url: 'comofunciona',
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
@@ -192,12 +215,16 @@ module.exports.renderDashboard = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
 
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/dashboard`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/dashboard`
     }
     console.log(langPage)
@@ -207,7 +234,8 @@ module.exports.renderDashboard = async function (req, res) {
         title: 'Dashboard',
         url: 'dashboard',
         userData: userData.payload,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
@@ -231,12 +259,16 @@ module.exports.renderRefLinks = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/reflinks`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/reflinks`
     }
 
@@ -245,7 +277,8 @@ module.exports.renderRefLinks = async function (req, res) {
         title: 'Enlace de Referidos',
         url: 'reflinks',
         userData: userData.payload,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
@@ -260,12 +293,16 @@ module.exports.renderQrCodes = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
 
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/qrCodes`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/qrCodes`
     }
 
@@ -274,7 +311,8 @@ module.exports.renderQrCodes = async function (req, res) {
         title: 'Códigos QR',
         url: 'qrCodes',
         userData: userData.payload,
-        platformData: platformData.payload
+        platformData: platformData.payload,
+        language
     })
 }
 
@@ -289,12 +327,16 @@ module.exports.renderTransactions = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/transactions`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/transactions`
     }
 
@@ -304,7 +346,8 @@ module.exports.renderTransactions = async function (req, res) {
         url: 'transactions',
         userData: userData.payload,
         platformData: platformData.payload,
-        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        language
     })
 }
 
@@ -319,12 +362,16 @@ module.exports.renderStats = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/stats`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/stats`
     }
 
@@ -334,6 +381,7 @@ module.exports.renderStats = async function (req, res) {
         url: 'stats',
         userData: userData.payload,
         platformData: platformData.payload,
+        language
     })
 }
 
@@ -348,12 +396,16 @@ module.exports.renderReferrals = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/referrals`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/referrals`
     }
 
@@ -365,6 +417,7 @@ module.exports.renderReferrals = async function (req, res) {
 
         userData: userData.payload,
         platformData: platformData.payload,
+        language
     })
 }
 
@@ -379,12 +432,16 @@ module.exports.renderUplines = async function (req, res) {
     const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
     const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
     
+    if (req.query.lang && languages.includes(req.query.lang)) {
+        res.cookie('language', req.query.lang, { httpOnly: true, secure: process.env.NODE_ENV == 'production' })
+    }
+    
     let language, langPage
-    if (req.cookies.language && !req.params.language) {
+    if (req.cookies.language && !req.query.lang) {
         language = req.cookies.language ? languages.includes(req.cookies.language) ? req.cookies.language : 'es' : 'es'
         langPage = `locales/${language}/uplines`
     } else {
-        language = req.params.language ? languages.includes(req.params.language) ? req.params.language : 'es' : 'es'
+        language = req.query.lang ? languages.includes(req.query.lang) ? req.query.lang : 'es' : 'es'
         langPage = `locales/${language}/uplines`
     }
 
@@ -395,6 +452,7 @@ module.exports.renderUplines = async function (req, res) {
         etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
         userData: userData.payload,
         platformData: platformData.payload,
+        language
     })
 }
 
