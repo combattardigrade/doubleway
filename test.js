@@ -3,7 +3,7 @@ const path = require('path')
 const translate = require('@vitalets/google-translate-api')
 
 start = async () => {
-    let htmlFile = fs.readFileSync(path.join('views', 'locales', 'origin.ejs'), 'utf8')
+    let htmlFile = fs.readFileSync(path.join('views', 'locales', 'es', 'signup.ejs'), 'utf8')
     // remove white spaces
     htmlFile = htmlFile.replace(/(\r\n|\n|\r)/gm, "");
     const re = /\>.*?\</g
@@ -20,7 +20,7 @@ start = async () => {
             if (r == '') continue
 
             // Translate text
-            let res = await translate(r, { to: 'ru' })
+            let res = await translate(r, { to: 'fr' })
 
             htmlFile = htmlFile.replace(r, res.text)
             i++
@@ -42,7 +42,7 @@ start = async () => {
     }
     finally {
         console.log('appending file...')
-        fs.appendFile(path.join('views', 'locales', 'ru', 'faqeth.ejs'), htmlFile, function (err) {
+        fs.appendFile(path.join('views', 'locales', 'fr', 'signup.ejs'), htmlFile, function (err) {
             if (err) return console.log(err);
         })
     }

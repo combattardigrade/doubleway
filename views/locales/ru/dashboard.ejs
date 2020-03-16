@@ -186,13 +186,12 @@
         }
     </style>
 
+
     <div class="row">
         <div class="col-mb-12 col-sm-6 col-md-3">
             <div class="pa-stats-card">
-                <div class="card-title">Уровень 1
-                </div>
-                <%- userData.levelExp[1] != 0 ? '<div class="card-active">активный
-                </div>' : '<div class="card-inactive">No activo</div>' %>
+                <div class="card-title">уровень 1</div>
+                <%- userData.levelExp[1] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
                 <%- userData.levelExp[1] != 0 ? '<div class="card-active expDate">' + userData.levelExp[1] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[1].price %> ETH</div>
                 <% if(userData.user.level + 1 == 1) { %>
@@ -200,7 +199,7 @@
                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                     <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                             style="font-size:15px;"></i>
-                        купить</h5>
+                        Купить</h5>
                 </a>
                 <% } else if (userData.user.level >= 1 ) { %>
                 <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('1')"
@@ -213,10 +212,10 @@
                     class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                     <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                             style="font-size:15px;"></i>
-                        купить</h5>
+                        Купить</h5>
                 </a>
                 <% } %>
-                <div>+64 días</div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[1].referrals %></div>
@@ -228,17 +227,15 @@
         <div class="col-mb-12 col-sm-6 col-md-3 card-col">
             <div class="pa-stats-card">
                 <div class="card-title">уровень 2</div>
-                <%- userData.levelExp[2] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен
-                </div>' %>
-                <%- userData.levelExp[2] != 0 ? '<div class="card-active expDate">' + userData.levelExp[2] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <%- userData.levelExp[2] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[2] != 0 ? '<div class="card-active expDate">' + userData.levelExp[2] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[2].price %> ETH</div>
                 <% if(userData.user.level + 1 == 2) { %>
                 <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('2')"
                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                     <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                             style="font-size:15px;"></i>
-                        купить</h5>
+                        Купить</h5>
                 </a>
                 <% } else if (userData.user.level >= 2 ) { %>
                 <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('2')"
@@ -251,11 +248,10 @@
                     class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                     <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                             style="font-size:15px;"></i>
-                        купить</h5>
+                        Купить</h5>
                 </a>
                 <% } %>
-                <div>+64 дней
-                </div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[2].referrals %></div>
@@ -267,10 +263,8 @@
         <div class="col-mb-12 col-sm-6 col-md-3 card-col">
             <div class="pa-stats-card">
                 <div class="card-title">уровень 3</div>
-                <%- userData.levelExp[3] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен
-                </div>' %>
-                <%- userData.levelExp[3] != 0 ? '<div class="card-active expDate">' + userData.levelExp[3] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <%- userData.levelExp[3] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[3] != 0 ? '<div class="card-active expDate">' + userData.levelExp[3] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[3].price %> ETH</div>
                 <div>
                     <% if(userData.user.level + 1 == 3) { %>
@@ -278,7 +272,7 @@
                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить</h5>
+                            Купить</h5>
                     </a>
                     <% } else if (userData.user.level >= 3 ) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('3')"
@@ -291,11 +285,11 @@
                         class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить</h5>
+                            Купить</h5>
                     </a>
                     <% } %>
                 </div>
-                <div>+64 días</div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[3].referrals %></div>
@@ -307,10 +301,8 @@
         <div class="col-mb-12 col-sm-6 col-md-3 card-col">
             <div class="pa-stats-card">
                 <div class="card-title">уровень 4</div>
-                <%- userData.levelExp[4] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен
-                </div>' %>
-                <%- userData.levelExp[4] != 0 ? '<div class="card-active expDate">' + userData.levelExp[4] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <%- userData.levelExp[4] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[4] != 0 ? '<div class="card-active expDate">' + userData.levelExp[4] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[4].price %> ETH</div>
                 <div>
                     <% if(userData.user.level + 1 == 4) { %>
@@ -318,7 +310,7 @@
                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить</h5>
+                            Купить</h5>
                     </a>
                     <% } else if (userData.user.level >= 4 ) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('4')"
@@ -331,7 +323,7 @@
                         class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить</h5>
+                            Купить</h5>
                     </a>
                     <% } %>
                 </div>
@@ -339,8 +331,7 @@
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[4].referrals %></div>
-                    <div style="padding-top:16px">доход
-                    </div>
+                    <div style="padding-top:16px">доход</div>
                     <div class="card-revenue"><%= platformData.levels[4].income %> ETH</div>
                 </div>
             </div>
@@ -350,13 +341,9 @@
     <div class="row" style="margin-top:15px">
         <div class="col-mb-12 col-sm-6 col-md-3">
             <div class="pa-stats-card">
-                <div class="card-title">Уровень 5
-                </div>
-                <%- userData.levelExp[5] != 0 ? '<div class="card-active">активный
-                </div>' : '<div class="card-inactive">Не активен
-                </div>' %>
-                <%- userData.levelExp[5] != 0 ? '<div class="card-active expDate">' + userData.levelExp[5] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <div class="card-title">уровень 5</div>
+                <%- userData.levelExp[5] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[5] != 0 ? '<div class="card-active expDate">' + userData.levelExp[5] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[5].price %> ETH</div>
                 <div>
                     <% if(userData.user.level + 1 == 5) { %>
@@ -364,8 +351,7 @@
                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить
-                        </h5>
+                            Купить</h5>
                     </a>
                     <% } else if (userData.user.level >= 5 ) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('5')"
@@ -378,13 +364,11 @@
                         class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить
-                        </h5>
+                            Купить</h5>
                     </a>
                     <% } %>
                 </div>
-                <div>+64 дней
-                </div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[5].referrals %></div>
@@ -396,10 +380,8 @@
         <div class="col-mb-12 col-sm-6 col-md-3 card-col">
             <div class="pa-stats-card">
                 <div class="card-title">уровень 6</div>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен
-                </div>' %>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <%- userData.levelExp[6] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[6].price %> ETH</div>
                 <div>
                     <% if(userData.user.level + 1 == 6) { %>
@@ -407,8 +389,7 @@
                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить
-                        </h5>
+                            Купить</h5>
                     </a>
                     <% } else if (userData.user.level >= 6 ) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('6')"
@@ -421,11 +402,11 @@
                         class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить</h5>
+                            Купить</h5>
                     </a>
                     <% } %>
                 </div>
-                <div>+64 días</div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[6].referrals %></div>
@@ -437,9 +418,8 @@
         <div class="col-mb-12 col-sm-6 col-md-3 card-col">
             <div class="pa-stats-card">
                 <div class="card-title">уровень 7</div>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">No activo</div>' %>
-                <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <%- userData.levelExp[6] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[6] != 0 ? '<div class="card-active expDate">' + userData.levelExp[6] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[7].price %> ETH</div>
                 <div>
                     <% if(userData.user.level + 1 == 7) { %>
@@ -447,8 +427,7 @@
                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить
-                        </h5>
+                            Купить</h5>
                     </a>
                     <% } else if (userData.user.level >= 7 ) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('7')"
@@ -461,12 +440,11 @@
                         class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить
-                        </h5>
+                            Купить</h5>
                     </a>
                     <% } %>
                 </div>
-                <div>+64 días</div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[7].referrals %></div>
@@ -477,19 +455,16 @@
         </div>
         <div class="col-mb-12 col-sm-6 col-md-3 card-col">
             <div class="pa-stats-card">
-                <div class="card-title">Уровень 8
-                </div>
-                <%- userData.levelExp[8] != 0 ? '<div class="card-active">Activo</div>' : '<div class="card-inactive">Не активен
-                </div>' %>
-                <%- userData.levelExp[8] != 0 ? '<div class="card-active expDate">' + userData.levelExp[8] + '</div>' : '<div class="card-inactive">Нет даты
-                </div>' %>
+                <div class="card-title">уровень 8</div>
+                <%- userData.levelExp[8] != 0 ? '<div class="card-active">активный</div>' : '<div class="card-inactive">Не активен</div>' %>
+                <%- userData.levelExp[8] != 0 ? '<div class="card-active expDate">' + userData.levelExp[8] + '</div>' : '<div class="card-inactive">Нет даты</div>' %>
                 <div class="card-price"><%= platformData.levels[8].price %> ETH</div>
                 <div>
                     <% if(userData.user.level + 1 == 8) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('8')"
                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-buy">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-plus-circle" style="font-size:15px;"></i>
-                            купить</h5>
+                            Купить</h5>
                     </a>
                     <% } else if (userData.user.level >= 8 ) { %>
                     <a style="margin-bottom: 15px;padding:20px 40px" onclick="App.buyLevel('8')"
@@ -502,12 +477,11 @@
                         class="btn btn-rg btn-auto  on-bg-theme pa-btn-leveldisabled">
                         <h5 style="font-size:1em;color:white"><i class="fa fa-chevron-circle-up"
                                 style="font-size:15px;"></i>
-                            купить
-                        </h5>
+                            Купить</h5>
                     </a>
                     <% } %>
                 </div>
-                <div>+64 días</div>
+                <div>+64 дней</div>
                 <div class="card-bottom-box">
                     <div style="padding-top:16px">Переходов</div>
                     <div class="card-referral-no"><%= platformData.levels[8].referrals %></div>

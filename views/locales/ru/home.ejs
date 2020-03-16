@@ -1,5 +1,5 @@
 <%-include('header');-%>
-<%-include('language_sidebar');-%>
+
 <main class="nk-pages">
     <section class="sectionmask-c-blend-darkbg-theme-dark-alttc-lightov-h" id="what">
         <div class="container">
@@ -670,38 +670,66 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="token-action" style="margin-top:80px"> <a
-                                    class="btn btn-md btn-grad btn-grad-alternet btn-round"
-                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>«> SEE АДРЕС</a></div></div>                    </div>                </div>            </div>            <!-- Block @e -->        </div>    </section>    <!-- // -->    <section class="
-                                    section bg-theme-alt tc-light section-connect " id="
-                                    media-partner ">        <div class=" transform-line "></div>        <div class="
-                                    container ">            <div class=" section-head text-center
-                                    wide-auto-sm ">                <h2 class=" title title-s4 animated " data-animate="
-                                    fadeInUp " data-delay=" .1 " title="
-                                    Transacciones ">НОВЫЕ СДЕЛКИ</h2>            </div><!-- .section-head @e -->            <!-- Block @s -->            <div class="
-                                    row ">                <div class=" col-mb-10 col-sm-10 col-md-12 col-lg-12
-                                    col-xl-12 ">                    <table class=" table
-                                    text-center " style=" ">                        <thead><th style=" padding:
-                                    0; " class=" teal ">дата</th><th style=" padding: 0; " class="
-                                    teal ">уровень</th><th style=" padding: 0; " class="
-                                    teal ">количество</th><th style=" padding: 0 " class="
-                                    teal ">назначения</th>                        </thead>                        <tbody><% for(let tx of platformData.moneyTxs) {%><tr><td>назад<span class="
-                                    timeSince "><%= tx.time %></span></td><td><%= tx.level %></td><td><%=  platformData.levels[tx.level].price %></td><td><a href="
-                                    <%=` ${etherscanExplorer}/tx/${tx.txHash}` %>">
-                                    <%= tx.userAddress %>
-                                </a>
-                                </td>
-                                </tr>
-                                <% } %>
-                                </tbody>
-                                </table>
-                                <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue">
-                                    <ahref="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>«> Все
-                                        статистические данные в Etherscan</a>
-                                </div>
+                            <div class="token-action" style="margin-top:80px">
+                                <a class="btn btn-md btn-grad btn-grad-alternet btn-round"
+                                    href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">VER
+                                    DIRECCIÓN</a>
                             </div>
-                        </div> <!-- Block @e -->
+
+                        </div>
                     </div>
+                </div>
+            </div>
+            <!-- Block @e -->
+        </div>
+    </section>
+    <!-- // -->
+    <section class="section bg-theme-alt tc-light section-connect" id="media-partner">
+        <div class="transform-line"></div>
+        <div class="container">
+            <div class="section-head text-center wide-auto-sm">
+                <h2 class=" title title-s4 animated " data-animate="
+                                    fadeInUp " data-delay=" .1 " title="
+                                    Transacciones ">НОВЫЕ СДЕЛКИ</h2>
+            </div><!-- .section-head @e -->
+            <!-- Block @s -->
+            <div class="
+                                    row ">
+                <div class=" col-mb-10 col-sm-10 col-md-12 col-lg-12
+                                    col-xl-12 ">
+                    <table class=" table
+                                    text-center " style=" ">
+                        <thead>
+                            <th style=" padding:
+                                    0; " class=" teal ">дата</th>
+                            <th style=" padding: 0; " class="
+                                    teal ">уровень</th>
+                            <th style=" padding: 0; " class="
+                                    teal ">количество</th>
+                            <th style=" padding: 0 " class="
+                                    teal ">назначения</th>
+                        </thead>
+                        <tbody><% for(let tx of platformData.moneyTxs) {%><tr>
+                                <td>назад<span class="
+                                    timeSince "><%= tx.time %></span></td>
+                                <td><%= tx.level %></td>
+                                <td><%=  platformData.levels[tx.level].price %></td>
+                                <td><a href="
+                                    <%=` ${etherscanExplorer}/tx/${tx.txHash}` %>">
+                                        <%= tx.userAddress %>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center;margin-top:40px;font-weight: bold;" class="blue">
+                        <ahref="<%= `${etherscanExplorer}/address/${platformData.contractAddress}` %>«> Все
+                            статистические данные в Etherscan</a>
+                    </div>
+                </div>
+            </div> <!-- Block @e -->
+        </div>
     </section> <!-- // -->
     <section class=" section bg-theme bg-theme-dark tc-light " id="faqs ">
         <div class="container ">
