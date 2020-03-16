@@ -121,19 +121,7 @@
         return Math.floor(seconds) + " segundos";
     }
 
-    // Language
-    $('.langbutton').hover(function(){
-        $(this).find('span').css('opacity', '1')        
-    }, function() {
-        $(this).find('span').css('opacity', '0')
-    })
-
-    $('.langbutton').click(function(e) {
-        e.preventDefault()
-        $('.langbutton').removeClass('langbutton-active')
-        $(this).addClass('langbutton-active')
-    })
-
+    
     
 </script>
 <%- include('language_sidebar'); -%>

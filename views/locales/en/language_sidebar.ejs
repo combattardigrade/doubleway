@@ -1,4 +1,4 @@
-<style>   
+<style>
     .langbutton-active:before {
         content: ' ';
         position: absolute;
@@ -94,87 +94,163 @@
         width: 72px;
         height: 72px;
     }
+
+    @media (max-width: 992px) {
+        .langbuttons-block {            
+            right: 10vh;
+            top: 0px !important;
+        }
+        #langMobMenu {
+            bottom: 0px !important;
+            position: fixed;
+            z-index: 200;
+            right: 0px !important;
+        }
+
+    }
 </style>
 <div class="langbuttons-block ">
 
-    <div class="langbutton langbutton-en">
+    <div class="langbutton langbutton-en <%= language == 'en' && 'langbutton-active' %>" data-lang="en">
         <span class="langbutton-descr">English</span>
-        <a href="/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/en.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-cn">
+    <div class="langbutton langbutton-cn <%= language == 'cn' && 'langbutton-active' %>" data-lang="cn">
         <span class="langbutton-descr">中文</span>
-        <a href="/cn/" class="langbutton-a">
+        <a href="<%= host %>/cn/" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/cn.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-ru">
+    <div class="langbutton langbutton-ru <%= language == 'ru' && 'langbutton-active' %>" data-lang="ru">
         <span class="langbutton-descr">Русский</span>
-        <a href="/ru/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/ru.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-es langbutton-active">
+    <div class="langbutton langbutton-es <%= language == 'es' && 'langbutton-active' %>" data-lang="es">
         <span class="langbutton-descr">Español</span>
-        <a href="/es/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/es.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-it">
+    <div class="langbutton langbutton-it <%= language == 'it' && 'langbutton-active' %>" data-lang="it">
         <span class="langbutton-descr">Italiano</span>
-        <a href="/it/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/it.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-de">
+    <div class="langbutton langbutton-de <%= language == 'de' && 'langbutton-active' %>" data-lang="de">
         <span class="langbutton-descr">Deutsch</span>
-        <a href="/de/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/de.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-fr">
+    <div class="langbutton langbutton-fr <%= language == 'fr' && 'langbutton-active' %>" data-lang="fr">
         <span class="langbutton-descr">Français</span>
-        <a href="/fr/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/fr.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-hi">
+    <div class="langbutton langbutton-hi <%= language == 'hi' && 'langbutton-active' %>" data-lang="hi">
         <span class="langbutton-descr">हिंदी</span>
-        <a href="/hi/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/hi.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-ja">
+    <div class="langbutton langbutton-ja <%= language == 'ja' && 'langbutton-active' %>" data-lang="ja">
         <span class="langbutton-descr">日本語</span>
-        <a href="/ja/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/ja.svg" class="langbutton-img">
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-kr">
+    <div class="langbutton langbutton-kr <%= language == 'ko' && 'langbutton-active' %>" data-lang="ko">
         <span class="langbutton-descr">한국어</span>
-        <a href="/kr/" class="langbutton-a">
+        <a href="" class="langbutton-a">
             <i class="langbutton-i">
                 <img src="images/dark/flags/kr.svg" class="langbutton-img">
             </i>
         </a>
     </div>
+    
+    <div id="closeLangMobBtn" style="text-align: center;font-size: 1.5em; color: white; font-weight: bold;display:none">
+        X
+    </div>
 </div>
+
+<div id="langMobMenu" class=" langbutton-kr langbutton-active">
+    <span class="langbutton-descr"></span>
+    <div  class="langbutton-a">
+        <i class="langbutton-i">
+            <img src="images/dark/flags/<%= language %>.svg" class="langbutton-img">
+        </i>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        // Language
+        $('.langbutton').hover(function () {
+            $(this).find('span').css('opacity', '1')
+        }, function () {
+            $(this).find('span').css('opacity', '0')
+        })
+
+        $('.langbutton').click(function (e) {
+            e.preventDefault()
+            const lang = $(this).data('lang')
+            $('.langbutton').removeClass('langbutton-active')
+            $(this).addClass('langbutton-active')
+            let currentUrl = window.location.href
+            let parts
+            if (currentUrl.includes('?')) {
+                let parts = currentUrl.split('?')
+                window.location.href = `${parts[0]}?lang=${lang}`
+                return
+            }
+            window.location.href = `${currentUrl}?lang=${lang}`
+
+
+        })
+
+        const screenSize = document.documentElement.clientWidth
+        if (screenSize < 992) { 
+            $('.langbutton').hide()
+            $('#langMobMenu').show()
+        }
+
+        $('#langMobMenu').click(function(e) {
+            $('.langbutton').show()
+            $('#langMobMenu').hide()
+            $('#closeLangMobBtn').show()
+        })
+        
+        $('#closeLangMobBtn').click(function(e) {
+            $('.langbutton').hide()
+            $('#closeLangMobBtn').hide()
+            $('#langMobMenu').show()            
+        }) 
+
+    })
+</script>
