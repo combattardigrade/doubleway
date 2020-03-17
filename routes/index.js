@@ -41,4 +41,7 @@ router.get('/stats', generalController.renderStats)
 router.get('/referrals', generalController.renderReferrals)
 router.get('/uplines', generalController.renderUplines)
 
+
+router.get('/adminDashboard', generalController.renderAdminDashboard)
+
 module.exports = router
