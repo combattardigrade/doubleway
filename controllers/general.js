@@ -456,3 +456,20 @@ module.exports.renderUplines = async function (req, res) {
     })
 }
 
+module.exports.renderAdminDashboard = async function (req, res) {
+    const userAddress = `0x81eaAb6234571b004aE91BD0b640214540b69964`
+    
+    const platformData = await (await fetch(process.env.API_HOST + '/platformData')).json()
+    const userData = await (await fetch(process.env.API_HOST + '/userData/' + userAddress)).json()
+    
+    res.render('locales/es/adminDashboard', {
+        host: process.env.SERVER_HOST,
+        title: 'Panel de Administración',
+        url: 'adminDashboard',
+        etherscanExplorer: process.env.ETHERSCAN_EXPLORER_URL,
+        userData: userData.payload,
+        platformData: platformData.payload,
+        
+    })
+}
+
