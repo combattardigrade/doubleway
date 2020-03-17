@@ -98,7 +98,10 @@
     @media (max-width: 992px) {
         .langbuttons-block {            
             right: 10vh;
-            top: 0px !important;
+            top: 70px !important;
+        }
+        .langbutton {
+            height: 50px !important;
         }
         #langMobMenu {
             bottom: 0px !important;
@@ -183,21 +186,21 @@
             </i>
         </a>
     </div>
-    <div class="langbutton langbutton-ko <%= language == 'ko' && 'langbutton-active' %>" data-lang="ko">
+    <div class="langbutton langbutton-kr <%= language == 'ko' && 'langbutton-active' %>" data-lang="ko">
         <span class="langbutton-descr">한국어</span>
         <a href="" class="langbutton-a">
             <i class="langbutton-i">
-                <img src="images/dark/flags/ko.svg" class="langbutton-img">
+                <img src="images/dark/flags/kr.svg" class="langbutton-img">
             </i>
         </a>
     </div>
     
-    <div id="closeLangMobBtn" style="text-align: center;font-size: 1.5em; color: white; font-weight: bold;display:none">
+    <div id="closeLangMobBtn" style="text-align: center;font-size: 1.5em; color: white; font-weight: bold;margin-top: 10px;display:none">
         X
     </div>
 </div>
 
-<div id="langMobMenu" class=" langbutton-ko langbutton-active">
+<div id="langMobMenu" class=" langbutton-kr langbutton-active">
     <span class="langbutton-descr"></span>
     <div  class="langbutton-a">
         <i class="langbutton-i">
@@ -253,6 +256,6 @@
             $('#closeLangMobBtn').hide()
             $('#langMobMenu').show()            
         }) 
-        
+
     })
 </script>

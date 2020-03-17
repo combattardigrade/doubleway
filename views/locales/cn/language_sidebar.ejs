@@ -96,11 +96,13 @@
     }
 
     @media (max-width: 992px) {
-        .langbuttons-block {
+        .langbuttons-block {            
             right: 10vh;
-            top: 0px !important;
+            top: 70px !important;
         }
-
+        .langbutton {
+            height: 50px !important;
+        }
         #langMobMenu {
             bottom: 0px !important;
             position: fixed;
@@ -192,15 +194,15 @@
             </i>
         </a>
     </div>
-
-    <div id="closeLangMobBtn" style="text-align: center;font-size: 1.5em; color: white; font-weight: bold;display:none">
+    
+    <div id="closeLangMobBtn" style="text-align: center;font-size: 1.5em; color: white; font-weight: bold;margin-top: 10px;display:none">
         X
     </div>
 </div>
 
 <div id="langMobMenu" class=" langbutton-kr langbutton-active">
     <span class="langbutton-descr"></span>
-    <div class="langbutton-a">
+    <div  class="langbutton-a">
         <i class="langbutton-i">
             <img src="images/dark/flags/<%= language %>.svg" class="langbutton-img">
         </i>
@@ -236,25 +238,24 @@
         })
 
         const screenSize = document.documentElement.clientWidth
-        if (screenSize < 992) {
+        if (screenSize < 992) { 
             $('.langbutton').hide()
             $('#langMobMenu').show()
         } else {
             $('#langMobMenu').hide()
         }
 
-        $('#langMobMenu').click(function (e) {
+        $('#langMobMenu').click(function(e) {
             $('.langbutton').show()
             $('#langMobMenu').hide()
             $('#closeLangMobBtn').show()
-            console.log('test')
         })
-
-        $('#closeLangMobBtn').click(function (e) {
+        
+        $('#closeLangMobBtn').click(function(e) {
             $('.langbutton').hide()
             $('#closeLangMobBtn').hide()
-            $('#langMobMenu').show()
-        })
+            $('#langMobMenu').show()            
+        }) 
 
     })
 </script>
