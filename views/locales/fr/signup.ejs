@@ -9,63 +9,74 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="<%= host %>/images/favicon.png">
     <!-- Site Title  -->
-    <title><%= title %> | DoubleHands - Le moyen le plus simple et le plus sûr de gagner de l'argent avec les crypto-monnaies</title>
+    <title><%= title %> | DoubleHands - Le moyen le plus simple et le plus sûr de gagner de l'argent avec les
+        crypto-monnaies</title>
     <!-- Bundle and Base CSS -->
     <link rel="stylesheet" href="<%= host %>/assets/css/vendor.bundle.css?ver=192">
     <link rel="stylesheet" href="<%= host %>/assets/css/style-dark.css?ver=192" id="changeTheme">
     <!-- Extra CSS -->
     <link rel="stylesheet" href="<%= host %>/assets/css/theme.css?ver=192">
-
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= host %>/images/dark/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= host %>/images/dark/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= host %>/images/dark/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<%= host %>/images/dark/favicon/site.webmanifest">
+    <link rel="mask-icon" href="<%= host %>/images/dark/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <style>
         .imageRot {
-        -webkit-animation: spin 22s ease-in-out;
-        -moz-animation: spin 22s ease-in-out;
-        animation: spin 22s ease-in-out;
+            -webkit-animation: spin 22s ease-in-out;
+            -moz-animation: spin 22s ease-in-out;
+            animation: spin 22s ease-in-out;
         }
 
         @-moz-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @-webkit-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 992px) {
-        #signup-container {
-        margin-top: 40px;
-        height: 60vh !important;
-        }
-        #signup-innercontainer {
-        top: 2vh !important;
+            #signup-container {
+                margin-top: 40px;
+                height: 60vh !important;
+            }
 
-        }
-        }
+            #signup-innercontainer {
+                top: 2vh !important;
 
-
-        #signup-btn:before{
-        /* background-color:#007bff !important; */
-        background-color: #1c7545b3 !important;
+            }
         }
 
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: red;
-        opacity: 1; /* Firefox */
+
+        #signup-btn:before {
+            /* background-color:#007bff !important; */
+            background-color: #1c7545b3 !important;
         }
-        </style>
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            opacity: 1;
+            /* Firefox */
+        }
+    </style>
 
 </head>
 
@@ -92,7 +103,11 @@
                                                 <h1 style="padding:10px">Enregistrer un compte</h1>
                                                 <div id='signupForm-1' style="display: <%= rid ? 'none' : 'block' %>">
                                                     <h6 style="margin-bottom:40px; color: #dc3535;text-align:justify">
-                                                        Vous êtes venu sans lien de parrainage ou cela n'a pas fonctionné, donc votre parrain est inconnu.<br><br> Si conoces la identificación o la dirección de Ethereum de su línea ascendente, ingrésela en el campo a continuación y haga clic en "Registrarme".</h6>
+                                                        Vous êtes venu sans lien de parrainage ou cela n'a pas
+                                                        fonctionné, donc votre parrain est inconnu.<br><br> Si conoces
+                                                        la identificación o la dirección de Ethereum de su línea
+                                                        ascendente, ingrésela en el campo a continuación y haga clic en
+                                                        "Registrarme".</h6>
                                                     <input id="upline"
                                                         placeholder="Ingresa el ID o la dirección de Ethereum de tu línea ascendente "
                                                         type="text" class="input-solid input-solid-md required email"
@@ -139,7 +154,9 @@
                                                             style="position: relative; height: 16px; line-height: 16px; display: inline-block; ; padding: 0 8px; color: #888888;">ó</span>
                                                     </p>
                                                     <div style="text-align: left;margin-top: 40px;padding-bottom: 10px">
-                                                        Obtenez une liaison ascendante du système. Sans liaison ascendante, le contrat intelligent n'acceptera pas le transfert une Synonyms of une Noun unparan</div>
+                                                        Obtenez une liaison ascendante du système. Sans liaison
+                                                        ascendante, le contrat intelligent n'acceptera pas le transfert
+                                                        une Synonyms of une Noun unparan</div>
 
                                                     <a onclick="App.getUpline()"
                                                         style="margin-top: 20px;width:100%;padding:20px 40px" href="#"
@@ -240,7 +257,8 @@
                                                                 href="#"
                                                                 class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                                 <h3 style="font-size:1.8em"><i class="fa fa-user-plus"
-                                                                        style="font-size:15px"></i> Inscrivez-vous en un clic
+                                                                        style="font-size:15px"></i> Inscrivez-vous en un
+                                                                    clic
 
                                                                 </h3>
                                                             </a>
@@ -283,16 +301,29 @@
                                                         </p>
                                                         <div
                                                             style="text-align: justify;margin-top: 40px;padding-bottom: 10px">
-                                                            Attention, pour effectuer l'enregistrement automatique sur l'appareil mobile, vous devez entrer dans l'application, choisir le menu DApp (navigateur) et saisir le lien de référence dans la barre d'adresse. Ensuite, dans le même navigateur décentralisé intégré, accédez à la page d'inscription et inscrivez-vous en 1 clic.</div>
+                                                            Attention, pour effectuer l'enregistrement automatique sur
+                                                            l'appareil mobile, vous devez entrer dans l'application,
+                                                            choisir le menu DApp (navigateur) et saisir le lien de
+                                                            référence dans la barre d'adresse. Ensuite, dans le même
+                                                            navigateur décentralisé intégré, accédez à la page
+                                                            d'inscription et inscrivez-vous en 1 clic.</div>
                                                     </div>
 
                                                     <div id="signupMethod2" class="signupMethod" style="display:none">
                                                         <div
                                                             style="text-align: justify; margin-top: 20px; padding-bottom: 10px; font-size: 14px; color: #ffffff; /* font-weight: bold; */ background: #1ca05a; padding: 20px; border-radius: 10px; font-family: sans-serif;">
-                                                            Important! N'envoyez pas de fonds des services boursiers et boursiers au contrat intelligent; dans ce cas, le comptage intelligent n'acceptera pas les fonds. Tout d'abord, enregistrez VOTRE portefeuille Ethereum et remplissez-le. Effectuez une transaction vers le contrat intelligent, avec l'adresse Ethereum de votre parrain indiqué dans le champ "DONNÉES", uniquement à partir de votre portefeuille.</div>
+                                                            Important! N'envoyez pas de fonds des services boursiers et
+                                                            boursiers au contrat intelligent; dans ce cas, le comptage
+                                                            intelligent n'acceptera pas les fonds. Tout d'abord,
+                                                            enregistrez VOTRE portefeuille Ethereum et remplissez-le.
+                                                            Effectuez une transaction vers le contrat intelligent, avec
+                                                            l'adresse Ethereum de votre parrain indiqué dans le champ
+                                                            "DONNÉES", uniquement à partir de votre portefeuille.</div>
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:20px">
-                                                            Envoyez DE VOTRE portefeuille Ethereum 0.08 ETH à l'adresse du contrat intelligent. Dans le champ Input Data, saisissez l'adresse Ethereum de votre upline.
+                                                            Envoyez DE VOTRE portefeuille Ethereum 0.08 ETH à l'adresse
+                                                            du contrat intelligent. Dans le champ Input Data, saisissez
+                                                            l'adresse Ethereum de votre upline.
                                                         </div>
                                                         <div style="text-align: left;margin-top: 30px;">
                                                             <div>
@@ -319,7 +350,9 @@
                                                             </div>
                                                             <div
                                                                 style="text-align: justify;margin-top:30px; font-size: 14px;">
-                                                                Après une transaction réussie, l'enregistrement (achat au niveau 1) se fera automatiquement et il sera possible de se connecter au système.
+                                                                Après une transaction réussie, l'enregistrement (achat
+                                                                au niveau 1) se fera automatiquement et il sera possible
+                                                                de se connecter au système.
                                                             </div>
                                                         </div>
                                                     </div>
@@ -327,7 +360,9 @@
                                                     <div id="signupMethod3" class="signupMethod" style="display:none">
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:30px">
-                                                            Envoyez DE VOTRE portefeuille Ethereum 0.08 ETH à l'adresse du contrat intelligent. Dans le champ Input Data, saisissez l'adresse Ethereum de votre upline.
+                                                            Envoyez DE VOTRE portefeuille Ethereum 0.08 ETH à l'adresse
+                                                            du contrat intelligent. Dans le champ Input Data, saisissez
+                                                            l'adresse Ethereum de votre upline.
                                                         </div>
                                                         <div style="margin-top:40px;margin-bottom:40px">
 
@@ -338,7 +373,9 @@
                                                         </div>
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:20px">
-                                                            Envoyez DE VOTRE portefeuille Ethereum 0.08 ETH à l'adresse du contrat intelligent. Dans le champ Input Data, saisissez l'adresse Ethereum de votre upline.
+                                                            Envoyez DE VOTRE portefeuille Ethereum 0.08 ETH à l'adresse
+                                                            du contrat intelligent. Dans le champ Input Data, saisissez
+                                                            l'adresse Ethereum de votre upline.
                                                         </div>
                                                     </div>
 
@@ -356,8 +393,8 @@
                                         style="vertical-align: middle;position: relative; top: 15vh">
                                         <div class="row" style="height: 100%;">
                                             <div class="col-8 offset-2">
-                                                <img id="headerImg" src="<%= host %>/images/dark/blue.png" style="height: 200px;"
-                                                    alt="">
+                                                <img id="headerImg" src="<%= host %>/images/dark/blue.png"
+                                                    style="height: 200px;" alt="">
                                                 <h1 style="margin-top: 40px">DoubleHands</h1>
                                                 <h5>La plus ancienne formule au monde et la technologie Blockchain</h5>
                                                 <!-- <a style="margin-top: 20px;width:40%;padding:20px 40px" href="#"
@@ -397,16 +434,19 @@
                                                                     </li>
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
-                                                                    <p><span class="d-sm-block">Tous droits réservé © 2020,
+                                                                    <p><span class="d-sm-block">Tous droits réservé ©
+                                                                            2020,
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
                                                                 <div style="font-size: 14px;margin-top: 20px"><a
-                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Gestion intelligente des contrats</a></div>
+                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Gestion
+                                                                        intelligente des contrats</a></div>
                                                                 <div style="font-size: 14px"><a href="/terminos"">Termes et conditions</a>
                                                                 </div>
                                                                 <div style=" font-size: 14px"><a
-                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Open source</a></div>
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Open
+                                                                            source</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -435,14 +475,17 @@
         <div id="tx-alert-success"
             style="position: fixed; bottom: 0; left:0; right: 0; margin: auto; background-color: #39d884; width: 100%; z-index: 20;  padding: 16px 64px; display: none;">
             <div style="color: white; font-weight: 500; font-size: 2em; ">Transaction envoyée</div>
-            <div style="color: white; font-weight: 500; font-size: 1.2em;">Vous pouvez voir l'état de la transaction ici:
-                <a style="color: #0c195a; font-weight: 500; text-decoration: underline;" href="" id="signup-tx">etherscan.io</a></div>
+            <div style="color: white; font-weight: 500; font-size: 1.2em;">Vous pouvez voir l'état de la transaction
+                ici:
+                <a style="color: #0c195a; font-weight: 500; text-decoration: underline;" href=""
+                    id="signup-tx">etherscan.io</a></div>
         </div>
 
         <div id="tx-alert-error"
             style="position: fixed; bottom: 0; left:0; right: 0; margin: auto; background-color: #dc3545; width: 100%; z-index: 20;  padding: 16px 64px;display:none ">
             <div style="color: white; font-weight: 500; font-size: 2em; ">Erreur lors de l'envoi de la transaction</div>
-            <div style="color: white; font-weight: 500; font-size: 1.2em;">Une erreur inattendue s'est produite lors de la tentative effectuer l'opération.
+            <div style="color: white; font-weight: 500; font-size: 1.2em;">Une erreur inattendue s'est produite lors de
+                la tentative effectuer l'opération.
             </div>
         </div>
 
@@ -456,9 +499,11 @@
                         <div class="row">
                             <div class="col-10 offset-1 text-center">
                                 <h3 class="title title-md">Télécharger MetaMask</h3>
-                                <a href="https://metamask.io/"><img src="<%= host %>/images/dark/download-metamask-dark.png"
-                                        alt=""></a>
-                                <p style="text-align: justify;margin-top:20px">Pour vous inscrire et accéder automatiquement à la plateforme, vous devez installer le portefeuille Ethereum, MetaMask pour navigateur.</p>
+                                <a href="https://metamask.io/"><img
+                                        src="<%= host %>/images/dark/download-metamask-dark.png" alt=""></a>
+                                <p style="text-align: justify;margin-top:20px">Pour vous inscrire et accéder
+                                    automatiquement à la plateforme, vous devez installer le portefeuille Ethereum,
+                                    MetaMask pour navigateur.</p>
                             </div>
 
                         </div>
