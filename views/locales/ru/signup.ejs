@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/style-dark.css?ver=192" id="changeTheme">
     <!-- Extra CSS -->
     <link rel="stylesheet" href="assets/css/theme.css?ver=192">
-    <!-- Favicon -->    
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<%= host %>/images/dark/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= host %>/images/dark/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= host %>/images/dark/favicon/favicon-16x16.png">
@@ -26,54 +26,57 @@
     <meta name="theme-color" content="#ffffff">
     <style>
         .imageRot {
-        -webkit-animation: spin 22s ease-in-out;
-        -moz-animation: spin 22s ease-in-out;
-        animation: spin 22s ease-in-out;
+            -webkit-animation: spin 22s ease-in-out;
+            -moz-animation: spin 22s ease-in-out;
+            animation: spin 22s ease-in-out;
         }
 
         @-moz-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @-webkit-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 992px) {
-        #signup-container {
-        margin-top: 40px;
-        height: 60vh !important;
-        }
-        #signup-innercontainer {
-        top: 2vh !important;
+            #signup-container {
+                margin-top: 40px;
+                height: 60vh !important;
+            }
 
-        }
-        }
+            #signup-innercontainer {
+                top: 2vh !important;
 
-
-        #signup-btn:before{
-        /* background-color:#007bff !important; */
-        background-color: #1c7545b3 !important;
+            }
         }
 
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: red;
-        opacity: 1; /* Firefox */
+
+        #signup-btn:before {
+            /* background-color:#007bff !important; */
+            background-color: #1c7545b3 !important;
         }
-        </style>
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            opacity: 1;
+            /* Firefox */
+        }
+    </style>
 
 </head>
 
@@ -118,7 +121,7 @@
                                                         class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                         <h5 style="font-size:1em"><i class="fa fa-user-plus"
                                                                 style="font-size:15px"></i> Зарегистрируй меня
-                                                            </h5>
+                                                        </h5>
                                                     </a>
                                                     <h6 style="color: white;margin-top:30px;font-size:16px"
                                                         id="networkResponse"></h6>
@@ -259,7 +262,7 @@
                                                                 class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                                 <h3 style="font-size:1.8em"><i class="fa fa-user-plus"
                                                                         style="font-size:15px"></i>
-                                                                        Подпишитесь на щелчок
+                                                                    Подпишитесь на щелчок
                                                                 </h3>
                                                             </a>
                                                         </div>
@@ -301,17 +304,29 @@
                                                         </p>
                                                         <div
                                                             style="text-align: justify;margin-top: 40px;padding-bottom: 10px">
-                                                            Обратите внимание, чтобы выполнить автоматическую регистрацию на мобильном устройстве, необходимо войти в приложение, выбрать меню DApp (браузер) и ввести ссылку на ссылку в адресной строке. Затем в том же встроенном децентрализованном браузере перейдите на страницу регистрации и зарегистрируйтесь в 1 клик.</div>
+                                                            Обратите внимание, чтобы выполнить автоматическую
+                                                            регистрацию на мобильном устройстве, необходимо войти в
+                                                            приложение, выбрать меню DApp (браузер) и ввести ссылку на
+                                                            ссылку в адресной строке. Затем в том же встроенном
+                                                            децентрализованном браузере перейдите на страницу
+                                                            регистрации и зарегистрируйтесь в 1 клик.</div>
                                                     </div>
 
                                                     <div id="signupMethod2" class="signupMethod" style="display:none">
                                                         <div
                                                             style="text-align: justify; margin-top: 20px; padding-bottom: 10px; font-size: 14px; color: #ffffff; /* font-weight: bold; */ background: #1ca05a; padding: 20px; border-radius: 10px; font-family: sans-serif;">
-                                                            Важно! Не отправляйте средства от обменных услуг и акций на смарт-контракт; в этом случае умный подсчет не примет средства. Сначала зарегистрируйте СВОЙ кошелек Ethereum и заполните его. Сделайте транзакцию по смарт-контракту, указав адрес Ethereum вашего вышестоящего в поле «ДАННЫЕ», только из вашего кошелька.
-</div>
+                                                            Важно! Не отправляйте средства от обменных услуг и акций на
+                                                            смарт-контракт; в этом случае умный подсчет не примет
+                                                            средства. Сначала зарегистрируйте СВОЙ кошелек Ethereum и
+                                                            заполните его. Сделайте транзакцию по смарт-контракту,
+                                                            указав адрес Ethereum вашего вышестоящего в поле «ДАННЫЕ»,
+                                                            только из вашего кошелька.
+                                                        </div>
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:20px">
-                                                            Отправьте кошелек FROM YOUR Ethereum 0.08 ETH на адрес смарт-контракта. В поле Input Data введите адрес Ethereum вашего верхнего уровня.
+                                                            Отправьте кошелек FROM YOUR Ethereum 0.08 ETH на адрес
+                                                            смарт-контракта. В поле Input Data введите адрес Ethereum
+                                                            вашего верхнего уровня.
 
                                                         </div>
                                                         <div style="text-align: left;margin-top: 30px;">
@@ -342,7 +357,9 @@
                                                             </div>
                                                             <div
                                                                 style="text-align: justify;margin-top:30px; font-size: 14px;">
-                                                                После успешной транзакции регистрация (покупка на уровне 1) будет завершена автоматически и появится возможность войти в систему.
+                                                                После успешной транзакции регистрация (покупка на уровне
+                                                                1) будет завершена автоматически и появится возможность
+                                                                войти в систему.
 
                                                             </div>
                                                         </div>
@@ -351,7 +368,9 @@
                                                     <div id="signupMethod3" class="signupMethod" style="display:none">
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:30px">
-                                                            Отправьте кошелек FROM YOUR Ethereum 0.08 ETH на адрес смарт-контракта. В поле Input Data введите адрес Ethereum вашего верхнего уровня.
+                                                            Отправьте кошелек FROM YOUR Ethereum 0.08 ETH на адрес
+                                                            смарт-контракта. В поле Input Data введите адрес Ethereum
+                                                            вашего верхнего уровня.
 
                                                         </div>
                                                         <div style="margin-top:40px;margin-bottom:40px">
@@ -363,8 +382,10 @@
                                                         </div>
                                                         <div
                                                             style="text-align: justify;font-size: 14px; margin-top:20px">
-                                                            
-Отправьте кошелек FROM YOUR Ethereum 0.08 ETH на адрес смарт-контракта. В поле Input Data введите адрес Ethereum вашего верхнего уровня.
+
+                                                            Отправьте кошелек FROM YOUR Ethereum 0.08 ETH на адрес
+                                                            смарт-контракта. В поле Input Data введите адрес Ethereum
+                                                            вашего верхнего уровня.
                                                         </div>
                                                     </div>
 
@@ -384,8 +405,11 @@
                                             <div class="col-8 offset-2">
                                                 <img id="headerImg" src="images/dark/blue.png" style="height: 200px;"
                                                     alt="">
-                                                <h1 style="margin-top: 40px">DoubleHands</h1>
-                                                
+                                                <div
+                                                    style="text-align: center;width: 100%;display: inline-block;margin: 20px 0px;">
+                                                    <img style="display: inline-block;margin: 0 !important;padding: 0 !important;max-height: 100px;"
+                                                        src="<%= host %>/images/dark/logo.png" />
+                                                </div>
                                                 <h5>Самая старая в мире формула и технология Blockchain
                                                 </h5>
                                                 <!-- <a style="margin-top: 20px;width:40%;padding:20px 40px" href="#"
@@ -425,17 +449,20 @@
                                                                     </li>
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
-                                                                    <p><span class="d-sm-block">Все права зарезервированныйs © 2020,
+                                                                    <p><span class="d-sm-block">Все права
+                                                                            зарезервированныйs © 2020,
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
                                                                 <div style="font-size: 14px;margin-top: 20px"><a
-                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">адрес Смарт Контракт</a></div>
+                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">адрес
+                                                                        Смарт Контракт</a></div>
                                                                 <div style="font-size: 14px"><a href="/terminos"">Сроки и условия
                                                                 </a>
                                                                 </div>
                                                                 <div style=" font-size: 14px"><a
-                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">кодоткрытый</a></div>
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">кодоткрытый</a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -467,7 +494,8 @@
             </div>
             <div style="color: white; font-weight: 500; font-size: 1.2em;">Вы можете увидеть статус транзакции здесь:
 
-                <a style="color: #0c195a; font-weight: 500; text-decoration: underline;" href="" id="signup-tx">etherscan.io</a></div>
+                <a style="color: #0c195a; font-weight: 500; text-decoration: underline;" href=""
+                    id="signup-tx">etherscan.io</a></div>
         </div>
 
         <div id="tx-alert-error"

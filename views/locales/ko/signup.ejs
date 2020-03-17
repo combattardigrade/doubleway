@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/style-dark.css?ver=192" id="changeTheme">
     <!-- Extra CSS -->
     <link rel="stylesheet" href="assets/css/theme.css?ver=192">
-    <!-- Favicon -->    
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<%= host %>/images/dark/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= host %>/images/dark/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= host %>/images/dark/favicon/favicon-16x16.png">
@@ -25,54 +25,57 @@
     <meta name="theme-color" content="#ffffff">
     <style>
         .imageRot {
-        -webkit-animation: spin 22s ease-in-out;
-        -moz-animation: spin 22s ease-in-out;
-        animation: spin 22s ease-in-out;
+            -webkit-animation: spin 22s ease-in-out;
+            -moz-animation: spin 22s ease-in-out;
+            animation: spin 22s ease-in-out;
         }
 
         @-moz-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @-webkit-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 992px) {
-        #signup-container {
-        margin-top: 40px;
-        height: 60vh !important;
-        }
-        #signup-innercontainer {
-        top: 2vh !important;
+            #signup-container {
+                margin-top: 40px;
+                height: 60vh !important;
+            }
 
-        }
-        }
+            #signup-innercontainer {
+                top: 2vh !important;
 
-
-        #signup-btn:before{
-        /* background-color:#007bff !important; */
-        background-color: #1c7545b3 !important;
+            }
         }
 
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: red;
-        opacity: 1; /* Firefox */
+
+        #signup-btn:before {
+            /* background-color:#007bff !important; */
+            background-color: #1c7545b3 !important;
         }
-        </style>
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            opacity: 1;
+            /* Firefox */
+        }
+    </style>
 
 </head>
 
@@ -368,7 +371,11 @@
                                             <div class="col-8 offset-2">
                                                 <img id="headerImg" src="images/dark/blue.png" style="height: 200px;"
                                                     alt="">
-                                                <h1 style="margin-top: 40px">DoubleHands</h1>
+                                                <div
+                                                    style="text-align: center;width: 100%;display: inline-block;margin: 20px 0px;">
+                                                    <img style="display: inline-block;margin: 0 !important;padding: 0 !important;max-height: 100px;"
+                                                        src="<%= host %>/images/dark/logo.png" />
+                                                </div>
                                                 <h5>세계에서 가장 오래된 공식 및 블록 체인 기술</h5>
                                                 <!-- <a style="margin-top: 20px;width:40%;padding:20px 40px" href="#"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">

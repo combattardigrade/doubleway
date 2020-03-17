@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<%= host %>/assets/css/style-dark.css?ver=192" id="changeTheme">
     <!-- Extra CSS -->
     <link rel="stylesheet" href="<%= host %>/assets/css/theme.css?ver=192">
-    <!-- Favicon -->    
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<%= host %>/images/dark/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= host %>/images/dark/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= host %>/images/dark/favicon/favicon-16x16.png">
@@ -26,49 +26,49 @@
     <meta name="theme-color" content="#ffffff">
     <style>
         .imageRot {
-        -webkit-animation: spin 22s ease-in-out;
-        -moz-animation: spin 22s ease-in-out;
-        animation: spin 22s ease-in-out;
+            -webkit-animation: spin 22s ease-in-out;
+            -moz-animation: spin 22s ease-in-out;
+            animation: spin 22s ease-in-out;
         }
 
         @-moz-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @-webkit-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 992px) {
-        #signup-container {
-        margin-top: 40px;
-        height: 60vh !important;
-        }
-        #signup-innercontainer {
-        top: 2vh !important;
+            #signup-container {
+                margin-top: 40px;
+                height: 60vh !important;
+            }
 
-        }
-        }
+            #signup-innercontainer {
+                top: 2vh !important;
 
-
-        #auto-login-btn:before{
-        background-color:#1c7545b3 !important
+            }
         }
 
-        </style>
+
+        #auto-login-btn:before {
+            background-color: #1c7545b3 !important
+        }
+    </style>
 
 </head>
 
@@ -94,7 +94,8 @@
                                             <div class="col-8 offset-2">
                                                 <h1 style="padding:10px">Войти в систему
                                                 </h1>
-                                                <h6 style="margin-bottom:40px">Мы никогда не просим вас вводить ваши пароли
+                                                <h6 style="margin-bottom:40px">Мы никогда не просим вас вводить ваши
+                                                    пароли
                                                     частное партнерство</h6>
 
                                                 <a id="auto-login-btn" onclick="App.login()"
@@ -140,9 +141,10 @@
                                                 </p>
                                                 <div
                                                     style="text-align: left;margin-top: 40px;padding-left: 10px;padding-bottom: 10px">
-                                                    <img src="<%= host %>/images/dark/eth-white.png" style="height: 20px;" alt="">
+                                                    <img src="<%= host %>/images/dark/eth-white.png"
+                                                        style="height: 20px;" alt="">
                                                     Ваш ETH адрес
-</div>
+                                                </div>
 
                                                 <input id="manualLoginAccount"
                                                     placeholder="Ingresa la dirección de tu monedero de Ethereum"
@@ -166,16 +168,20 @@
                                         style="vertical-align: middle;position: relative; top: 20vh">
                                         <div class="row" style="height: 100%;">
                                             <div class="col-8 offset-2">
-                                                <img id="headerImg" src="<%= host %>/images/dark/blue.png" style="height: 200px;"
-                                                    alt="">
-                                                <h1 style="margin-top: 40px">DoubleHands</h1>
+                                                <img id="headerImg" src="<%= host %>/images/dark/blue.png"
+                                                    style="height: 200px;" alt="">
+                                                <div
+                                                    style="text-align: center;width: 100%;display: inline-block;margin: 20px 0px;">
+                                                    <img style="display: inline-block;margin: 0 !important;padding: 0 !important;max-height: 100px;"
+                                                        src="<%= host %>/images/dark/logo.png" />
+                                                </div>
                                                 <h5>Самая старая в мире формула и технология Blockchain
                                                 </h5>
                                                 <a style="margin-top: 20px;width:40%;padding:20px 40px" href="/signup"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
                                                     <h5 style="font-size:1em"><i class="fa fa-user-plus"
                                                             style="font-size:15px;"></i> Зарегистрируй меня
-                                                        </h5>
+                                                    </h5>
                                                 </a>
 
                                                 <div class="nk-block block-footer" style="margin-top: 60px">
@@ -206,7 +212,7 @@
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
                                                                     <p><span class="d-sm-block">Все права
-                                                                        зарезервированный © 2020,
+                                                                            зарезервированный © 2020,
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
@@ -219,7 +225,7 @@
                                                                 <div style=" font-size: 14px"><a
                                                                             href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">
                                                                             код
-                                                                                                                                                        открытый</a></div>
+                                                                            открытый</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -245,7 +251,7 @@
             <!-- .header-banner @e -->
         </header>
 
-        
+
 
         <div class="modal fade" id="metamaskModal" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-dialog-centered">
@@ -253,16 +259,18 @@
                     <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
                             class="ti ti-close"></em></a>
                     <div class="modal-body p-md-4 p-lg-5">
-                        
+
                         <div class="row">
                             <div class="col-10 offset-1 text-center">
                                 <h3 class="title title-md">Скачать MetaMask
                                 </h3>
-                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png" alt=""></a>
-                                <p style="text-align: justify;margin-top:20px">Для автоматической регистрации и входа на платформу необходимо установить кошелек Ethereum, MetaMask для браузера.
+                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png"
+                                        alt=""></a>
+                                <p style="text-align: justify;margin-top:20px">Для автоматической регистрации и входа на
+                                    платформу необходимо установить кошелек Ethereum, MetaMask для браузера.
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -294,7 +302,7 @@
                 }, 22200)
             })
 
-            
+
         })
     </script>
     <script src="<%= `${host}/assets/js/bundle.js` %>"></script>

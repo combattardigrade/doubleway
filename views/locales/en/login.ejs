@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/style-dark.css?ver=192" id="changeTheme">
     <!-- Extra CSS -->
     <link rel="stylesheet" href="assets/css/theme.css?ver=192">
-    <!-- Favicon -->    
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<%= host %>/images/dark/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= host %>/images/dark/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= host %>/images/dark/favicon/favicon-16x16.png">
@@ -23,51 +23,51 @@
     <link rel="mask-icon" href="<%= host %>/images/dark/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    < <style>
+    <style>
         .imageRot {
-        -webkit-animation: spin 22s ease-in-out;
-        -moz-animation: spin 22s ease-in-out;
-        animation: spin 22s ease-in-out;
+            -webkit-animation: spin 22s ease-in-out;
+            -moz-animation: spin 22s ease-in-out;
+            animation: spin 22s ease-in-out;
         }
 
         @-moz-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @-webkit-keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes spin {
-        100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 992px) {
-        #signup-container {
-        margin-top: 40px;
-        height: 60vh !important;
-        }
-        #signup-innercontainer {
-        top: 2vh !important;
+            #signup-container {
+                margin-top: 40px;
+                height: 60vh !important;
+            }
 
-        }
-        }
+            #signup-innercontainer {
+                top: 2vh !important;
 
-
-        #auto-login-btn:before{
-        background-color:#1c7545b3 !important
+            }
         }
 
-        </style>
+
+        #auto-login-btn:before {
+            background-color: #1c7545b3 !important
+        }
+    </style>
 
 </head>
 
@@ -92,7 +92,8 @@
                                         <div class="row">
                                             <div class="col-8 offset-2">
                                                 <h1 style="padding:10px">Log in</h1>
-                                                <h6 style="margin-bottom:40px">We never ask you to enter your private keys</h6>
+                                                <h6 style="margin-bottom:40px">We never ask you to enter your private
+                                                    keys</h6>
 
                                                 <a id="auto-login-btn" onclick="App.login()"
                                                     style="margin-top: 20px;width:100%;padding:20px 40px;background-image: linear-gradient(to right, #39d884 0%, #28a745 100%)"
@@ -161,7 +162,11 @@
                                             <div class="col-8 offset-2">
                                                 <img id="headerImg" src="images/dark/blue.png" style="height: 200px;"
                                                     alt="">
-                                                <h1 style="margin-top: 40px">DoubleHands</h1>
+                                                <div
+                                                    style="text-align: center;width: 100%;display: inline-block;margin: 20px 0px;">
+                                                    <img style="display: inline-block;margin: 0 !important;padding: 0 !important;max-height: 100px;"
+                                                        src="<%= host %>/images/dark/logo.png" />
+                                                </div>
                                                 <h5>The world's oldest formula and Blockchain technology</h5>
                                                 <a style="margin-top: 20px;width:40%;padding:20px 40px" href="/signup"
                                                     class="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme ">
@@ -196,16 +201,19 @@
                                                                     </li>
                                                                 </ul>
                                                                 <div class="copyright-text copyright-text-s3 ">
-                                                                    <p><span class="d-sm-block">All rights reserved © 2020,
+                                                                    <p><span class="d-sm-block">All rights reserved ©
+                                                                            2020,
                                                                             DoubleHands
                                                                         </span></p>
                                                                 </div>
                                                                 <div style="font-size: 14px;margin-top: 20px"><a
-                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Smart Contract Management</a></div>
+                                                                        href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Smart
+                                                                        Contract Management</a></div>
                                                                 <div style="font-size: 14px"><a href="/terminos"">Terms and Conditions</a>
                                                                 </div>
                                                                 <div style=" font-size: 14px"><a
-                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Open source</a></div>
+                                                                            href="<%= `${etherscanExplorer}address/${platformData.contractAddress}` %>">Open
+                                                                            source</a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -231,7 +239,7 @@
             <!-- .header-banner @e -->
         </header>
 
-        
+
 
         <div class="modal fade" id="metamaskModal" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-dialog-centered">
@@ -239,14 +247,16 @@
                     <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
                             class="ti ti-close"></em></a>
                     <div class="modal-body p-md-4 p-lg-5">
-                        
+
                         <div class="row">
                             <div class="col-10 offset-1 text-center">
                                 <h3 class="title title-md">Download MetaMask</h3>
-                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png" alt=""></a>
-                                <p style="text-align: justify;margin-top:20px">To register and enter the platform automatically you need to install the Ethereum wallet, MetaMask for browser.</p>
+                                <a href="https://metamask.io/"><img src="/images/dark/download-metamask-dark.png"
+                                        alt=""></a>
+                                <p style="text-align: justify;margin-top:20px">To register and enter the platform
+                                    automatically you need to install the Ethereum wallet, MetaMask for browser.</p>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -278,7 +288,7 @@
                 }, 22200)
             })
 
-            
+
         })
     </script>
     <script src="<%= `${host}/assets/js/bundle.js` %>"></script>
