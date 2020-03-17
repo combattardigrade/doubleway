@@ -1,11 +1,65 @@
 <%- include('dash_header'); -%>
 <div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+    <style>
 
+    </style>
     <div class="row">
         <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="pa-well text-center ">
-                <h3 style="color: white;padding:30px 0px">DoubleHands</h3>  
+            <div class="pa-well text-center " style="background-color: #10122d !important">
+                <h3 style="color: white;padding:30px 0px">DoubleHands Admin</h3>   
                 
+               
+                <div class="row">
+                    <div class="col-5 offset-1" style="text-align:center;padding-left:20px">
+                       <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-user"></i></div>
+                        <h3 style="color:white;margin-bottom:20px">Usuarios<br> <%= platformData.totalUsers %></h3>                        
+                    </div>
+                    <div class="col-5" style="text-align:center;padding-right:20px">
+                        <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-users"></i></div>
+                       <h3 style="color:white;margin-bottom:20px">Referidos<br> <%= userData.totalReferrals %></h3> 
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-5 offset-1" style="text-align:center;padding-left:20px">
+                        <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-stream"></i></div>
+                        <h3 style="color:white;margin-bottom:20px">Txs <br> <%= platformData.txs.total %></h3>                 
+                    </div>
+                    <div class="col-5" style="text-align:center;padding-right:20px">
+                        <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-stream"></i></div>
+                        <h3 style="color:white;margin-bottom:20px">Txs <br> <%= platformData.txs.last24hTotal %></h3>
+                        
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-5 offset-1" style="text-align:center;padding-left:20px">
+                        <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-cubes"></i></div>
+                        <h3 style="color:white;margin-bottom:20px">Volumen<br> $<%= platformData.txs.usd_volume %> USD</h3>                    
+                    </div>
+                    <div class="col-5" style="text-align:center;padding-right:20px">
+                        <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-cubes"></i></div>
+                        <h3 style="color:white;margin-bottom:20px">Volumen 24hrs<br> $<%= (parseFloat(platformData.txs.last24hVolume) * parseFloat(platformData.prices.eth_usd)).toFixed(2) %> USD</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-5 offset-1" style="text-align:center;padding-left:20px">
+                       <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-money-bill"></i></div>
+                       <h3 style="color:white;margin-bottom:20px">Ganancias USD<br> $<%= parseFloat(userData.totalEarnings) * parseFloat(platformData.prices.eth_usd) %> USD</h3>                    
+                    </div>
+                    <div class="col-5" style="text-align:center;padding-right:20px">
+                        <div style="text-align: center;color:#39d884;font-size:28px"> <i class="fa fa-money-bill"></i></div>
+                        <h3 style="color:white;margin-bottom:20px">Ganancias ETH<br> <%= userData.totalEarnings %> ETH</h3>
+                    </div>
+                </div>
+                
+                       
+
+                
+                    
                 
                 
             </div>
