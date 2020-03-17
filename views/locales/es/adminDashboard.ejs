@@ -1,0 +1,298 @@
+<%- include('dash_header'); -%>
+<div id="right-col" class="pa-right-col" style="min-height: 0px; margin-bottom: 0px;">
+
+    <div class="row">
+        <div class="col-mb-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pa-well text-center ">
+                <h3 style="color: white;padding:30px 0px">DoubleHands</h3>  
+                
+                
+                
+            </div>
+        </div>
+
+
+    </div>
+
+    <style>
+        .pa-stats-card {
+            background-color: #171a40;
+            text-align: center;
+            color: white;
+        }
+
+        .card-title {
+            font-weight: 500;
+            font-size: 28px;
+            padding-top: 32px;
+        }
+
+        .card-active {
+            color: rgb(76, 217, 100);
+        }
+
+        .cart-inactive {
+            color: rgb(39, 104, 255);
+        }
+
+        .card-price {
+            font-size: 24px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .card-bottom-box {
+            background-color: #1c1f4f;
+            margin-top: 32px;
+            padding: 16px
+        }
+
+        .card-referral-no {
+            font-weight: bold;
+            font-size: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #ffffff14;
+        }
+
+        .card-revenue {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .pa-btn-leveldisabled {
+            border-color: #555555;
+            color: #555555;
+            cursor: default;
+        }
+
+        .btn-buy {
+            background-image: linear-gradient(to right, #39d884 0%, #27c21d 100%) !important;
+        }
+
+        .pa-card:hover {
+            background-color: #3746ff !important;
+        }
+
+        .card-icon {
+
+
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        .card-icon-hover {
+
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    </style>
+
+
+
+</div>
+</section>
+
+
+</main>
+
+</div>
+
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+
+<!-- JavaScript -->
+<script src="assets/js/jquery.bundle.js?ver=192"></script>
+<script src="assets/js/scripts.js?ver=192"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+
+    $(document).ready(function () {
+        const userAddress = `0x81eaAb6234571b004aE91BD0b640214540b69964`
+        fetch(`<%= host %>/api/setUserAddress/${userAddress}`)
+
+
+
+
+        let menu = 1
+        $('#toggle-sidebar-btn').click(function (e) {
+            e.preventDefault()
+            const screenSize = document.documentElement.clientWidth
+            if (menu == 1) {
+                $('.right-nav').addClass('right-nav--small')
+                $('.menu-text').hide()
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
+                $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
+                $('.right-nav__copy,.right-nav__links').hide()
+                if (screenSize > 922) {
+                    $('#right-col').css('margin', '15px 15px 0 80px')
+                }
+                menu = 0
+            } else if (menu == 0) {
+                $('.right-nav').removeClass('right-nav--small')
+                $('.menu-text').fadeIn(800)
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-h').addClass('fa-ellipsis-v')
+                $('.accfootersocbutton_a').css('display', 'inline-block').css('margin-bottom', '0px')
+                $('.right-nav__copy,.right-nav__links').show()
+                if (screenSize > 992) {
+                    $('#right-col').css('margin', '15px 15px 0 348px')
+                }
+                menu = 1
+            }
+        })
+
+        const screenSize = document.documentElement.clientWidth
+        if (screenSize < 992) {
+            $('.right-nav').addClass('right-nav--small')
+            $('.menu-text').hide()
+            $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
+            $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
+            $('.right-nav__copy,.right-nav__links').hide()
+            $('#right-col').css('margin', '15px 15px 0 90px')
+            menu = 0
+        }
+
+        $(window).on('resize', function () {
+            var win = $(this); //this = window
+
+            if (win.width() < 992) {
+                $('.right-nav').addClass('right-nav--small')
+                $('.menu-text').hide()
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-v').addClass('fa-ellipsis-h')
+                $('.accfootersocbutton_a').css('display', 'block').css('margin-bottom', '15px')
+                $('.right-nav__copy,.right-nav__links').hide()
+                $('#right-col').css('margin', '15px 15px 0 90px')
+                menu = 0
+            } else {
+                $('.right-nav').removeClass('right-nav--small')
+                $('.menu-text').fadeIn(800)
+                $('#toggle-sidebar-icon').removeClass('fa-ellipsis-h').addClass('fa-ellipsis-v')
+                $('.accfootersocbutton_a').css('display', 'inline-block').css('margin-bottom', '0px')
+                $('.right-nav__copy,.right-nav__links').show()
+                $('#right-col').css('margin', '15px 15px 0 348px')
+                menu = 1
+            }
+        });
+
+
+        // Format level expiration date
+        $('.expDate').each(function () {
+            const expDate = new Date($(this).html() * 1000)
+            const now = new Date()
+            const diffTime = Math.abs(expDate - now)
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+            $(this).html(diffDays + ' días')
+        })
+
+        // Stats card hover
+        $('.pa-card').hover(function () {
+            $(this).find('i').addClass('card-icon-hover')
+        }, function () {
+            $(this).find('i').addClass('card-icon').removeClass('card-icon-hover')
+        })
+
+        // Copy url btn
+        const agentUrl = $('#agent-url').val()
+        $('#copyUrlBtn').click(function () {
+            navigator.clipboard.writeText(agentUrl).then(function () {
+                console.log('Copying to clipboard was successful...')
+            }, function () {
+                console.log('Could not copy text...')
+            })
+        })
+
+        $('.toastr-success').each(function () {
+            var $self = $(this);
+            $self.on("click", function (e) {
+                toastr.clear();
+                toastr.options = {
+                    "closeButton": true,
+                    "newestOnTop": false,
+                    "preventDuplicates": true,
+                    "positionClass": "toast-bottom-center",
+                    "showDuration": "1000",
+                    "hideDuration": "10000",
+                    "timeOut": "2000",
+                    "extendedTimeOut": "1000"
+                };
+                toastr.success('<em class="ti ti-check toast-message-icon"></em> ¡Enlace copiado correctamente!');
+                e.preventDefault();
+            });
+        });
+
+
+        // Transactions
+
+        $('.methodSelector').click(function () {
+            $('.methodSelector').removeClass('active')
+            $(this).addClass('active')
+            $('.tx-container').hide()
+            const table = $(this).data('table')
+            if (table == 1) $('#inTxs').show()
+            else if (table == 2) $('#myTxs').show()
+            else if (table == 3) $('#extraEarnings').show()
+            else if (table == 4) $('#lostEarnings').show()
+        })
+
+        // format date
+        // Format level expiration date
+        $('.date').each(function () {
+            let date = new Date($(this).html() * 1000)
+            date = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+            $(this).html(date)
+        })
+
+        $('.date2').each(function () {
+            let date = new Date($(this).html() * 1000)
+            date = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+            $(this).html(date)
+        })
+
+
+        // Stats
+        $('.stats-icon').click(function () {
+            const icon = $(this)
+            if ($(icon).data('show') == 0) {
+                $(icon).removeClass('fa-plus-square').addClass('fa-minus-square')
+                $(icon).data('show', 1)
+                const type = $(this).data('type')
+                if (type == 'level') {
+                    const level = $(this).data('level')
+                    $('.stats-ref-row').each(function (i, row) {
+                        if ($(row).data('type') == type && $(row).data('level') == level) $(row).show()
+                    })
+                }
+                else if (type == 'line') {
+                    const line = $(this).data('line')
+                    $('.stats-ref-row').each(function (i, row) {
+                        if ($(row).data('type') == type && $(row).data('line') == line) $(row).show()
+                    })
+                }
+            }
+            else if ($(icon).data('show') == 1) {
+                $(icon).data('show', 0)
+                $(icon).removeClass('fa-minus-square').addClass('fa-plus-square')
+                const type = $(this).data('type')
+                if (type == 'level') {
+                    const level = $(this).data('level')
+                    $('.stats-ref-row').each(function (i, row) {
+                        if ($(row).data('type') == type && $(row).data('level') == level) $(row).hide()
+                    })
+                }
+                else if (type == 'line') {
+                    const line = $(this).data('line')
+                    $('.stats-ref-row').each(function (i, row) {
+                        if ($(row).data('type') == type && $(row).data('line') == line) $(row).hide()
+                    })
+                }
+            }
+
+        })
+
+
+
+    })
+
+</script>
+<script src="<%= `${host}/assets/js/bundle.js` %>"></script>
+</body>
+
+</html>
