@@ -207,6 +207,8 @@ const App = {
             return
         }
 
+        document.getElementById('uplineManualSignup').value = response.address
+        
         // Continue witih signup process
         document.getElementById('signupForm-2').style.display = 'block'
         document.getElementById('signupForm-1').style.display = 'none'
